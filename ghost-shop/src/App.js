@@ -1,10 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import GridLayout from './Uma_Sahni/Payment/GridLayout';
+import GooglePage from './Uma_Sahni/SignIn/GooglePage';
 
 function App() {
+  
   return (
     <div className="App">
-      <h1>Welcome</h1>
+      {/* <GridLayout/> */}
+      <GooglePage/>
+      
     </div>
   );
 }
