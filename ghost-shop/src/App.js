@@ -1,9 +1,11 @@
 import AllRoutes from './AllRoutes/AllRoutes';
 import './App.css';
-function App() {
-  
+import Navbar from './Components/Navbar';
+// import { ProductPage } from './neha/ProductPage';
+function App() {  
   return (
     <div className="App">
+      <Navbar/>
       <AllRoutes/>
     </div>
   );
