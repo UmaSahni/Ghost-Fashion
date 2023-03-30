@@ -24,10 +24,10 @@ export default function Navbar() {
           flex={{ base: 1, xl: 'auto' }}
           ml={{ base: -2 }}
           display={{ base: 'flex', xl: 'none' }}>
-          <IconButton onClick={onToggle} icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} aria-label={'Toggle Navigation'} />
+          <IconButton color={"white"} onClick={onToggle} icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Image onClick={() => Navigate('/')} width={["100%", "70%", "50%", "30%", "10%"]} src="the-ghost-fashion-square.gif" />
+        <Image onClick={() => Navigate('/')} width={["100%", "70%", "50%", "30%", "10%"]} src="the-ghost-fashion-square.gif" />
           <Flex display={{ base: 'none', xl: 'flex' }} alignItems="center" ml={20}>
             <DesktopNav />
           </Flex>
@@ -105,7 +105,7 @@ const DesktopSubNav = ({ label, to }) => {
           justify={'flex-end'}
           align={'center'}
           flex={1}>
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={'blue.500'} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
