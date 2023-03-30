@@ -4,10 +4,10 @@ import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 // And react-slick as our Carousel Lib
 import Slider from 'react-slick';
-import silder1 from "../images/silder1.webp"
-import silder2 from "../images/silder2.webp"
-import silder3 from "../images/silder3.webp"
-import silder4 from "../images/silder4.webp"
+import silder1 from "./images/silder1.webp"
+import silder2 from "./images/silder2.webp"
+import silder3 from "./images/silder3.webp"
+import silder4 from "./images/silder4.webp"
 // Settings for the slider
 const settings = {
   dots: true,
