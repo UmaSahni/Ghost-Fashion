@@ -10,7 +10,7 @@ import { Box,
 
     import { products } from './dummyData';
 
-export const ItemDetails = () => {
+export const SingleProduct = () => {
   // const [version, setversion] = useState("")
   // const dispatch = useDispatch();
   // console.log(products)
@@ -34,16 +34,14 @@ export const ItemDetails = () => {
       <>
       <Box  mt={{ base:'330px', sm:'260px',  md:'0px'}} ></Box>
       <Box mb={'100px'}>
-          <Heading textAlign={'center'}>Product Details</Heading>
           <Flex w={'90%'} direction={{ base:'column',  md:'row'}} justifyContent='space-around' m={'auto'} mt={'40px'}>
               <Box width={{base:'100%',md:'50%'}} justifyContent='center' >
-                  <Flex justifyContent='space-around' direction='row'>
-                      <Flex direction={'column'} h='100%' justifyContent='space-between'>
-                         
-                      </Flex>
-                       {/* <Image width={400} height={400} src={`${products.image.furl}${version}${products.image.burl}`}></Image> */}
+                  <Flex justifyContent='space-around' direction='row' gap='2'>
+                      <Flex direction={'column'} h='100%' justifyContent='space-between'>      
+                      </Flex >
+                       <Image width={400} height={400} src={"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1663569684_2629055.jpg?format=webp&w=376&dpr=1.0"}/>
+                       <Image width={400} height={400} src={"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1663569684_2629055.jpg?format=webp&w=376&dpr=1.0"}/>
                   </Flex>
-                  {/* <VerticalSwipeToSlide products={products} /> */}
                   <Box p='10px' borderRadius='8px' bg='gray.100' mt={'30px'}>
 
                       <Text fontSize={'18px'}>More Items</Text>
@@ -59,14 +57,10 @@ export const ItemDetails = () => {
                       </HStack>
                   </Box>
 
-
-
               </Box >
 
-
-
               <Box w={{base:'100%',md:'40%'}} p='10px'>
-                  <Heading mt={{base:'10px',md:'0px'}}>Detailed Info</Heading>
+                  <Heading mt={{base:'10px',md:'0px'}}>The Simpsons: Expressions</Heading>
                   <Text fontSize={'18px'} m={'10px'}>{products.title}</Text>
                   <Text m={'10px'}>Price : ${products.price}</Text>
                   <Box >
