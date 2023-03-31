@@ -27,7 +27,15 @@ export default function Navbar() {
           <IconButton color={"white"} onClick={onToggle} icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-        <Image onClick={() => Navigate('/')} width={["100%", "70%", "50%", "30%", "10%"]} src="the-ghost-fashion-square.gif" />
+         {/* Logo */}
+         <Flex   >
+              <Image onClick={() => Navigate('/')}  width={"10erm"} src="uma-abc.gif" />
+              {/* boxSize={"20"} */}
+            <Box display={"flex"} alignItems="center" height={"70px"} width={"70px"}    >
+                <Image onClick={() => Navigate('/')}    src="heart-cut.png" />
+            </Box> 
+         </Flex>
+
           <Flex display={{ base: 'none', xl: 'flex' }} alignItems="center" ml={20}>
             <DesktopNav />
           </Flex>

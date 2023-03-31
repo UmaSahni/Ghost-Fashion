@@ -13,6 +13,7 @@ import Women from '../Pages/Women'
 import WomenList from '../Pages/WomenList'
 import EditPost from '../Uma_Sahni/Admin/EditPost'
 import NewPost from '../Uma_Sahni/Admin/NewPost'
+import SingleEdit from '../Uma_Sahni/Admin/SingleEdit'
 
 const AllRoutes = () => {
   return (
@@ -29,7 +30,7 @@ const AllRoutes = () => {
      <Route path='*'element={<NotFound/>} />
      <Route path='/admin'element={<Admin/>} />
       <Route path='/admin/newPost'element={<NewPost/>} />
-       <Route path='/admin/editPost'element={<EditPost/>} />
+      <Route path='/admin/:id'element={<SingleEdit/>} />
     </Routes>
   )
 }

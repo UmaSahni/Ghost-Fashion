@@ -112,7 +112,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 const NavItem = ({ icon,title, children, ...rest }) => {
   return (
     <MyLink
-     to={title}
+    
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
       
