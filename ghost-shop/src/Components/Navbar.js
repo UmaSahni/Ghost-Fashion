@@ -27,7 +27,15 @@ export default function Navbar() {
           <IconButton color={"white"} onClick={onToggle} icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-        <Image onClick={() => Navigate('/')} width={["100%", "70%", "50%", "30%", "10%"]} src="the-ghost-fashion-square.gif" />
+         {/* Logo */}
+         <Flex   >
+              <Image onClick={() => Navigate('/')}  width={"10erm"} src="uma-abc.gif" />
+              {/* boxSize={"20"} */}
+            <Box display={"flex"} alignItems="center" height={"70px"} width={"70px"}    >
+                <Image onClick={() => Navigate('/')}    src="heart-cut.png" />
+            </Box> 
+         </Flex>
+
           <Flex display={{ base: 'none', xl: 'flex' }} alignItems="center" ml={20}>
             <DesktopNav />
           </Flex>
@@ -37,7 +45,7 @@ export default function Navbar() {
         </Flex>{isAuth ? <Flex align={'end'}><Menu><MenuButton><Text fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} fontWeight={'500'} marginLeft={'30px'}>{JSON.parse(localStorage.getItem("Profile"))}</Text></MenuButton><MenuList><MenuItem><Button>Logout</Button></MenuItem></MenuList></Menu></Flex> :
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
             <Button as={'a'} fontFamily="sans-serif" fontSize={'sm'} fontWeight={400} variant={'link'} color="white" href={'#'}><Link as={Redirect} to='/login'>Sign In</Link></Button>
-            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'pink.400'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
+            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'blue.500'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
           </Stack>}
       </Flex>
       <Collapse in={isOpen} animateOpacity>
