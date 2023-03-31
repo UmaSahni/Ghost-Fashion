@@ -16,25 +16,24 @@ import {
   Select,
   Textarea,
   Alert,
-  AlertIcon
+  AlertIcon,
+  Heading,
+  Box,
+  Image
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { AddProduct } from "../../Redux/AdminReducer/action";
-const initialState = {
-  product: "",
-  images: [],
-  category: {
-    name:""
-  },
-  price:"",
-  prodQty: ""
-};
+import { AddProduct, PatchProduct, getProduct } from "../../Redux/AdminReducer/action";
+import { useParams } from "react-router-dom";
 
-const NewPost = () => {
-  const [price, setPrice] = useState(0);
-  
-  const [success, setSuccess] = useState(false)
+
+const SingleEdit = () => {
+const {id} = useParams()
+const [price, setPrice] = useState(0);
+const [success, setSuccess] = useState(false)
+const dispatch = useDispatch ()
+const {product, isErrror} = useSelector((store)=>store.adminReducer)
+const [data, setData] = useState({});
 
 useEffect(() => {
     if (success) {
@@ -43,25 +42,18 @@ useEffect(() => {
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [success]);
+}, [success]);
 
-
-  const store = useSelector((store)=>store.adminReducer)
-  // console.log(store)
-  const dispatch = useDispatch ()
 const handleChange = (value) => {
   setPrice(value);
   setData(prevData => ({
     ...prevData,
-    price: value*10
+    price: value
   }));
 };
 
-  const [data, setData] = useState(initialState);
-
   const handleonChange = (e) => {
   const { name, value } = e.target;
-  // console.log(value)
   if (name === "category") {
     setData((prevData) => ({
       ...prevData,
@@ -72,7 +64,8 @@ const handleChange = (value) => {
       ...prevData,
       images: [value],
     }));
-  } else {
+  } 
+  else {
     setData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -80,37 +73,49 @@ const handleChange = (value) => {
   }
 };
 
- const handleSubmit = (e) => {
+
+console.log(product)
+useEffect(()=>{
+const data = product.find((e)=>e.id == id)
+setData(data)
+},[])
+ 
+const handleSubmit = (e) => {
   e.preventDefault();
   console.log(data);
-dispatch(AddProduct(data)).then((res)=>{
-   setData(initialState);
-   setSuccess(true)
-})
-  setData(initialState);
-};
+ dispatch(PatchProduct(data,id))
+ .then(()=>{
+  setSuccess(true)
+ })
 
+};
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <Heading> Product Id: {id}</Heading>
+    
+      
+{
+  data && <form onSubmit={handleSubmit}>
         <Input
           value={data.product}
           name="product"
           onChange={handleonChange}
           placeholder="Product Title"
-          width={"50rem"}
+          width={"50vw"}
         />
+        <br/>
         <Input
           value={data.images}
           name="images"
           onChange={handleonChange}
           placeholder="Product Images"
-          width={"50rem"}
+          width={"50vw"}
           rows={3}
         />
+         <br/>
         <Select
-          width={"50rem"}
-          value={data.category.name}
+          width={"50vw"}
+          value={data.category}
           name="category"
           placeholder="Select Category"
           onChange={handleonChange}
@@ -125,36 +130,41 @@ dispatch(AddProduct(data)).then((res)=>{
           <option value="Women Rugby Polo Dresses">Women Rugby Polo Dresses</option>
           
         </Select>
-        
-        <Flex margin={"auto"} width={"50rem"} >
-          <NumberInput maxW="100px" mr="2rem" value={price*10} onChange={handleChange}>
-            <NumberInputField />
+       
+        <Flex margin={"auto"} width={"50vw"} >
+          <NumberInput maxW="100px" mr="2rem" value={data.price} onChange={handleChange}>
+            <NumberInputField max={10000} />
             <NumberInputStepper>
               <NumberIncrementStepper />
               <NumberDecrementStepper />
             </NumberInputStepper>
           </NumberInput>
-          <Slider flex="1" focusThumbOnChange={false} value={price} onChange={handleChange}>
+          <Slider max={10000} flex="1" focusThumbOnChange={false} value={data.price} onChange={handleChange}>
             <SliderTrack>
               <SliderFilledTrack />
             </SliderTrack>
-            <SliderThumb fontSize="sm" boxSize="32px" children={price*10} />
+            <SliderThumb fontSize="sm" boxSize="32px" children={data.price} />
           </Slider>
         </Flex>
-        <Input name="prodQty" onChange={handleonChange} margin={"auto"} width={"50rem"} placeholder="Total No. of prodQty" />
+        <Input name="prodQty" 
+        onChange={handleonChange} 
+        margin={"auto"} width={"50vw"} value={data.prodQty} placeholder="Total No. of Product Quantity" />
         <br/>
         <Button type="submit">Submit</Button>
       
        {
-        success &&  <Alert status='success'>
+        success &&  <Alert margin={"auto"} width={"50%"} status='success'>
         <AlertIcon />
-        Data uploaded to the server. Fire on!
-        </Alert>
+        Product is Updated Successfully!!
+        </Alert> 
        }
        
       </form>
+}
+
+      
     </div>
   );
 };
 
-export default NewPost;
+export default SingleEdit;
