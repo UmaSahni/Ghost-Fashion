@@ -37,7 +37,7 @@ export default function Navbar() {
         </Flex>{isAuth ? <Flex align={'end'}><Menu><MenuButton><Text fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} fontWeight={'500'} marginLeft={'30px'}>{JSON.parse(localStorage.getItem("Profile"))}</Text></MenuButton><MenuList><MenuItem><Button>Logout</Button></MenuItem></MenuList></Menu></Flex> :
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
             <Button as={'a'} fontFamily="sans-serif" fontSize={'sm'} fontWeight={400} variant={'link'} color="white" href={'#'}><Link as={Redirect} to='/login'>Sign In</Link></Button>
-            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'pink.400'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
+            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'blue.500'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
           </Stack>}
       </Flex>
       <Collapse in={isOpen} animateOpacity>

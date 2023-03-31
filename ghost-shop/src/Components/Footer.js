@@ -17,8 +17,8 @@ export default function Footer() {
                         <Link style={{ textDecoration: 'none' }} href={'#'}>About Us</Link>
                         <Link style={{ textDecoration: 'none' }} href={'#'}>Careers</Link>
                         <Link style={{ textDecoration: 'none' }} href={'#'}>Stores Near Me</Link>
-                        <Link style={{ textDecoration: 'none' }} href={'#'}>From The Soul</Link>
-                        <Link style={{ textDecoration: 'none', marginBottom: "20px" }} href={'#'}>Souled Army</Link>
+                        <Link style={{ textDecoration: 'none' }} href={'#'}>From The Ghost</Link>
+                        <Link style={{ textDecoration: 'none', marginBottom: "20px" }} href={'#'}>Ghost Army</Link>
                         <ListHeader>Who We Are</ListHeader>
                         <Link style={{ textDecoration: 'none' }} href={"#"}>The Neighbourhood Store Vibe</Link>
                         <Link style={{ textDecoration: 'none' }} href={"#"}>The 'POP'</Link>
@@ -69,13 +69,19 @@ export default function Footer() {
                     <Image width={'40%'} src="https://assets.pharmeasy.in/apothecary/images/visa.png?dim=1440x0" />
                     <Image width={'60%'} src="https://assets.pharmeasy.in/apothecary/images/rupay.png?dim=1440x0" />
                 </SimpleGrid>
-                <Box py={10}><Text pt={6} fontSize={'sm'} textAlign={'center'}>© The Souled Store 2023-24</Text></Box>
             </Container>
-            <Container maxW={'6xl'}><Text style={{ fontWeight: '500', textAlign: 'left' }} fontSize={'lg'}>Our Shipping Partners</Text></Container>
+            <Container mt={'50'} maxW={'6xl'}><Text style={{ fontWeight: '500', textAlign: 'left' }} fontSize={'lg'}>Our Shipping Partners</Text></Container>
             <Container maxW={'6xl'} mt={'20px'} >
                 <SimpleGrid minChildWidth={'50px'} alignItems={'center'} spacing={'20px'}>
-
+                    <Image width={'50%'} src="https://cdn.worldvectorlogo.com/logos/fedex-express-6.svg"/>
+                    <Image width={'50%'} src="https://upload.wikimedia.org/wikipedia/en/e/e7/DTDC-Courier-Logo.png"/>
+                    <Image width={'50%'} src="https://upload.wikimedia.org/wikipedia/commons/2/23/Delhivery_Logo_%282019%29.png"/>
+                    <Image width={'50%'} src="https://upload.wikimedia.org/wikipedia/commons/1/17/Ecom-express_logo.png"/>
+                    <Image width={'50%'} src="https://media.licdn.com/dms/image/C4E16AQHHSNU1x3dwCw/profile-displaybackgroundimage-shrink_200_800/0/1634551912044?e=2147483647&v=beta&t=UjBI_FenFgcVjtOEojfobCXVqbH7Pcz9xrFcJNhlY2Y"/>
+                    <Image width={'50%'} src="https://cdn.worldvectorlogo.com/logos/dhl-1.svg"/>
+                    <Image width={'50%'} src="https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Blue_dart_logo.svg/2560px-Blue_dart_logo.svg.png"/>
                 </SimpleGrid>
+                <Box py={10}><Text pt={6} fontSize={'sm'} textAlign={'center'}>© The Souled Store 2023-24</Text></Box>
             </Container>
         </Box>
     );
