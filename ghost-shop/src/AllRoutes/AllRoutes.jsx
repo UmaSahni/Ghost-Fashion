@@ -8,7 +8,7 @@ import Men from '../Pages/Men'
 import MenList from '../Pages/MenList'
 import NotFound from '../Pages/NotFound'
 import Payment from '../Pages/Payment'
-import SingleProduct from '../Pages/SingleProduct'
+import {SingleProduct} from '../harshal/SingleProduct'
 import Women from '../Pages/Women'
 import WomenList from '../Pages/WomenList'
 import EditPost from '../Uma_Sahni/Admin/EditPost'
@@ -22,7 +22,7 @@ const AllRoutes = () => {
      <Route path='/womenlist'element={<WomenList/>} />
      <Route path='/men'element={<Men/>} />
      <Route path='/menlist'element={<MenList/>} />
-     <Route path='/women/:id'element={<SingleProduct/>} />
+     <Route path='/details/:id'element={<SingleProduct/>} />
      <Route path='/cart'element={<Cart/>} />
      <Route path='/payment'element={<Payment/>} />
      <Route path='/login'element={<Login/>} />
