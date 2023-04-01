@@ -178,10 +178,10 @@ export const SingleProduct = () => {
                   <Text align="left" fontSize={"14px"}>
                     Share
                   </Text>
-                  <Icon as={ImWhatsapp} boxSize={5} mr="5px" />
-                  <Icon as={AiFillFacebook} boxSize={6} mr="5px" />
-                  <Icon as={AiFillLinkedin} boxSize={6} mr="5px" />
-                  <Icon as={AiOutlineInstagram} boxSize={6} mr="5px" />
+                  <Icon cursor={"pointer"} as={ImWhatsapp} boxSize={5} mr="5px" />
+                  <Icon cursor={"pointer"} as={AiFillFacebook} boxSize={6} mr="5px" />
+                  <Icon cursor={"pointer"} as={AiFillLinkedin} boxSize={6} mr="5px" />
+                  <Icon cursor={"pointer"} as={AiOutlineInstagram} boxSize={6} mr="5px" />
                 </HStack>
               </Box>
 
