@@ -41,9 +41,9 @@ import { PhoneIcon, AddIcon, WarningIcon, EditIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
 
 const LinkItems = [
-  { name: "Home", icon: FiHome, title: "home" },
-  { name: "New Post", icon: AddIcon, title: "newPost" },
-  { name: "Edit Post", icon: EditIcon, title: "editPost" },
+  { name: "Home", icon: FiHome, title: "/admin" },
+  { name: "New Post", icon: AddIcon, title: "/newPost" },
+  { name: "Edit Post", icon: EditIcon, title: "/editPost" },
   { name: "Favourites", icon: FiStar },
   { name: "Settings", icon: FiSettings },
 ];
@@ -94,7 +94,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          <img width={"90rem"} src="project-logo.gif" alt="logo" />
+          <img width={"90rem"} src="the-ghost-fashion.gif" alt="logo" />
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -112,7 +112,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 const NavItem = ({ icon,title, children, ...rest }) => {
   return (
     <MyLink
-    
+    to={title}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
       
@@ -194,7 +194,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <Avatar
                   size={"sm"}
                   src={
-                    "https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+                    localStorage.getItem("profilePic")
                   }
                 />
                 <VStack
@@ -203,9 +203,12 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">{localStorage.getItem("name")}</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
+                  </Text>
+                  <Text fontSize="xs" color="gray.600">
+                   
                   </Text>
                 </VStack>
                 <Box display={{ base: "none", md: "flex" }}>

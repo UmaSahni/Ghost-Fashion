@@ -14,6 +14,8 @@ import WomenList from '../Pages/WomenList'
 import EditPost from '../Uma_Sahni/Admin/EditPost'
 import NewPost from '../Uma_Sahni/Admin/NewPost'
 import SingleEdit from '../Uma_Sahni/Admin/SingleEdit'
+import NewPostPage from '../Uma_Sahni/Admin/NewPostPage'
+import EditPostPage from '../Uma_Sahni/Admin/EditPostPage'
 
 const AllRoutes = () => {
   return (
@@ -29,8 +31,10 @@ const AllRoutes = () => {
      <Route path='/login'element={<Login/>} />
      <Route path='*'element={<NotFound/>} />
      <Route path='/admin'element={<Admin/>} />
-      <Route path='/admin/newPost'element={<NewPost/>} />
+      <Route path='/newPost'element={<NewPostPage/>} />
       <Route path='/admin/:id'element={<SingleEdit/>} />
+      <Route path='/editPost'element={<EditPostPage/>} />
+      
     </Routes>
   )
 }

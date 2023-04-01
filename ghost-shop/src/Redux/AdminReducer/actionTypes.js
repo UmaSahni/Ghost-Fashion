@@ -7,3 +7,5 @@ export const Get_Product_Success = "Get_Product_Success"
 export const Patch_Product_Success = "Patch_Product_Success"
 
 export const Delete_Product_Success = "Delete_Product_Success"
+
+export const Query_Product_Success = "Query_Product_Success"
