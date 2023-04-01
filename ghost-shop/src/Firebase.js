@@ -29,9 +29,9 @@ signInWithPopup(authUser, provider).then((result)=>{
   const email = result.user.email
   const profilePic = result.user.photoURL
 
-      window.location.href='/';
+      // window.location.href='/';
 
-
+  localStorage.setItem("isAuth",true )
   localStorage.setItem("name",name)
   localStorage.setItem("email",email)
   localStorage.setItem("profilePic",profilePic)
@@ -49,6 +49,7 @@ const name = result.user.displayName
   const profilePic = result.user.photoURL
 
   localStorage.setItem("name",name)
+  localStorage.setItem("isAuth",true )
   localStorage.setItem("email",email)
   localStorage.setItem("profilePic",profilePic)
      window.location.href='/';

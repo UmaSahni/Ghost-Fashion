@@ -5,8 +5,8 @@ import {WomensProduct} from "./neha/WomensProduct";
 function App() {  
   return (
     <div className="App">
-    {/* <AllRoutes/> */}
-    <WomensProduct/>
+    <AllRoutes/>
+    {/* <WomensProduct/> */}
     </div>
   );
 }
