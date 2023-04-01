@@ -1,8 +1,9 @@
-import { HStack, Stack, VStack } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { getProducts } from "../Redux/WomenReducer/action";
+import { MProductCard } from "./MProductCard";
+import { Container, Flex, Grid, HStack, Stack, VStack } from "@chakra-ui/react";
 import { Sidebar } from "./Sidebar";
 
 export const MensProduct = () => {
@@ -22,34 +23,44 @@ export const MensProduct = () => {
   };
 
   useEffect(() => {
-    dispatch(getProducts(obj));
+    dispatch(getProducts(obj, "menSection"));
   }, [location.search]);
+  console.log(products);
 
   return (
-    <HStack w={"90%"}
-    margin={"auto"}
-    height={"800px"}
-    >
-        <VStack className="sidebar" 
-        w={"20%"}
-        height={"full"}
-        border="1px solid black"
-        ><Sidebar/>
-        </VStack>
+    <Container maxW={"100%"} margin={"auto"}>
+      <Stack w={"90%"} h={"350px"} margin={"auto"} mb={"10px"}>
+        <img
+          src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020230317192609.jpg?format=webp&w=1500&dpr=1.1"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </Stack>
 
-        <HStack className="mensproduct" 
-        w={"80%"}
-        height={"800px"}
-        border="1px solid black"
-        ></HStack>
-      {/* {products.length > 0 &&
-        products.map((el) => {
-          return <ProductCard key={el.id} {...el} />;
-        })} */}
-    </HStack>
+      <HStack w={"90%"} h={"800px"} margin={"auto"}>
+        <VStack w={"20%"} h={"full"} margin={"auto"} border={"1px solid black"}>
+          <Sidebar />
+        </VStack>
+           
+           <HStack w={"80%"} h={"full"} margin={"auto"} border={"1px solid black"}>
+            <Grid
+                gridTemplateColumns={{
+                  base: "repeat(2,1fr)",
+                  md: "repeat(2,1fr)",
+                  lg: "repeat(4,1fr)",
+                }}
+                gap={30}
+                w={"95%"}
+                margin="auto"
+                // marginTop={7}
+              >
+                {products?.map((el) => (
+                  <MProductCard {...el} />
+                ))}
+              </Grid>
+         </HStack>
+      </HStack>
+    </Container>
   );
 };
 
-
-
-
+// https://whimsical-vintage-angelfish.glitch.me/womendresses

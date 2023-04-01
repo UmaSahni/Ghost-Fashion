@@ -2,13 +2,10 @@ import { Box, Button } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const WProductCard = ({ images, product, price, category, id }) => {
+export const MProductCard = ({ images, product, price, category, id }) => {
   console.log(images);
-  
-  
-
   return (
-    <Box  textAlign={"left"} color={"darkgray"} fontStyle={"bold"} boxShadow={"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"} >
+    <Box  textAlign={"left"} color={"darkgray"} fontStyle={"bold"} boxShadow={"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"}>
       <img
         src={`https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/${images[0]}`}
         // src={images[0]}
@@ -28,5 +25,4 @@ export const WProductCard = ({ images, product, price, category, id }) => {
     </Box>
   );
 };
-
 
