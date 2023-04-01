@@ -23,7 +23,7 @@ const LoadingModal = () => {
      
       const timeoutId = setTimeout(() => {
         setShowSpinner(false);
-      }, 3000);
+      }, 2500);
       return () => clearTimeout(timeoutId);
     }
 

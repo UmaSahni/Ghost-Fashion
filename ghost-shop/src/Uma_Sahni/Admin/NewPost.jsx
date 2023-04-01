@@ -157,4 +157,4 @@ dispatch(AddProduct(data)).then((res)=>{
   );
 };
 
-export default NewPost;
+export default  NewPost;
