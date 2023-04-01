@@ -7,10 +7,10 @@ import {
   LogOut,
   authuser,
 } from "../../../Firebase";
-const UserSide = () => {
+const AdminSide = () => {
   return (
     <div>
-      
+        
       <Box
         display={"flex"}
         margin="auto"
@@ -18,22 +18,14 @@ const UserSide = () => {
         // border="1px solid red"
         justifyContent={"space-between"}
       >
-        <Button
-          onClick={signInWithGoogle}
-          width={"45%"}
-          border={"1px solid gray"}
-          bg={"#ffffff"}
-        >
-          <Image margin="1" width={"20%"} src="./google.svg" />
-          Google
-        </Button>
+        
         <Button
           onClick={signInWithGitHub}
-          width={"45%"}
+         
           border={"1px solid gray"}
           bg={"#ffffff"}
         >
-          <Image margin="1" width={"25%"} src="./github.svg" />
+          <Image margin="1" width={"10%"} src="./github.svg" />
           GitHub
         </Button>
       </Box>
@@ -48,4 +40,4 @@ const UserSide = () => {
   );
 };
 
-export default UserSide;
+export default AdminSide;
