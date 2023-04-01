@@ -9,7 +9,7 @@ export default function Navbar() {
   const isAuth = false;
   const CartSize = 0;
   return (
-    <Box>
+    <Box style={{ position: "sticky", top: 0 }}>
       <Flex
         bg={useColorModeValue('#E11B23')}
         color={useColorModeValue('gray.600', 'white')}
@@ -27,14 +27,14 @@ export default function Navbar() {
           <IconButton color={"white"} onClick={onToggle} icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-         {/* Logo */}
-         <Flex   >
-              <Image onClick={() => Navigate('/')}  width={"10erm"} src="uma-abc.gif" />
-              {/* boxSize={"20"} */}
+          {/* Logo */}
+          <Flex   >
+            <Image onClick={() => Navigate('/')} width={"10erm"} src="uma-abc.gif" />
+            {/* boxSize={"20"} */}
             <Box display={"flex"} alignItems="center" height={"70px"} width={"70px"}    >
-                <Image onClick={() => Navigate('/')}    src="heart-cut.png" />
-            </Box> 
-         </Flex>
+              <Image onClick={() => Navigate('/')} src="heart-cut.png" />
+            </Box>
+          </Flex>
 
           <Flex display={{ base: 'none', xl: 'flex' }} alignItems="center" ml={20}>
             <DesktopNav />
@@ -66,7 +66,8 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? '#'}
+                as={Redirect}
+                to={navItem.to ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
                 color={linkColor}
@@ -158,10 +159,11 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Women',
+    to: '/women',
     children: [
       {
         label: 'Top Wear',
-        to: '#'
+        to: '/womenlist'
       },
       {
         label: 'Bottom Wear',
@@ -187,10 +189,11 @@ const NAV_ITEMS = [
   },
   {
     label: 'Men',
+    to: '/men',
     children: [
       {
         label: 'Top Wear',
-        to: '#'
+        to: '/menlist'
       },
       {
         label: 'Bottom Wear',
