@@ -42,7 +42,7 @@ export default function Carousel() {
     <Box
       position={'relative'}
       height={'500px'}
-      // width={'98%'}
+      zIndex={-1}
       overflow={'hidden'}
       margin="auto"
       marginTop={150}

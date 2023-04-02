@@ -15,6 +15,7 @@ const Home = () => {
     </div>
   )
 }
-// const Span=styled.span`font-weight:bold`;
 
-export default Home
+
+export default Home;
+

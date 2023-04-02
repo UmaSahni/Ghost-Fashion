@@ -15,7 +15,9 @@ export default function Navbar() {
   const handleLogOut = () => {
     dispatch(logout())
   }
+
   const CartSize = useSelector(store=>store.cartReducer.cart.length);
+
   return (
     <Box style={{ position: "sticky", top: 0 }}>
       <Flex

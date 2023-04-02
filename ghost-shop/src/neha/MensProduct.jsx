@@ -4,9 +4,10 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { getProducts } from "../Redux/WomenReducer/action";
 import { MProductCard } from "./MProductCard";
 import { Container, Flex, Grid, HStack, Stack, VStack } from "@chakra-ui/react";
-import { Sidebar } from "./Sidebar";
-import Footer from "../Components/Footer";
+
+import { Sidebar2 } from "./Sidebar2";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 export const MensProduct = () => {
   const [searchParams] = useSearchParams();
@@ -21,6 +22,9 @@ export const MensProduct = () => {
       category: searchParams.getAll("category"),
       _sort: searchParams.get("order") && "price",
       _order: searchParams.get("order"),
+      _page: searchParams.get("page"),
+      _limit: searchParams.get("page") && 8,
+      q: searchParams.get("q"),
     },
   };
 
@@ -40,30 +44,33 @@ export const MensProduct = () => {
           />
         </Stack>
 
-        <HStack w={"90%"} h={"800px"} margin={"auto"}>
-          <VStack w={"20%"} h={"full"} margin={"auto"} border={"1px solid black"}>
-            <Sidebar />
-          </VStack>
 
-          <HStack w={"80%"} h={"full"} margin={"auto"} border={"1px solid black"}>
-            <Grid
-              gridTemplateColumns={{
-                base: "repeat(2,1fr)",
-                md: "repeat(2,1fr)",
-                lg: "repeat(4,1fr)",
-              }}
-              gap={30}
-              w={"95%"}
-              margin="auto"
-            // marginTop={7}
-            >
-              {products?.map((el) => (
-                <MProductCard {...el} />
-              ))}
-            </Grid>
-          </HStack>
+      <HStack w={"90%"} h={"auto"} margin={"auto"} align={"flex-start"}>
+        <VStack w={"20%"} h={"auto"} margin={"0"} mt={"15px"}>
+          <Sidebar2 />
+        </VStack>
+
+        <HStack w={"80%"} h={"full"} margin={"auto"}>
+          <Grid
+            gridTemplateColumns={{
+              base: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
+              lg: "repeat(4,1fr)",
+            }}
+            gap={30}
+            w={"95%"}
+            margin="auto"
+            marginTop={7}
+          >
+            {products?.map((el, idx) => (
+              <MProductCard key={idx} {...el} />
+            ))}
+          </Grid>
         </HStack>
-      </Container>
+      </HStack>
+    </Container>
+    <Footer/>
+
     </div>
   );
 };
