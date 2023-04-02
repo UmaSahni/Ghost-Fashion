@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { DeleteProduct, getProduct } from "../../Redux/AdminReducer/action";
-
+import { CiEdit } from "react-icons/ci";
 const ListProduct = ({ id, product, price, images, sortOrder }) => {
  const [time, setTime] = useState(false)
  useEffect(()=>{
@@ -32,6 +32,7 @@ const handleEdit = (id) =>{
 }
 
     return (
+      <Box bg={"#ffff"} >
     <Box
       p={4}
       mb={4}
@@ -53,11 +54,12 @@ const handleEdit = (id) =>{
              Price: {price}
             </Text>
             <Link to={`/admin/${id}`} >
-             <Button onClick={handleEdit} >Edit</Button>
+             <Button colorScheme="whatsapp" onClick={handleEdit}    > Edit</Button>
             </Link>
            
-          <Button onClick={handleDelete} >Delete</Button>
+          <Button mr={4} colorScheme="red" onClick={handleDelete} >Delete</Button>
         </Box>
+    </Box>
     </Box>
   );
 };

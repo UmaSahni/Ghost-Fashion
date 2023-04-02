@@ -47,22 +47,26 @@ export const SignInWithGoogle = () => signInWithPopup(authUser,provider)
 
 
 
-export const signInWithGitHub = () =>{
-signInWithPopup(authUser, GitHubProvider).then((result)=>{
+export const signInWithGitHub = () => signInWithPopup(authUser, GitHubProvider)
 
-const name = result.user.displayName
-  const email = result.user.email
-  const profilePic = result.user.photoURL
 
-  localStorage.setItem("name",name)
-  localStorage.setItem("isAuth",true )
-  localStorage.setItem("email",email)
-  localStorage.setItem("profilePic",profilePic)
-     window.location.href='/';
-console.log(result)
-}).catch((err)=>alert(err.message))
-}
- export  const LogOut = () => signOut(authUser)
+
+
+// .then((result)=>{
+
+// const name = result.user.displayName
+//   const email = result.user.email
+//   const profilePic = result.user.photoURL
+
+//   localStorage.setItem("name",name)
+//   localStorage.setItem("isAuth",true )
+//   localStorage.setItem("email",email)
+//   localStorage.setItem("profilePic",profilePic)
+//      window.location.href='/';
+// console.log(result)
+// }).catch((err)=>alert(err.message))
+// }
+ export const LogOut = () => signOut(authUser)
 
  // .then(() => {
 //   // Sign-out successful.

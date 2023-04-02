@@ -40,7 +40,7 @@ useEffect(()=>{
 ref.current.focus()
 },[])
   return (
-    <div>
+    <div >
      
       <Heading size={"md"}>Edit Your Products From Here</Heading>
       <form>
@@ -69,7 +69,10 @@ ref.current.focus()
             style={{ width: "100px", height: " 100px" }}
             loop
             autoplay
-          ></lottie-player>
+          >
+           
+          </lottie-player>
+           Your Page is loading please wait!!
         </Flex>
       ) : (
         product.map((e) => {

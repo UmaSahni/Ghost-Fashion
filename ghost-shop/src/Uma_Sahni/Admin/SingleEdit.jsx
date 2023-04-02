@@ -25,6 +25,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { AddProduct, PatchProduct, getProduct } from "../../Redux/AdminReducer/action";
 import { useParams } from "react-router-dom";
+import PageDesign from "./PageDesign";
 
 
 const SingleEdit = () => {
@@ -90,7 +91,8 @@ const handleSubmit = (e) => {
 
 };
   return (
-    <div>
+    <PageDesign>
+    <div style={{backgroundColor:"#ffff"}} >
       <Heading> Product Id: {id}</Heading>
     
       
@@ -102,6 +104,7 @@ const handleSubmit = (e) => {
           onChange={handleonChange}
           placeholder="Product Title"
           width={"50vw"}
+          m="4"
         />
         <br/>
         <Input
@@ -111,8 +114,10 @@ const handleSubmit = (e) => {
           placeholder="Product Images"
           width={"50vw"}
           rows={3}
+           m="4"
         />
          <br/>
+         <Flex m={4} >
         <Select
           width={"50vw"}
           value={data.category}
@@ -130,7 +135,9 @@ const handleSubmit = (e) => {
           <option value="Women Rugby Polo Dresses">Women Rugby Polo Dresses</option>
           
         </Select>
-       
+       </Flex>
+
+       <Flex m={"4"} >
         <Flex margin={"auto"} width={"50vw"} >
           <NumberInput maxW="100px" mr="2rem" value={data.price} onChange={handleChange}>
             <NumberInputField max={10000} />
@@ -146,11 +153,12 @@ const handleSubmit = (e) => {
             <SliderThumb fontSize="sm" boxSize="32px" children={data.price} />
           </Slider>
         </Flex>
+        </Flex>
         <Input name="prodQty" 
         onChange={handleonChange} 
         margin={"auto"} width={"50vw"} value={data.prodQty} placeholder="Total No. of Product Quantity" />
         <br/>
-        <Button type="submit">Submit</Button>
+        <Button m={4} colorScheme="green" type="submit">Submit</Button>
       
        {
         success &&  <Alert margin={"auto"} width={"50%"} status='success'>
@@ -164,6 +172,7 @@ const handleSubmit = (e) => {
 
       
     </div>
+    </PageDesign>
   );
 };
 

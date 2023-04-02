@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { Box, Text, Input, Button } from '@chakra-ui/react';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { PostAddress } from '../../Redux/AdminReducer/action';
+ function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+let randomTime = getRandomInt(90000) 
 const AddressBox = () => {
   const [addressInput, setAddressInput] = useState(
     {
@@ -10,18 +15,25 @@ const AddressBox = () => {
         zipcode:""
     }
   );
+ 
 
+  const dispatch = useDispatch()
+  const store = useSelector((store)=>store.adminReducer.address)
+   
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setAddressInput((prevAddressInput) => ({
       ...prevAddressInput,
+      randomTime,
       [name]: value,
     }));
   };
-
+ 
+  
   const handleUpdateAddress = () => {
     console.log('Updated address:', addressInput);
-    // You can replace the console.log statement with your own logic to update the address in the app state or database.
+    dispatch(PostAddress(addressInput))
+   
   };
 
   return (
@@ -31,6 +43,7 @@ const AddressBox = () => {
       borderRadius="md"
       p={4}
       mb={4}
+      
     >
       <Text fontSize="xl" fontWeight="semibold" mb={2}>
      Add Your   Address
@@ -41,6 +54,7 @@ const AddressBox = () => {
         value={addressInput.street}
         onChange={handleInputChange}
         placeholder="Street"
+       
       />
       <Input
         mb={2}

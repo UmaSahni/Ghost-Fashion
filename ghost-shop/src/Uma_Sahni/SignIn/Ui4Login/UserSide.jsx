@@ -1,7 +1,7 @@
 import { Box, Button, Image, Input, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../../Redux/authReducer/action";
+import { gitHubLogin, login } from "../../../Redux/authReducer/action";
 import { useNavigate } from "react-router-dom";
 // import {
 //   signInWithGoogle,
@@ -16,7 +16,9 @@ const UserSide = () => {
   const handleClick = () =>{
     dispatch(login()).then(()=> navigate("/")  )
   }
-  
+  const handleLoginGit = () =>{
+    dispatch(gitHubLogin()).then((res)=>navigate("/"))
+  }
   return (
     <div>
       
@@ -37,7 +39,7 @@ const UserSide = () => {
           Google
         </Button>
         <Button
-          // onClick={signInWithGitHub}
+          onClick={handleLoginGit}
           width={"45%"}
           border={"1px solid gray"}
           bg={"#ffffff"}

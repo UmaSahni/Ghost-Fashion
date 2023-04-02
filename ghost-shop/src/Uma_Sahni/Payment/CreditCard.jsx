@@ -2,6 +2,8 @@ import { Button, Flex, Input } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { PatchCreditCard } from '../../Redux/AdminReducer/action';
 const PaymentForm = () => {
   const [state, setState] = useState({
     number: '',
@@ -10,17 +12,25 @@ const PaymentForm = () => {
     name: '',
     focus: '',
   });
-
+  const dispatch = useDispatch()
+  const store = useSelector((store)=>store.adminReducer.address.id)
+  console.log(store)
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
     
     setState((prev) => ({ ...prev, [name]: value }));
   }
-console.log(state)
+
   const handleInputFocus = (evt) => {
     setState((prev) => ({ ...prev, focus: evt.target.name }));
   }
 
+  
+
+  const handleSubmit = ()=>{
+
+    dispatch(PatchCreditCard(state,store))
+  }
   return (
     <div>
       <Cards
@@ -72,7 +82,7 @@ console.log(state)
        onFocus={handleInputFocus}
        />
        </Flex>
-       <Button>Comfirm</Button>
+       <Button onClick={handleSubmit} >Comfirm</Button>
       </form>
     </div>
   );
