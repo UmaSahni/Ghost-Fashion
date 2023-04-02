@@ -254,7 +254,7 @@ const Cart = () => {
                   <Flex justifyContent={"space-between"}>
                     <Text fontSize={"14px"}>Cart Total</Text>
                     <Text fontSize={"14px"} fontWeight={"bold"}>
-                      ₹ 1399.11
+                      ₹ {1399.11}
                     </Text>
                   </Flex>
                 </Box>
