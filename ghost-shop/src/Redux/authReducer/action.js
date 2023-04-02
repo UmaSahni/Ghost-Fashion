@@ -12,7 +12,7 @@ const loginFailureAction = () => {
 	return { type: LOGIN_FAILURE };
 };
 
-//------------------------------------------------------------
+
 export const login = () => (dispatch) => {
 	dispatch(loginRequestAction());
 	return SignInWithGoogle()
