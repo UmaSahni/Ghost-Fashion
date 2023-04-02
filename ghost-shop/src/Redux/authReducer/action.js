@@ -1,6 +1,6 @@
 import axios from "axios";
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actonTypes";
-import { LogOut, SignInWithGoogle } from "../../Firebase";
+import { GITHUB_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actonTypes";
+import { LogOut, SignInWithGoogle, signInWithGitHub } from "../../Firebase";
 
 const loginRequestAction = () => {
 	return { type: LOGIN_REQUEST };
@@ -22,13 +22,18 @@ export const login = () => (dispatch) => {
 	})
 	.catch((err)=>dispatch(loginFailureAction()))
 
-
-
-	// return axios
-	// 	.post("", payload)
-	// 	.then((res) => dispatch(loginSuccessAction()))
-	// 	.catch(() => dispatch(loginFailureAction()));
 };
+
+export const gitHubLogin =() =>(dispatch)=>{
+	dispatch(loginRequestAction());
+return	signInWithGitHub()
+	.then((res)=>{
+		console.log(res.user)
+		dispatch({type:GITHUB_SUCCESS, payload:res.user})
+	})
+	.catch((err)=>dispatch(loginFailureAction()))
+}
+
 
 
 export const logout = () =>(dispatch)=>{

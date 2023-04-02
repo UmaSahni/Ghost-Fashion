@@ -16,7 +16,8 @@ import {
   Select,
   Textarea,
   Alert,
-  AlertIcon
+  AlertIcon,
+  Box
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
@@ -91,25 +92,29 @@ dispatch(AddProduct(data)).then((res)=>{
 };
 
   return (
-    <div>
+    <div style={{backgroundColor:"#fbfbfb"}} >
       <form onSubmit={handleSubmit}>
         <Input
           value={data.product}
           name="product"
           onChange={handleonChange}
           placeholder="Product Title"
-          width={"50rem"}
+          width={"50vw"}
+       
+          m="4"
         />
         <Input
           value={data.images}
           name="images"
           onChange={handleonChange}
           placeholder="Product Images"
-          width={"50rem"}
+          width={"50vw"}
           rows={3}
+           m="4"
         />
+        <Flex m="4" >
         <Select
-          width={"50rem"}
+          width={"50vw"}
           value={data.category.name}
           name="category"
           placeholder="Select Category"
@@ -125,8 +130,10 @@ dispatch(AddProduct(data)).then((res)=>{
           <option value="Women Rugby Polo Dresses">Women Rugby Polo Dresses</option>
           
         </Select>
-        
-        <Flex margin={"auto"} width={"50rem"} >
+        </Flex>
+
+        <Flex m="4" >
+        <Flex margin={"auto"} width={"50vw"} >
           <NumberInput maxW="100px" mr="2rem" value={price*10} onChange={handleChange}>
             <NumberInputField />
             <NumberInputStepper>
@@ -141,9 +148,10 @@ dispatch(AddProduct(data)).then((res)=>{
             <SliderThumb fontSize="sm" boxSize="32px" children={price*10} />
           </Slider>
         </Flex>
-        <Input name="prodQty" onChange={handleonChange} margin={"auto"} width={"50rem"} placeholder="Total No. of prodQty" />
+        </Flex>
+        <Input name="prodQty" onChange={handleonChange} margin={"auto"} width={"50vw"} placeholder="Total No. of prodQty" />
         <br/>
-        <Button type="submit">Submit</Button>
+        <Button m={"4"} colorScheme='telegram' type="submit">Submit</Button>
       
        {
         success &&  <Alert status='success'>

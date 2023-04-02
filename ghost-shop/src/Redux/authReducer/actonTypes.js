@@ -5,3 +5,5 @@ export const LOGIN_FAILURE="LOGIN_FAILURE"
 
 export const LOGOUT_SUCCESS= "LOGOUT_SUCCESS"
 
+export const GITHUB_SUCCESS = "GITHUB_SUCCESS"
+
