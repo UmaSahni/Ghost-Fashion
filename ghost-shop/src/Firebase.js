@@ -21,47 +21,57 @@ export const authUser = getAuth(app) // Check who is currently authenticated
 
 const provider = new GoogleAuthProvider ()
 const GitHubProvider = new GithubAuthProvider()
-export const signInWithGoogle = () =>{
-signInWithPopup(authUser, provider).then((result)=>{
- console.log(result)
- localStorage.setItem("result", JSON.stringify (result))
-  const name = result.user.displayName
-  const email = result.user.email
-  const profilePic = result.user.photoURL
 
-      // window.location.href='/';
 
-  localStorage.setItem("isAuth",true )
-  localStorage.setItem("name",name)
-  localStorage.setItem("email",email)
-  localStorage.setItem("profilePic",profilePic)
-console.log(result)
-}).catch((err)=>{alert(err.message)
-console.log("Failed")
-})
-}
+// export const signInWithGoogle = () =>{
+// signInWithPopup(authUser, provider).then((result)=>{
+//  console.log(result)
+//  localStorage.setItem("result", JSON.stringify (result))
+//   const name = result.user.displayName
+//   const email = result.user.email
+//   const profilePic = result.user.photoURL
 
-export const signInWithGitHub = () =>{
-signInWithPopup(authUser, GitHubProvider).then((result)=>{
+//       // window.location.href='/';
 
-const name = result.user.displayName
-  const email = result.user.email
-  const profilePic = result.user.photoURL
+//   localStorage.setItem("isAuth",true )
+//   localStorage.setItem("name",name)
+//   localStorage.setItem("email",email)
+//   localStorage.setItem("profilePic",profilePic)
+// console.log(result)
+// }).catch((err)=>{alert(err.message)
+// console.log("Failed")
+// })
+// }
 
-  localStorage.setItem("name",name)
-  localStorage.setItem("isAuth",true )
-  localStorage.setItem("email",email)
-  localStorage.setItem("profilePic",profilePic)
-     window.location.href='/';
-console.log(result)
-}).catch((err)=>alert(err.message))
-}
- export  const LogOut = () =>{
-signOut(authUser).then(() => {
-  // Sign-out successful.
-  console.log("Sign Out Success")
-  localStorage.clear()
-}).catch((error) => {
-  // An error happened.
-});
-}
+export const SignInWithGoogle = () => signInWithPopup(authUser,provider)
+
+
+
+export const signInWithGitHub = () => signInWithPopup(authUser, GitHubProvider)
+
+
+
+
+// .then((result)=>{
+
+// const name = result.user.displayName
+//   const email = result.user.email
+//   const profilePic = result.user.photoURL
+
+//   localStorage.setItem("name",name)
+//   localStorage.setItem("isAuth",true )
+//   localStorage.setItem("email",email)
+//   localStorage.setItem("profilePic",profilePic)
+//      window.location.href='/';
+// console.log(result)
+// }).catch((err)=>alert(err.message))
+// }
+ export const LogOut = () => signOut(authUser)
+
+ // .then(() => {
+//   // Sign-out successful.
+//   console.log("Sign Out Success")
+//   localStorage.clear()
+// }).catch((error) => {
+//   // An error happened.
+// });

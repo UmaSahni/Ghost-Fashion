@@ -18,18 +18,22 @@ import lastcrouselwomens from "./images/lastcrouselwomens.webp";
 
 import WomensCarousel from "./WomensCrousel";
 import { Link } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const Womens = () => {
   return (
-    <Stack style={{ marginTop: "-150px" }} w={"90%"} margin={"auto"}>
-      <Box className="crousel">
-        <WomensCarousel />
+    <div>
+      <Navbar />
+      <Stack style={{ marginTop: "-150px" }} w={"90%"} margin={"auto"}>
+        <Box className="crousel">
+          <WomensCarousel />
 
         <Box className="collectionmens" style={{ marginTop: "30px" }}>
           <Box>
             <Text
               fontWeight={"bold"}
-              color="black"
+              color="gray"
               fontFamily={"heading"}
               fontSize="2xl"
             >
@@ -45,7 +49,6 @@ const Womens = () => {
               gap="30px"
               margin={"auto"}
               marginTop={10}
-              _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
             >
               <Image src={womenscollection1} alt="collection1" />
               <Image src={womenscollection2} alt="collection2" />
@@ -57,7 +60,7 @@ const Womens = () => {
           <Box>
             <Text
               fontWeight={"bold"}
-              color="black"
+              color="gray"
               fontFamily={"heading"}
               fontSize="2xl"
             >
@@ -72,13 +75,11 @@ const Womens = () => {
               }}
               gap="30px"
               margin={"auto"}
-              _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
             >
               <Box
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
-                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Link to={"/womensproducts"}>
                   <Image src={womenscat1} alt="collection1" />
@@ -89,7 +90,6 @@ const Womens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
-                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={womenscat2} alt="collection1" />
               </Box>
@@ -97,7 +97,6 @@ const Womens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
-                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={womenscat3} alt="collection1" />
               </Box>
@@ -116,9 +115,8 @@ const Womens = () => {
           width="97%"
           margin={"auto"}
           gap={10}
-          _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
         >
-          <Image src={womenscard1} alt="mendscard" _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}/>
+          <Image src={womenscard1} alt="mendscard" />
           <Image src={womenscard2} alt="mendscard" />
           <Image src={womenscard3} alt="mendscard" />
           <Image src={womenscard4} alt="mendscard" />
@@ -128,7 +126,7 @@ const Womens = () => {
       <Box className="OFFICIAL MERCHANDISE" style={{ marginTop: "30px" }}>
         <Text
           fontWeight={"bold"}
-          color="black"
+          color="gray"
           fontFamily={"heading"}
           fontSize="2xl"
         >
@@ -145,13 +143,11 @@ const Womens = () => {
           width="92%"
           margin="auto"
           marginTop={5}
-          _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
         >
           <Box
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/web-icon.jpg?format=webp&w=300&dpr=1.3"
@@ -163,7 +159,6 @@ const Womens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Marvel_Logo_268x220_b16y8nC_GKd3vRA.jpg?format=webp&w=300&dpr=1.3"
@@ -175,7 +170,6 @@ const Womens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/HarryPotter_Logo_268x220_LqBAKZU_Y8BG6uT.jpg?format=webp&w=300&dpr=1.3"
@@ -187,7 +181,6 @@ const Womens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Disnety_Logo_268x220_GevoL2M_2j5PP2v.jpg?format=webp&w=300&dpr=1.3"
@@ -199,7 +192,6 @@ const Womens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/DC_Logo_268x220_qtYfouo_VyuqmVD.jpg?format=webp&w=300&dpr=1.3"
@@ -211,7 +203,7 @@ const Womens = () => {
       <Box className="topselling" style={{ marginTop: "30px" }}>
         <Text
           fontWeight={"bold"}
-          color="black"
+          color="gray"
           fontFamily={"heading"}
           fontSize="2xl"
         >
@@ -227,7 +219,6 @@ const Womens = () => {
           w={"95%"}
           margin="auto"
           marginTop={7}
-          _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
         >
           <Image src={womenstopsell1} alt="topsell1" />
           <Image src={womenstopsell2} alt="topsell" />
@@ -236,10 +227,12 @@ const Womens = () => {
         </Grid>
       </Box>
 
-      <Box className="lastcrousel" style={{ marginTop: "30px" }}>
-        <Image src={lastcrouselwomens} alt="last" w={"95%"} margin="auto" />
-      </Box>
-    </Stack>
+        <Box className="lastcrousel" style={{ marginTop: "30px" }}>
+          <Image src={lastcrouselwomens} alt="last" w={"95%"} margin="auto" />
+        </Box>
+      </Stack>
+      <Footer />
+    </div>
   );
 };
 

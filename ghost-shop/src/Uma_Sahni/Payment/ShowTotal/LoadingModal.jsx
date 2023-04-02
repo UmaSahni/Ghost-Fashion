@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Loader from "./Loader";
 import TickPay from "./TickPay";
+import { useNavigate } from "react-router-dom";
 const LoadingModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showSpinner, setShowSpinner] = useState(false);
@@ -30,12 +31,12 @@ const LoadingModal = () => {
     
   }, [isOpen]);
   console.log(showSpinner, isOpen, "Show");
-
+const navigate = useNavigate()
   return (
     <>
       <Button
         borderRadius={"none"}
-        colorScheme="teal"
+        colorScheme="red"
         width={"100%"}
         onClick={onOpen}
       >
@@ -56,7 +57,7 @@ const LoadingModal = () => {
             <Button variant="ghost" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button colorScheme="blue" variant="ghost">
+            <Button onClick={()=>navigate("/")} colorScheme="blue" variant="ghost">
               Back to Home
             </Button>
           </ModalFooter>

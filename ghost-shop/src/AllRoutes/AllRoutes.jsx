@@ -1,17 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Admin from '../Pages/Admin'
-import Cart from '../harshal/Cart'
+// import Cart from '../harshal/Cart'
 import Home from '../Pages/Home'
 import Login from '../Pages/Login'
-import Men from '../Pages/Men'
-import MenList from '../Pages/MenList'
 import NotFound from '../Pages/NotFound'
 import Payment from '../Pages/Payment'
 import {SingleProduct} from '../harshal/SingleProduct'
-import Women from '../Pages/Women'
-import WomenList from '../Pages/WomenList'
-import NewPost from '../Uma_Sahni/Admin/NewPost'
 import SingleEdit from '../Uma_Sahni/Admin/SingleEdit'
 import NewPostPage from '../Uma_Sahni/Admin/NewPostPage'
 import EditPostPage from '../Uma_Sahni/Admin/EditPostPage'
@@ -19,6 +14,8 @@ import { WomensProduct } from '../neha/WomensProduct'
 import Womens from '../neha/Womens'
 import Mens from '../neha/Mens'
 import { MensProduct } from '../neha/MensProduct'
+import Delivery from '../Uma_Sahni/Admin/Delivery'
+import Cart from '../harshal/Cart'
 
 const AllRoutes = () => {
   return (
@@ -37,7 +34,7 @@ const AllRoutes = () => {
       <Route path='/newPost'element={<NewPostPage/>} />
       <Route path='/admin/:id'element={<SingleEdit/>} />
       <Route path='/editPost'element={<EditPostPage/>} />
-      
+      <Route path="/delivery" element={<Delivery/>} />
     </Routes>
   )
 }

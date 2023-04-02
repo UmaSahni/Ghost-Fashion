@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
 import {
   IconButton,
   Avatar,
@@ -24,7 +24,8 @@ import {
   DrawerBody,
   
 } from "@chakra-ui/react";
-import { Link as MyLink } from "react-router-dom";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { Link as MyLink, useNavigate } from "react-router-dom";
 import {
   FiHome,
   FiTrendingUp,
@@ -39,17 +40,21 @@ import { IconType } from "react-icons";
 import { ReactText } from "react";
 import { PhoneIcon, AddIcon, WarningIcon, EditIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { gitHubLogin, logout } from "../../Redux/authReducer/action";
 
 const LinkItems = [
   { name: "Home", icon: FiHome, title: "/admin" },
   { name: "New Post", icon: AddIcon, title: "/newPost" },
   { name: "Edit Post", icon: EditIcon, title: "/editPost" },
-  { name: "Favourites", icon: FiStar },
+  { name: "Delivery", icon: CiDeliveryTruck, title:"/delivery" },
   { name: "Settings", icon: FiSettings },
 ];
 
 export default function PageDesign({ children }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
+  
   return (
     <Box  minH="100vh" bg={useColorModeValue("#EDF2F7", "gray.900")}>
       <SidebarContent
@@ -73,7 +78,7 @@ export default function PageDesign({ children }) {
       </Drawer>
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box border={"10px solid red"} ml={{ base: 0, md: 60 }} p="4">
+      <Box  ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
     </Box>
@@ -86,7 +91,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       transition="3s ease"
       bg={useColorModeValue("white", "gray.900")}
       borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderRightColor={"#e6e7e8"}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
@@ -100,7 +105,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       </Flex>
       {LinkItems.map((link) => (
        
-          <NavItem key={link.name} title={link.title} icon={link.icon}>
+          <NavItem  key={link.name} title={link.title} icon={link.icon}>
             {link.name}
           </NavItem>
      
@@ -147,6 +152,20 @@ const NavItem = ({ icon,title, children, ...rest }) => {
 };
 
 const MobileNav = ({ onOpen, ...rest }) => {
+ 
+ const store = useSelector((store)=>store.authReducer)
+  
+ const dispatch = useDispatch()
+//   useEffect(()=>{
+// dispatch(gitHubLogin())
+//   },[])
+  const profilepic = (store.user.photoURL)
+  const username = store.user.displayName
+const navigate = useNavigate()
+ const handleLogOut =() =>{
+  dispatch(logout()).then((res)=>navigate("/") )
+ }
+ 
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -194,7 +213,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
                 <Avatar
                   size={"sm"}
                   src={
-                    localStorage.getItem("profilePic")
+                   profilepic
                   }
                 />
                 <VStack
@@ -203,12 +222,12 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">{localStorage.getItem("name")}</Text>
+                  <Text fontSize="sm">{username}</Text>
                   <Text fontSize="xs" color="gray.600">
                     Admin
                   </Text>
                   <Text fontSize="xs" color="gray.600">
-                   
+                  
                   </Text>
                 </VStack>
                 <Box display={{ base: "none", md: "flex" }}>
@@ -224,7 +243,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={handleLogOut}  >Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

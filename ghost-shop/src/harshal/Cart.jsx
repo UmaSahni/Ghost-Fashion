@@ -11,145 +11,39 @@ import {
   Flex,
   Grid,
   GridItem,
-  Heading,
-  HStack,
   Image,
   Input,
   Link,
-  Select,
   Spacer,
-  Stack,
   Text,
+  Icon,
 } from "@chakra-ui/react";
-import { products } from "./dummyData";
+import { TfiGift } from "react-icons/tfi";
+import { useSelector } from "react-redux";
+import CartCard from "../Components/CartCard";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 const Cart = () => {
+  const { cart } = useSelector((store) => store.cartReducer);
+  console.log(cart);
   return (
     <>
+    <Navbar/>
       <Grid
-        h="200px"
+      fontFamily={"sans-serif"}
+        h="auto"
         w={"90%"}
         m="auto"
         my={"50px"}
         // templateRows="repeat(3, 1fr)"
-        templateColumns="repeat(5, 1fr)"
+        templateColumns="repeat(7, 1fr)"
         gap={4}
       >
-        <GridItem rowSpan={3} colSpan={3}>
-          <Box
-            border={"1px"}
-            p="20px"
-            borderColor="gray.300"
-            borderRadius={"5px"}
-            boxShadow="md"
-          >
-            <HStack height={"200px"}>
-              <Box height={"100%"} width={"25%"}>
-                <Image
-                  borderRadius={"5px"}
-                  boxShadow="md"
-                  height="100%"
-                  src={products[0].image2}
-                  alt="dummy"
-                />
-              </Box>
-              <Box height={"100%"} width={"70%"}>
-                <Flex justifyContent={"space-between"}>
-                  <Heading
-                    align="left"
-                    // mt={{ base: "10px", md: "0px" }}
-                    fontSize={"16px"}
-                  >
-                    The Simpsons: Expressions
-                  </Heading>
-                  <Box>
-                    <HStack>
-                      <Text
-                        fontSize={"16px"}
-                        fontWeight={"semibold"}
-                        align="left"
-                      >
-                        {products[0].price}
-                      </Text>
-                      <Text
-                        align="left"
-                        style={{
-                          textDecoration: "line-through",
-                          color: "gray",
-                        }}
-                      >
-                        {products[0].offer_price}
-                      </Text>
-                    </HStack>
-                  </Box>
-                </Flex>
-                <Flex justifyContent={"space-between"}>
-                  <Text
-                    fontSize={"14px"}
-                    my={"10px"}
-                    align="left"
-                    color={"gray"}
-                  >
-                    {products[0].description}
-                  </Text>
-                  <Text align="left" color={"red"} fontSize={"14px"}>
-                    {products[0].discount}
-                  </Text>
-                </Flex>
-                <HStack>
-                  <Select
-                    mr={"10px"}
-                    width="120px"
-                    height="35px"
-                    fontSize={"13px"}
-                    fontWeight="bold"
-                    placeholder={`Size:m`}
-                  >
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                  </Select>
-                  <Select
-                    m={"10px"}
-                    width="120px"
-                    height="35px"
-                    fontSize={"13px"}
-                    fontWeight="bold"
-                    placeholder="Qty:1"
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </Select>
-                </HStack>
-              </Box>
-            </HStack>
-            <Stack
-              w={"75%"}
-              ml="25%"
-              borderTop={"1px"}
-              borderColor="gray.300"
-              direction="row"
-              spacing={4}
-              justifyContent="end"
-              pt={"10px"}
-            >
-              <Button size="sm" colorScheme="red" variant="outline">
-                Remove
-              </Button>
-              <Button size="sm" variant="outline" colorScheme="teal">
-                Move To Wishlist
-              </Button>
-            </Stack>
-          </Box>
+        {/* cart cart */}
+        <GridItem colSpan={5}>
+          {cart.map((item) => {
+            return <CartCard {...item} />;
+          })}
         </GridItem>
         <GridItem colSpan={2}>
           <Box>
@@ -171,13 +65,20 @@ const Cart = () => {
               borderRadius="5px"
               textAlign={"left"}
             >
-              <Checkbox fontWeight={"bold"}>
-                Save an additional ₹ 250.48 on this order.
+              <Checkbox>
+                <Text fontWeight={"bold"} fontSize="14px">
+                  Save an additional ₹ 100 on this order.
+                </Text>
               </Checkbox>
             </Box>
             <Box>
               <Accordion allowToggle border={"1px"} borderColor="gray.300">
-                <AccordionItem border={"none"}>
+                <AccordionItem
+                  py={"5px"}
+                  borderBottom={"1px"}
+                  borderTop={"none"}
+                  borderColor="gray.300"
+                >
                   <h2>
                     <AccordionButton fontSize={"14px"}>
                       <Image
@@ -218,7 +119,12 @@ const Cart = () => {
                     </Box>
                   </AccordionPanel>
                 </AccordionItem>
-                <AccordionItem border={"none"}>
+                <AccordionItem
+                  py={"5px"}
+                  borderBottom={"1px"}
+                  borderTop={"none"}
+                  borderColor="gray.300"
+                >
                   <h2>
                     <AccordionButton fontSize={"14px"}>
                       <Image
@@ -240,26 +146,44 @@ const Cart = () => {
                   </h2>
                   <AccordionPanel pb={4} align="left">
                     <Box p="15px" borderTop={"1px"} borderColor="gray.300">
-                      <Link fontSize={"14px"} color={"teal"} textDecoration="underline">Login To Apply</Link>
-                      < Spacer m={"15px"}/>
+                      <Link
+                        fontSize={"14px"}
+                        color={"teal"}
+                        textDecoration="underline"
+                      >
+                        Login To Apply
+                      </Link>
+                      <Spacer m={"15px"} />
                       <Input
                         size="sm"
                         mr={"20px"}
                         w={"50%"}
                         borderRadius={"10px"}
                         placeholder="Enter Code Here"
-                      />                     
+                      />
                     </Box>
                   </AccordionPanel>
                 </AccordionItem>
-                <AccordionItem border={"none"}>
+                <AccordionItem
+                  py={"5px"}
+                  borderBottom={"1px"}
+                  borderTop={"none"}
+                  borderColor="gray.300"
+                >
                   <h2>
                     <AccordionButton fontSize={"14px"}>
-                      <Image
+                      {/* <Image
                         mr={"10px"}
                         width={"20px"}
                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAvCAMAAAB5awL4AAAARVBMVEVHcEw1vK9IjYVYWFpXWFpXWFpVWlpLYWxYWFpXWFo2vK42va5YWFw2va5XWFpYWFo2va9YWFpXWVo2va5XWFpYWVs3va7cWG+0AAAAFXRSTlMARyDAXNAwEKDwp+xAynDgf4CQabANvZKzAAABeElEQVRIx5WUWxaDIAxEAVEUbbW+9r/UBlQQCEHz0WORK0kmA2NEyLbagqjbgZHRRMARM3nIhsdMI90vTEXJGlaz6bUme5EsK1hfKUQhLwScjhLKVN/iX4M3KFLnkQzTGOTL3jBNB8vS5b9MeuIFZgCkc8jU7yY+nGKsLM31T+9X8DzzhaXRIQts1gufPvveixwTyeK+D+fpDBMhHAo5u++eIiaRBVKb/IkYkyrJfUZQEMI0Y6KkgJ0qyvLOhEqeAf3Spl9L75o9bFt1yRIo6Q6yitof7ds0Y0reKupPSbXyG6VTsm7QEbd6utExYvxog51coF/lnxQrxuFEu5EyWMaJ80PEOvGohY2pLChy1w+eRRkJnbjiylBONMNQhGTgxDPTjiwJ0Q8dz9KdKm5tfHynEhdn/pVa3VhEsozEnYrPaaHUGYFkqaWp72RZunjLN1YyN4c+lYITsZKfOtGrq5460e99g5zqjoUJRNV9iUCPu9xtRzqZJv4YTCbCeHS4sAAAAABJRU5ErkJggg=="
                         alt="tag"
+                      /> */}
+
+                      <Icon
+                        as={TfiGift}
+                        boxSize={5}
+                        color="teal.600"
+                        mr="10px"
                       />
                       <Box
                         as="span"
@@ -267,13 +191,13 @@ const Cart = () => {
                         textAlign="left"
                         fontWeight={"bold"}
                       >
-                       Gift Wrap (₹ 25)
+                        Gift Wrap (₹ 25)
                       </Box>
-                      <Checkbox colorScheme='teal'/>
+                      <Checkbox colorScheme="teal" />
                     </AccordionButton>
-                  </h2>               
+                  </h2>
                 </AccordionItem>
-                <AccordionItem border={"none"}>
+                <AccordionItem py={"5px"} border={"none"}>
                   <h2>
                     <AccordionButton fontSize={"14px"}>
                       <Image
@@ -295,23 +219,83 @@ const Cart = () => {
                   </h2>
                   <AccordionPanel pb={4} align="left">
                     <Box p="15px" borderTop={"1px"} borderColor="gray.300">
-                      <Link fontSize={"14px"} color={"teal"} textDecoration="underline">Login To Apply</Link>
-                      < Spacer m={"15px"}/>
+                      <Link
+                        fontSize={"14px"}
+                        color={"teal"}
+                        textDecoration="underline"
+                      >
+                        Login To Apply
+                      </Link>
+                      <Spacer m={"15px"} />
                       <Input
                         size="sm"
                         mr={"20px"}
                         w={"50%"}
                         borderRadius={"10px"}
                         placeholder="Enter Code Here"
-                      />                     
+                      />
                     </Box>
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>
             </Box>
+            <Box>
+              <Text
+                align={"left"}
+                fontWeight="500"
+                fontSize={"14px"}
+                my={"20px"}
+                color={"gray"}
+              >
+                BILLING DETAILS
+              </Text>
+              <Box border={"1px"} borderColor={"gray.300"}>
+                <Box p={"15px"} borderBottom={"1px"} borderColor={"gray.300"}>
+                  <Flex justifyContent={"space-between"}>
+                    <Text fontSize={"14px"}>Cart Total</Text>
+                    <Text fontSize={"14px"} fontWeight={"bold"}>
+                      ₹ 1399.11
+                    </Text>
+                  </Flex>
+                </Box>
+                <Box p={"15px"} borderBottom={"1px"} borderColor={"gray.300"}>
+                  <Flex color={"teal.600"} justifyContent={"space-between"}>
+                    <Text fontSize={"14px"}>Discount</Text>
+                    <Text fontSize={"14px"} fontWeight={"bold"}>
+                      - ₹ 200.00
+                    </Text>
+                  </Flex>
+                </Box>
+                <Box p={"15px"} borderBottom={"1px"} borderColor={"gray.300"}>
+                  <Flex justifyContent={"space-between"}>
+                    <Text fontSize={"14px"}>GST</Text>
+                    <Text fontSize={"14px"} fontWeight={"bold"}>
+                      ₹ 143.89
+                    </Text>
+                  </Flex>
+                </Box>
+                <Box p={"15px"} borderBottom={"1px"} borderColor={"gray.300"}>
+                  <Flex justifyContent={"space-between"}>
+                    <Text fontSize={"14px"}>Shipping Charges</Text>
+                    <Text fontSize={"14px"} fontWeight={"bold"}>
+                      ₹ 0
+                    </Text>
+                  </Flex>
+                </Box>
+                <Box p={"15px"}>
+                  <Flex justifyContent={"space-between"}>
+                    <Text fontSize={"14px"}>Total Amount</Text>
+                    <Text fontSize={"14px"} fontWeight={"bold"}>
+                      ₹ 1343.00
+                    </Text>
+                  </Flex>
+                </Box>
+              </Box>
+            </Box>
           </Box>
         </GridItem>
       </Grid>
+      <Footer/>
     </>
   );
 };

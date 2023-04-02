@@ -26,75 +26,77 @@ import topsell4 from "./images/topsell4.webp";
 import lastcrousel from "./images/lastcrousel.webp";
 import { Link } from "react-router-dom";
 
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 const Mens = () => {
   return (
-    <Stack style={{ marginTop: "-150px" }} w={"90%"} margin={"auto"}>
-      <Box className="crousel">
-        <Box>
-          <Carousel />
-        </Box>
-        <Box className="collectionmens" style={{ marginTop: "30px" }}>
+    <div>
+      <Navbar />
+      <Stack style={{ marginTop: "-150px" }} w={"90%"} margin={"auto"}>
+        <Box className="crousel">
           <Box>
-            <Text
-              fontWeight={"bold"}
-              color="black"
-              fontFamily={"heading"}
-              fontSize="2xl"
-            >
-              COLLECTIONS
-            </Text>
-            <Grid
-              w={"97%"}
-              gridTemplateColumns={{
-                base: "repeat(1,1fr)",
-                md: "repeat(2,1fr)",
-                lg: "repeat(3,1fr)",
-              }}
-              gap="30px"
-              margin={"auto"}
-              marginTop={10}
-            >
-              <Image src={collectionmens1} alt="collection1" />
-              <Image src={collectionmens3} alt="collection2" />
-              <Image src={collectionmens2} alt="collection3" />
-            </Grid>
+            <Carousel />
           </Box>
-        </Box>
-        <Box className="categorymens" style={{ marginTop: "30px" }}>
-          <Box>
-            <Text
-              fontWeight={"bold"}
-              color="black"
-              fontFamily={"heading"}
-              fontSize="2xl"
-            >
-              CATEGORIES
-            </Text>
-            <Grid
-              w={"97%"}
-              gridTemplateColumns={{
-                base: "repeat(1,1fr)",
-                md: "repeat(2,1fr)",
-                lg: "repeat(3,1fr)",
-              }}
-              gap="30px"
-              margin={"auto"}
-              marginTop={10}
-            >
-              <Box
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 50 }}
-                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
+          <Box className="collectionmens" style={{ marginTop: "30px" }}>
+            <Box>
+              <Text
+                fontWeight={"bold"}
+                color="gray"
+                fontFamily={"heading"}
+                fontSize="2xl"
               >
-                <Image src={menscat1} alt="collection1" />
-              </Box>
+                COLLECTIONS
+              </Text>
+              <Grid
+                w={"97%"}
+                gridTemplateColumns={{
+                  base: "repeat(1,1fr)",
+                  md: "repeat(2,1fr)",
+                  lg: "repeat(3,1fr)",
+                }}
+                gap="30px"
+                margin={"auto"}
+                marginTop={10}
+              >
+                <Image src={collectionmens1} alt="collection1" />
+                <Image src={collectionmens3} alt="collection2" />
+                <Image src={collectionmens2} alt="collection3" />
+              </Grid>
+            </Box>
+          </Box>
+          <Box className="categorymens" style={{ marginTop: "30px" }}>
+            <Box>
+              <Text
+                fontWeight={"bold"}
+                color="gray"
+                fontFamily={"heading"}
+                fontSize="2xl"
+              >
+                CATEGORIES
+              </Text>
+              <Grid
+                w={"97%"}
+                gridTemplateColumns={{
+                  base: "repeat(1,1fr)",
+                  md: "repeat(2,1fr)",
+                  lg: "repeat(3,1fr)",
+                }}
+                gap="30px"
+                margin={"auto"}
+                marginTop={10}
+              >
+                <Box
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                >
+                  <Image src={menscat1} alt="collection1" />
+                </Box>
 
               <Box
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
-                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={menscat2} alt="collection1" />
               </Box>
@@ -102,7 +104,6 @@ const Mens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
-                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={menscat3} alt="collection1" />
               </Box>
@@ -111,38 +112,38 @@ const Mens = () => {
         </Box>
       </Box>
 
-      <Box className="mensCards" style={{ marginTop: "30px" }}>
-        <Grid
-          gridTemplateColumns={{
-            base: "repeat(2,1fr)",
-            md: "repeat(2,1fr)",
-            lg: "repeat(4,1fr)",
-          }}
-          width="97%"
-          margin={"auto"}
-          gap={10}
-        >
-          <Link to={"/mensproducts"}>
-            <Image src={mmenscard1} alt="mendscard" />
-          </Link>
-          <Image src={mmenscard2} alt="mendscard" />
-          <Image src={mmenscard3} alt="mendscard" />
-          <Image src={mmenscard4} alt="mendscard" />
-          <Image src={mmenscard5} alt="mendscard" />
-          <Image src={mmenscard6} alt="mendscard" />
-          <Image src={mmenscard7} h={343} alt="mendscard" />
-          <Image src={mmenscard8} alt="mendscard" />
-          <Image src={mmenscard9} alt="mendscard" />
-          <Image src={mmenscard10} alt="mendscard" />
-          <Image src={mmenscard11} alt="mendscard" />
-          <Image src={mmenscard12} w={"100%"} h={343} alt="mendscard" />
-        </Grid>
-      </Box>
+        <Box className="mensCards" style={{ marginTop: "30px" }}>
+          <Grid
+            gridTemplateColumns={{
+              base: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
+              lg: "repeat(4,1fr)",
+            }}
+            width="97%"
+            margin={"auto"}
+            gap={10}
+          >
+            <Link to={"/mensproducts"}>
+              <Image src={mmenscard1} alt="mendscard" />
+            </Link>
+            <Image src={mmenscard2} alt="mendscard" />
+            <Image src={mmenscard3} alt="mendscard" />
+            <Image src={mmenscard4} alt="mendscard" />
+            <Image src={mmenscard5} alt="mendscard" />
+            <Image src={mmenscard6} alt="mendscard" />
+            <Image src={mmenscard7} h={343} alt="mendscard" />
+            <Image src={mmenscard8} alt="mendscard" />
+            <Image src={mmenscard9} alt="mendscard" />
+            <Image src={mmenscard10} alt="mendscard" />
+            <Image src={mmenscard11} alt="mendscard" />
+            <Image src={mmenscard12} w={"100%"} h={343} alt="mendscard" />
+          </Grid>
+        </Box>
 
       <Box className="OFFICIAL MERCHANDISE" style={{ marginTop: "30px" }}>
         <Text
           fontWeight={"bold"}
-          color="black"
+          color="gray"
           fontFamily={"heading"}
           fontSize="2xl"
         >
@@ -164,7 +165,6 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/web-icon.jpg?format=webp&w=300&dpr=1.3"
@@ -176,7 +176,6 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Marvel_Logo_268x220_b16y8nC_GKd3vRA.jpg?format=webp&w=300&dpr=1.3"
@@ -188,7 +187,6 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/HarryPotter_Logo_268x220_LqBAKZU_Y8BG6uT.jpg?format=webp&w=300&dpr=1.3"
@@ -200,7 +198,6 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
-            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Disnety_Logo_268x220_GevoL2M_2j5PP2v.jpg?format=webp&w=300&dpr=1.3"
@@ -248,10 +245,12 @@ const Mens = () => {
         </Grid>
       </Box>
 
-      <Box className="lastcrousel" style={{ marginTop: "30px" }}>
-        <Image src={lastcrousel} alt="last" w={"95%"} margin="auto" />
-      </Box>
-    </Stack>
+        <Box className="lastcrousel" style={{ marginTop: "30px" }}>
+          <Image src={lastcrousel} alt="last" w={"95%"} margin="auto" />
+        </Box>
+      </Stack>
+      <Footer />
+    </div>
   );
 };
 

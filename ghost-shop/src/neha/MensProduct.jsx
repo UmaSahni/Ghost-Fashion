@@ -5,6 +5,8 @@ import { getProducts } from "../Redux/WomenReducer/action";
 import { MProductCard } from "./MProductCard";
 import { Container, Flex, Grid, HStack, Stack, VStack } from "@chakra-ui/react";
 import { Sidebar2 } from "./Sidebar2";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 export const MensProduct = () => {
   const [searchParams] = useSearchParams();
@@ -28,16 +30,18 @@ export const MensProduct = () => {
   useEffect(() => {
     dispatch(getProducts(obj, "menSection"));
   }, [location.search]);
-  // console.log(products);
+  console.log("products-",products);
 
   return (
-    <Container maxW={"100%"} margin={"auto"}>
-      <Stack w={"90%"} h={"350px"} margin={"auto"} mb={"10px"}>
-        <img
-          src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020230317192609.jpg?format=webp&w=1500&dpr=1.1"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </Stack>
+    <div>
+      <Navbar />
+      <Container maxW={"100%"} margin={"auto"}>
+        <Stack w={"90%"} h={"350px"} margin={"auto"} mb={"10px"}>
+          <img
+            src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020230317192609.jpg?format=webp&w=1500&dpr=1.1"
+            style={{ width: "100%", height: "100%" }}
+          />
+        </Stack>
 
       <HStack w={"90%"} h={"auto"} margin={"auto"} align={"flex-start"}>
         <VStack w={"20%"} h={"auto"} margin={"0"} mt={"15px"}>
@@ -63,6 +67,8 @@ export const MensProduct = () => {
         </HStack>
       </HStack>
     </Container>
+    <Footer/>
+    </div>
   );
 };
 

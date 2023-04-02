@@ -7,7 +7,7 @@ const Total = () => {
   
   return (
     <Box width={"80%"}>
-      <Button borderRadius={"none"} colorScheme="teal" width={"100%"}>
+      <Button borderRadius={"none"} colorScheme="red" width={"100%"}>
         <LoadingModal />
       </Button>
       <Flex justifyContent={"flex-start"}>
@@ -19,7 +19,7 @@ const Total = () => {
       <TableTotal />
       <Box m={"4"}></Box>
 
-      <Button borderRadius={"none"} colorScheme="teal" width={"100%"}>
+      <Button borderRadius={"none"} colorScheme="red" width={"100%"}>
          <LoadingModal />
       </Button>
     </Box>

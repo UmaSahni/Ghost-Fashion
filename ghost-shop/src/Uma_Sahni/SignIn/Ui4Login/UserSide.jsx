@@ -1,13 +1,24 @@
 import { Box, Button, Image, Input, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-
-import {
-  signInWithGoogle,
-  signInWithGitHub,
-  LogOut,
-  authuser,
-} from "../../../Firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { gitHubLogin, login } from "../../../Redux/authReducer/action";
+import { useNavigate } from "react-router-dom";
+// import {
+//   signInWithGoogle,
+//   signInWithGitHub,
+//   LogOut,
+//   authuser,
+// } from "../../../Firebase";
 const UserSide = () => {
+  const dispatch = useDispatch()
+  const store = useSelector((store)=>console.log(store.authReducer))
+  const navigate = useNavigate()
+  const handleClick = () =>{
+    dispatch(login()).then(()=> navigate("/")  )
+  }
+  const handleLoginGit = () =>{
+    dispatch(gitHubLogin()).then((res)=>navigate("/"))
+  }
   return (
     <div>
       
@@ -19,7 +30,7 @@ const UserSide = () => {
         justifyContent={"space-between"}
       >
         <Button
-          onClick={signInWithGoogle}
+          onClick={handleClick}
           width={"45%"}
           border={"1px solid gray"}
           bg={"#ffffff"}
@@ -28,7 +39,7 @@ const UserSide = () => {
           Google
         </Button>
         <Button
-          onClick={signInWithGitHub}
+          onClick={handleLoginGit}
           width={"45%"}
           border={"1px solid gray"}
           bg={"#ffffff"}
