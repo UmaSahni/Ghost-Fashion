@@ -23,9 +23,15 @@ import { useSelector } from "react-redux";
 import CartCard from "../Components/CartCard";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { useNavigate } from "react-router";
 const Cart = () => {
   const { cart } = useSelector((store) => store.cartReducer);
+  const navigate = useNavigate()
   console.log(cart);
+
+  const handleOrder=()=>{
+    navigate("/payment")
+  }
   return (
     <>
     <Navbar/>
@@ -54,6 +60,7 @@ const Cart = () => {
                 colorScheme="teal"
                 variant="solid"
                 fontWeight={"bold"}
+              onClick={handleOrder}
               >
                 PLACE ORDER
               </Button>
@@ -254,7 +261,7 @@ const Cart = () => {
                   <Flex justifyContent={"space-between"}>
                     <Text fontSize={"14px"}>Cart Total</Text>
                     <Text fontSize={"14px"} fontWeight={"bold"}>
-                      ₹ 1399.11
+                      ₹ {1399.11}
                     </Text>
                   </Flex>
                 </Box>
