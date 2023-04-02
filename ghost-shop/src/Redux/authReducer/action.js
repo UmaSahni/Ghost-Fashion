@@ -1,5 +1,6 @@
 import axios from "axios";
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actonTypes";
+import { SignInWithGoogle } from "../../Firebase";
 
 const loginRequestAction = () => {
 	return { type: LOGIN_REQUEST };
@@ -14,8 +15,17 @@ const loginFailureAction = () => {
 //------------------------------------------------------------
 export const login = (payload) => (dispatch) => {
 	dispatch(loginRequestAction());
-	return axios
-		.post("", payload)
-		.then((res) => dispatch(loginSuccessAction()))
-		.catch(() => dispatch(loginFailureAction()));
+	return SignInWithGoogle()
+	.then((res)=>{
+		console.log(res)
+		dispatch(loginSuccessAction(res.displayName))
+	})
+	.catch((err)=>dispatch(loginFailureAction()))
+
+
+
+	// return axios
+	// 	.post("", payload)
+	// 	.then((res) => dispatch(loginSuccessAction()))
+	// 	.catch(() => dispatch(loginFailureAction()));
 };

@@ -19,6 +19,7 @@ import { WomensProduct } from '../neha/WomensProduct'
 import Womens from '../neha/Womens'
 import Mens from '../neha/Mens'
 import { MensProduct } from '../neha/MensProduct'
+import Delivery from '../Uma_Sahni/Admin/Delivery'
 
 const AllRoutes = () => {
   return (
@@ -37,7 +38,7 @@ const AllRoutes = () => {
       <Route path='/newPost'element={<NewPostPage/>} />
       <Route path='/admin/:id'element={<SingleEdit/>} />
       <Route path='/editPost'element={<EditPostPage/>} />
-      
+      <Route path="/delivery" element={<Delivery/>} />
     </Routes>
   )
 }

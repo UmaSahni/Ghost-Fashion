@@ -35,17 +35,21 @@ console.log(store)
   setCategory(e.target.value)
   
   }
-
-
+  const ref = useRef()
+useEffect(()=>{
+ref.current.focus()
+},[])
   return (
     <div>
      
       <Heading size={"md"}>Edit Your Products From Here</Heading>
       <form>
         <Input
+        m="3"
           width={"50vw"}
           onChange={hnadleSearch}
           placeholder="Search From Here"
+          ref={ref}
         />
       </form>
     
@@ -62,7 +66,7 @@ console.log(store)
             src="https://assets5.lottiefiles.com/packages/lf20_zjihqths.json"
             background="transparent"
             speed="2"
-            style={{ width: "300px", height: " 300px" }}
+            style={{ width: "100px", height: " 100px" }}
             loop
             autoplay
           ></lottie-player>
