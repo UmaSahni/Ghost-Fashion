@@ -5,6 +5,8 @@ import {
   PRODUCT_SUCCESS,
 } from "./actionTypes";
 
+
+
 export const getProducts = (paramObj,endpoint="allproducts") => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
 
@@ -13,6 +15,21 @@ export const getProducts = (paramObj,endpoint="allproducts") => (dispatch) => {
     .then((res) => {
       console.log(res.data);
       dispatch({ type: PRODUCT_SUCCESS, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: PRODUCT_FAILURE });
+    });
+};
+
+//get single product
+
+export const getSingleProduct =  (id,endpoint="allproducts") => (dispatch) => {
+  dispatch({ type: PRODUCT_REQUEST });
+
+  return axios
+    .get(`https://whimsical-vintage-angelfish.glitch.me/${endpoint}/${id}`)
+    .then((res) => {
+      return(res.data);
     })
     .catch(() => {
       dispatch({ type: PRODUCT_FAILURE });
