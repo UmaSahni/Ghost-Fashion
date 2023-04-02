@@ -13,7 +13,7 @@ export const getProducts = (paramObj,endpoint="allproducts") => (dispatch) => {
   axios
     .get(`https://whimsical-vintage-angelfish.glitch.me/${endpoint}`, paramObj)
     .then((res) => {
-      console.log(res.data);
+      console.log("action data",res.data);
       dispatch({ type: PRODUCT_SUCCESS, payload: res.data });
     })
     .catch(() => {

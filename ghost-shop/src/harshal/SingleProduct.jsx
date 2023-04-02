@@ -30,6 +30,8 @@ import {
 import { ImWhatsapp } from "react-icons/im";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import Footer from "../Components/Footer";
+import Navbar from "../Components/Navbar";
 // import { color } from "framer-motion";
 import { StandardSizes } from "../Components/StandardSizes";
 import { addToCart } from "../Redux/cartReducer/action";
@@ -77,6 +79,7 @@ export const SingleProduct = () => {
   }
   return (
     <>
+    <Navbar/>
       <Box
         mt={{ base: "330px", sm: "260px", md: "60px" }}
         color="rgb(41, 43, 44)"
@@ -448,6 +451,7 @@ export const SingleProduct = () => {
           </Box>
         </Box>
       </Box>
+      <Footer/>
     </>
   );
 };

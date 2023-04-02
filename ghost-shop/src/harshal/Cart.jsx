@@ -21,11 +21,14 @@ import {
 import { TfiGift } from "react-icons/tfi";
 import { useSelector } from "react-redux";
 import CartCard from "../Components/CartCard";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 const Cart = () => {
   const { cart } = useSelector((store) => store.cartReducer);
   console.log(cart);
   return (
     <>
+    <Navbar/>
       <Grid
       fontFamily={"sans-serif"}
         h="auto"
@@ -292,6 +295,7 @@ const Cart = () => {
           </Box>
         </GridItem>
       </Grid>
+      <Footer/>
     </>
   );
 };
