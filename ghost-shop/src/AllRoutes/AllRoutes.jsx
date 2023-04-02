@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Admin from '../Pages/Admin'
-import Cart from '../harshal/Cart'
+// import Cart from '../harshal/Cart'
 import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import Men from '../Pages/Men'
@@ -15,6 +15,7 @@ import NewPost from '../Uma_Sahni/Admin/NewPost'
 import SingleEdit from '../Uma_Sahni/Admin/SingleEdit'
 import NewPostPage from '../Uma_Sahni/Admin/NewPostPage'
 import EditPostPage from '../Uma_Sahni/Admin/EditPostPage'
+import Cart from '../harshal/Cart'
 
 const AllRoutes = () => {
   return (

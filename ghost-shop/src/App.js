@@ -1,12 +1,16 @@
 import AllRoutes from './AllRoutes/AllRoutes';
 import './App.css';
-import {WomensProduct} from "./neha/WomensProduct";
+import Footer from './Components/Footer';
+import { MensProduct } from './neha/MensProduct';
+// import {WomensProduct} from "./neha/WomensProduct";
 
 function App() {  
   return (
     <div className="App">
-    {/* <AllRoutes/> */}
-    <WomensProduct/>
+    <AllRoutes/>
+    {/* <WomensProduct/> */}
+    <MensProduct/>
+    <Footer/>
     </div>
   );
 }
