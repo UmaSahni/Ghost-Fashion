@@ -3,15 +3,18 @@ import { ChevronDownIcon, ChevronRightIcon, CloseIcon, HamburgerIcon } from "@ch
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link as Redirect, useNavigate } from "react-router-dom";
 import styled, { } from "styled-components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { logout } from "../Redux/authReducer/action";
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
-  const store = useSelector((store)=>store.authReducer.auth)
-  console.log(store)
- 
+  const {auth,name} = useSelector((store)=>store.authReducer)
+  console.log(auth, name)
+ const dispatch = useDispatch()
   const Navigate = useNavigate();
- 
+ const handleLogOut = () =>{
+  dispatch(logout())
+ }
   const CartSize = 0;
   return (
     <Box style={{ position: "sticky", top: 0 }}>
@@ -47,7 +50,7 @@ export default function Navbar() {
           <Flex onClick={() => Navigate("/cart")} alignItems="center" color={"white"}>
             <MdOutlineShoppingCart style={{ fontSize: "25px", marginLeft: "20px" }} /><Span>{CartSize}</Span>
           </Flex>
-        </Flex>{store ? <Flex align={'end'}><Menu><MenuButton><Text fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} fontWeight={'500'} marginLeft={'30px'}>{}  </Text></MenuButton><MenuList><MenuItem><Button>Logout</Button></MenuItem></MenuList></Menu></Flex>
+        </Flex>{auth ? <Flex align={'end'}><Menu><MenuButton><Flex><Text fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} color={"white"} fontWeight={'500'} marginLeft={'30px'}>{name}</Text></Flex></MenuButton><MenuList><MenuItem><Button onClick={handleLogOut}>Logout</Button></MenuItem></MenuList></Menu></Flex>
                       : <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
                         <Button as={'a'} fontFamily="sans-serif" fontSize={'sm'} fontWeight={400} variant={'link'} color="white" href={'#'}><Link as={Redirect} to='/login'>Sign In</Link></Button>
                         <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'blue.500'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
