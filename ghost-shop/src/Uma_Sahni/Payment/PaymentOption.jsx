@@ -2,6 +2,7 @@ import { Box, Heading } from '@chakra-ui/react'
 import React from 'react'
 import PayPage from './PayPage'
 import TssMoney from './StaticCom/TssMoney'
+import AddressBox from './AddressBox'
 
 const PaymentOption = () => {
   return (
@@ -9,7 +10,7 @@ const PaymentOption = () => {
         <Heading size={"4px"} >Payment Option</Heading>
         <TssMoney/>
         <Box>
-
+        <AddressBox/>
         </Box>
         <PayPage/>
     </div>
