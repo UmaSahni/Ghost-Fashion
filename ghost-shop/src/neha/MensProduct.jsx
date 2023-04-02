@@ -4,6 +4,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import { getProducts } from "../Redux/WomenReducer/action";
 import { MProductCard } from "./MProductCard";
 import { Container, Flex, Grid, HStack, Stack, VStack } from "@chakra-ui/react";
+
 import { Sidebar2 } from "./Sidebar2";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -43,6 +44,7 @@ export const MensProduct = () => {
           />
         </Stack>
 
+
       <HStack w={"90%"} h={"auto"} margin={"auto"} align={"flex-start"}>
         <VStack w={"20%"} h={"auto"} margin={"0"} mt={"15px"}>
           <Sidebar2 />
@@ -68,6 +70,7 @@ export const MensProduct = () => {
       </HStack>
     </Container>
     <Footer/>
+
     </div>
   );
 };

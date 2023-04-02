@@ -1,7 +1,8 @@
 import { Image, Text } from '@chakra-ui/react'
 import React from 'react'
-import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
+// import styled from 'styled-components'
+import Navbar from '../Components/Navbar'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
     </div>
   )
 }
+
 
 export default Home;
 

@@ -12,6 +12,7 @@ const handleClick=()=>{
 
   return (
     <Box onClick={handleClick} textAlign={"left"} color={"darkgray"} fontStyle={"bold"} boxShadow={"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"}>
+
       <Image
         src={`https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/${images[0]}`}
         // src={images[0]}

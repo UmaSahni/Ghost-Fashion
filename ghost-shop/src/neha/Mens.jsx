@@ -57,6 +57,7 @@ const Mens = () => {
                 gap="30px"
                 margin={"auto"}
                 marginTop={10}
+
               >
                 <Image src={collectionmens1} alt="collection1" />
                 <Image src={collectionmens3} alt="collection2" />
@@ -97,19 +98,62 @@ const Mens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
+
               >
-                <Image src={menscat2} alt="collection1" />
-              </Box>
-              <Box
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                <Image src={collectionmens1} alt="collection1" />
+                <Image src={collectionmens3} alt="collection2" />
+                <Image src={collectionmens2} alt="collection3" />
+              </Grid>
+            </Box>
+          </Box>
+          <Box className="categorymens" style={{ marginTop: "30px" }}>
+            <Box>
+              <Text
+                fontWeight={"bold"}
+                color="gray"
+                fontFamily={"heading"}
+                fontSize="2xl"
               >
-                <Image src={menscat3} alt="collection1" />
-              </Box>
-            </Grid>
+                CATEGORIES
+              </Text>
+              <Grid
+                w={"97%"}
+                gridTemplateColumns={{
+                  base: "repeat(1,1fr)",
+                  md: "repeat(2,1fr)",
+                  lg: "repeat(3,1fr)",
+                }}
+                gap="30px"
+                margin={"auto"}
+                marginTop={10}
+              >
+                <Box
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                >
+                  <Image src={menscat1} alt="collection1" />
+                </Box>
+
+                <Box
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                >
+                  <Image src={menscat2} alt="collection1" />
+                </Box>
+                <Box
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                >
+                  <Image src={menscat3} alt="collection1" />
+                </Box>
+              </Grid>
+            </Box>
           </Box>
         </Box>
+
       </Box>
 
         <Box className="mensCards" style={{ marginTop: "30px" }}>
@@ -140,70 +184,88 @@ const Mens = () => {
           </Grid>
         </Box>
 
-      <Box className="OFFICIAL MERCHANDISE" style={{ marginTop: "30px" }}>
-        <Text
-          fontWeight={"bold"}
-          color="gray"
-          fontFamily={"heading"}
-          fontSize="2xl"
-        >
-          OFFICIAL MERCHANDISE
-        </Text>
 
-        <Grid
-          gridTemplateColumns={{
-            base: "repeat(2,1fr)",
-            md: "repeat(3,1fr)",
-            lg: "repeat(5,1fr)",
-          }}
-          gap={30}
-          width="92%"
-          margin="auto"
-          marginTop={5}
-        >
-          <Box
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+        <Box className="mensCards" style={{ marginTop: "30px" }}>
+          <Grid
+            gridTemplateColumns={{
+              base: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
+              lg: "repeat(4,1fr)",
+            }}
+            width="97%"
+            margin={"auto"}
+            gap={10}
           >
-            <Image
-              src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/web-icon.jpg?format=webp&w=300&dpr=1.3"
-              alt="marvel"
-            />
-          </Box>
+            <Link to={"/mensproducts"}>
+              <Image src={mmenscard1} alt="mendscard" />
+            </Link>
+            <Image src={mmenscard2} alt="mendscard" />
+            <Image src={mmenscard3} alt="mendscard" />
+            <Image src={mmenscard4} alt="mendscard" />
+            <Image src={mmenscard5} alt="mendscard" />
+            <Image src={mmenscard6} alt="mendscard" />
+            <Image src={mmenscard7} h={343} alt="mendscard" />
+            <Image src={mmenscard8} alt="mendscard" />
+            <Image src={mmenscard9} alt="mendscard" />
+            <Image src={mmenscard10} alt="mendscard" />
+            <Image src={mmenscard11} alt="mendscard" />
+            <Image src={mmenscard12} w={"100%"} h={343} alt="mendscard" />
+          </Grid>
+        </Box>
 
-          <Box
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+        <Box className="OFFICIAL MERCHANDISE" style={{ marginTop: "30px" }}>
+          <Text
+            fontWeight={"bold"}
+            color="gray"
+            fontFamily={"heading"}
+            fontSize="2xl"
           >
-            <Image
-              src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Marvel_Logo_268x220_b16y8nC_GKd3vRA.jpg?format=webp&w=300&dpr=1.3"
-              alt="marvel"
-            />
-          </Box>
+            OFFICIAL MERCHANDISE
+          </Text>
 
-          <Box
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+          <Grid
+            gridTemplateColumns={{
+              base: "repeat(2,1fr)",
+              md: "repeat(3,1fr)",
+              lg: "repeat(5,1fr)",
+            }}
+            gap={30}
+            width="92%"
+            margin="auto"
+            marginTop={5}
           >
-            <Image
-              src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/HarryPotter_Logo_268x220_LqBAKZU_Y8BG6uT.jpg?format=webp&w=300&dpr=1.3"
-              alt="marvel"
-            />
-          </Box>
+            <Box
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            >
+              <Image
+                src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/web-icon.jpg?format=webp&w=300&dpr=1.3"
+                alt="marvel"
+              />
+            </Box>
 
-          <Box
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
-          >
-            <Image
-              src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Disnety_Logo_268x220_GevoL2M_2j5PP2v.jpg?format=webp&w=300&dpr=1.3"
-              alt="marvel"
-            />
-          </Box>
+            <Box
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            >
+              <Image
+                src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Marvel_Logo_268x220_b16y8nC_GKd3vRA.jpg?format=webp&w=300&dpr=1.3"
+                alt="marvel"
+              />
+            </Box>
+
+            <Box
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            >
+              <Image
+                src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/HarryPotter_Logo_268x220_LqBAKZU_Y8BG6uT.jpg?format=webp&w=300&dpr=1.3"
+                alt="marvel"
+              />
+            </Box>
 
           <Box
             whileHover={{ scale: 1.01 }}
@@ -244,6 +306,7 @@ const Mens = () => {
           <Image src={topsell4} alt="topsell" />
         </Grid>
       </Box>
+
 
         <Box className="lastcrousel" style={{ marginTop: "30px" }}>
           <Image src={lastcrousel} alt="last" w={"95%"} margin="auto" />
