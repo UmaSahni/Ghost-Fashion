@@ -1,6 +1,6 @@
 import axios from "axios";
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actonTypes";
-import { SignInWithGoogle } from "../../Firebase";
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actonTypes";
+import { LogOut, SignInWithGoogle } from "../../Firebase";
 
 const loginRequestAction = () => {
 	return { type: LOGIN_REQUEST };
@@ -13,12 +13,12 @@ const loginFailureAction = () => {
 };
 
 //------------------------------------------------------------
-export const login = (payload) => (dispatch) => {
+export const login = () => (dispatch) => {
 	dispatch(loginRequestAction());
 	return SignInWithGoogle()
 	.then((res)=>{
 		console.log(res)
-		dispatch(loginSuccessAction(res.displayName))
+		dispatch(loginSuccessAction(res.user.displayName))
 	})
 	.catch((err)=>dispatch(loginFailureAction()))
 
@@ -29,3 +29,13 @@ export const login = (payload) => (dispatch) => {
 	// 	.then((res) => dispatch(loginSuccessAction()))
 	// 	.catch(() => dispatch(loginFailureAction()));
 };
+
+
+export const logout = () =>(dispatch)=>{
+dispatch(loginRequestAction())
+return LogOut().then((res)=>{
+	console.log("SignOut Success")
+	dispatch({type:LOGOUT_SUCCESS})
+})
+.catch((err)=>dispatch(loginFailureAction()))
+}

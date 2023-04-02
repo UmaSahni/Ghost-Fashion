@@ -62,12 +62,12 @@ const name = result.user.displayName
 console.log(result)
 }).catch((err)=>alert(err.message))
 }
- export  const LogOut = () =>{
-signOut(authUser).then(() => {
-  // Sign-out successful.
-  console.log("Sign Out Success")
-  localStorage.clear()
-}).catch((error) => {
-  // An error happened.
-});
-}
+ export  const LogOut = () => signOut(authUser)
+
+ // .then(() => {
+//   // Sign-out successful.
+//   console.log("Sign Out Success")
+//   localStorage.clear()
+// }).catch((error) => {
+//   // An error happened.
+// });
