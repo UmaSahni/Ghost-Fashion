@@ -38,7 +38,7 @@ export default function WomensCarousel() {
     <Box
       position={'relative'}
       height={'500px'}
-      
+      zIndex={-1}
       overflow={'hidden'}
       margin="auto"
       marginTop={150}

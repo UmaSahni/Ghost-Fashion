@@ -37,7 +37,7 @@ const Mens = () => {
           <Box>
             <Text
               fontWeight={"bold"}
-              color="gray"
+              color="black"
               fontFamily={"heading"}
               fontSize="2xl"
             >
@@ -64,7 +64,7 @@ const Mens = () => {
           <Box>
             <Text
               fontWeight={"bold"}
-              color="gray"
+              color="black"
               fontFamily={"heading"}
               fontSize="2xl"
             >
@@ -85,6 +85,7 @@ const Mens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={menscat1} alt="collection1" />
               </Box>
@@ -93,6 +94,7 @@ const Mens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={menscat2} alt="collection1" />
               </Box>
@@ -100,6 +102,7 @@ const Mens = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
               >
                 <Image src={menscat3} alt="collection1" />
               </Box>
@@ -112,7 +115,7 @@ const Mens = () => {
         <Grid
           gridTemplateColumns={{
             base: "repeat(2,1fr)",
-            md: "repeat(3,1fr)",
+            md: "repeat(2,1fr)",
             lg: "repeat(4,1fr)",
           }}
           width="97%"
@@ -139,7 +142,7 @@ const Mens = () => {
       <Box className="OFFICIAL MERCHANDISE" style={{ marginTop: "30px" }}>
         <Text
           fontWeight={"bold"}
-          color="gray"
+          color="black"
           fontFamily={"heading"}
           fontSize="2xl"
         >
@@ -161,6 +164,7 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/web-icon.jpg?format=webp&w=300&dpr=1.3"
@@ -172,6 +176,7 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Marvel_Logo_268x220_b16y8nC_GKd3vRA.jpg?format=webp&w=300&dpr=1.3"
@@ -183,6 +188,7 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/HarryPotter_Logo_268x220_LqBAKZU_Y8BG6uT.jpg?format=webp&w=300&dpr=1.3"
@@ -194,6 +200,7 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/Disnety_Logo_268x220_GevoL2M_2j5PP2v.jpg?format=webp&w=300&dpr=1.3"
@@ -205,6 +212,7 @@ const Mens = () => {
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            _hover={{transition: "all 0.2s ease-in-out", transform: "scale(1.02)"}}
           >
             <Image
               src="https://prod-img.thesouledstore.com/public/theSoul/storage/mobile-cms-media-prod/Merchandies-images/DC_Logo_268x220_qtYfouo_VyuqmVD.jpg?format=webp&w=300&dpr=1.3"
@@ -216,7 +224,7 @@ const Mens = () => {
       <Box className="topselling" style={{ marginTop: "30px" }}>
         <Text
           fontWeight={"bold"}
-          color="gray"
+          color="black"
           fontFamily={"heading"}
           fontSize="2xl"
         >
