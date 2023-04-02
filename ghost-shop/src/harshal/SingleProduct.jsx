@@ -18,7 +18,9 @@ import {
   Select,
   Text,
   Icon,
+  Spinner,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import {
   AiFillFacebook,
   AiFillLinkedin,
@@ -26,29 +28,53 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 import { ImWhatsapp } from "react-icons/im";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router";
 // import { color } from "framer-motion";
 import { StandardSizes } from "../Components/StandardSizes";
+import { addToCart } from "../Redux/cartReducer/action";
+import { getSingleProduct } from "../Redux/WomenReducer/action";
 
-import { products } from "./dummyData";
+// import { products } from "./dummyData";
 
 export const SingleProduct = () => {
-  // const [version, setversion] = useState("")
-  // const dispatch = useDispatch();
-  console.log(products[0]);
-  // const [shopButton, setShopButton] = useState(false);
-  // let newproducts = products;
+  const [data, setData] = useState("");
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  console.log(id);
+  useEffect(() => {
+    dispatch(getSingleProduct(id)).then((res) => {
+      setData(res);
+    });
+  }, []);
+
   function changeTheproducts(key, value) {
-    let newproducts = {
-      ...products,
-      [key]: value,
-    };
-    console.log(newproducts, 1);
+    // let newproducts = {
+    //   ...products,
+    //   [key]: value,
+    // };
+    // console.log(newproducts, 1);
   }
-  console.log();
-  const AddToBasket = () => {
-    console.log(123);
+  console.log(data);
+  const AddToBasket = (e) => {
+    e.preventDefault()
+    dispatch(addToCart(id))
     // console.log(nproducts);
   };
+  if (data === "") {
+    return (
+      <>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </>
+    );
+  }
   return (
     <>
       <Box
@@ -64,7 +90,7 @@ export const SingleProduct = () => {
           mt={"40px"}
           gap={20}
         >
-          <Box width={{ base: "100%", md: "auto" }} justifyContent="center" > 
+          <Box width={{ base: "100%", md: "auto" }} justifyContent="center">
             <Flex justifyContent="space-evenly" direction="row" gap="2">
               <Flex
                 direction={"column"}
@@ -72,20 +98,20 @@ export const SingleProduct = () => {
                 justifyContent="space-between"
               ></Flex>
               {/* map image here */}
-              <Image
-                width={"100%"}
-                height={"100%"}
-                src={
-                  "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1663569684_2629055.jpg?format=webp&w=376&dpr=1.0"
-                }
-              />
-              <Image
-                width={"100%"}
-                height={"100%"}
-                src={
-                  "https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1663569684_2629055.jpg?format=webp&w=376&dpr=1.0"
-                }
-              />
+              <Grid templateColumns='repeat(2, 1fr)' gap={3}>
+                {data.images.map((image) => {
+                  return (
+                    <GridItem>
+                      <Image
+                        width={"100%"}
+                        height={"100%"}
+                        src={`https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/${image}?format=webp&w=376&dpr=1.0`}
+                      />
+                    </GridItem>
+                  );
+                })}
+              </Grid>
+             
             </Flex>
           </Box>
 
@@ -95,24 +121,24 @@ export const SingleProduct = () => {
               mt={{ base: "10px", md: "0px" }}
               fontSize={"30px"}
             >
-              The Simpsons: Expressions
+              {data.product}
             </Heading>
             <Text fontSize={"16px"} mt={"-5px"} align="left" color={"gray"}>
-              {products[0].description}
+              {data.category.name}
             </Text>
             <Box borderTop={"1px"} my="20px"></Box>
             <HStack my={"20px"}>
               <Text fontSize={"25px"} fontWeight={"semibold"} align="left">
-                {products[0].price}
+                ₹ {data.exclusivePrice}
               </Text>
               <Text
                 align="left"
                 style={{ textDecoration: "line-through", color: "gray" }}
               >
-                {products[0].offer_price}
+               ₹ {data.price}
               </Text>
               <Text align="left" color={"red"}>
-                {products[0].discount}
+                {"20% OFF"}
               </Text>
             </HStack>
 
@@ -165,7 +191,7 @@ export const SingleProduct = () => {
                     zIndex="0"
                     colorScheme="teal"
                     variant="outline"
-                    leftIcon={<heartIcon />}
+                    // leftIcon={<heartIcon />}
                     w={"80%"}
                     onClick={AddToBasket}
                   >
@@ -178,10 +204,30 @@ export const SingleProduct = () => {
                   <Text align="left" fontSize={"14px"}>
                     Share
                   </Text>
-                  <Icon cursor={"pointer"} as={ImWhatsapp} boxSize={5} mr="5px" />
-                  <Icon cursor={"pointer"} as={AiFillFacebook} boxSize={6} mr="5px" />
-                  <Icon cursor={"pointer"} as={AiFillLinkedin} boxSize={6} mr="5px" />
-                  <Icon cursor={"pointer"} as={AiOutlineInstagram} boxSize={6} mr="5px" />
+                  <Icon
+                    cursor={"pointer"}
+                    as={ImWhatsapp}
+                    boxSize={5}
+                    mr="5px"
+                  />
+                  <Icon
+                    cursor={"pointer"}
+                    as={AiFillFacebook}
+                    boxSize={6}
+                    mr="5px"
+                  />
+                  <Icon
+                    cursor={"pointer"}
+                    as={AiFillLinkedin}
+                    boxSize={6}
+                    mr="5px"
+                  />
+                  <Icon
+                    cursor={"pointer"}
+                    as={AiOutlineInstagram}
+                    boxSize={6}
+                    mr="5px"
+                  />
                 </HStack>
               </Box>
 
@@ -255,11 +301,12 @@ export const SingleProduct = () => {
                   </h2>
                   <AccordionPanel pb={4} p="30px" pt={5}>
                     <Heading pb={2} fontSize={"14px"}>
-                      Official Licensed Archie Comics Summer Shirt.
+                      Official Licensed {data.product} {data.category.name}.
                     </Heading>
                     <Text fontSize="sm" mb={7} mt={6}>
-                      Buy this Archie Comic print summer shirt for men at The
-                      Souled Store.
+                      Buy this {data.product} {data.category.name} for{" "}
+                      {data.genderType === 1 ? "Men" : "Women"} at The Souled
+                      Store.
                     </Text>
                     <Heading pb={2} fontSize={"14px"}>
                       MRP: Rs. 1999/- incl. of all taxes

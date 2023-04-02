@@ -11,24 +11,23 @@ import {
   Flex,
   Grid,
   GridItem,
-  Heading,
-  HStack,
   Image,
   Input,
   Link,
-  Select,
   Spacer,
-  Stack,
   Text,
   Icon,
 } from "@chakra-ui/react";
 import { TfiGift } from "react-icons/tfi";
-import { products } from "./dummyData";
-
+import { useSelector } from "react-redux";
+import CartCard from "../Components/CartCard";
 const Cart = () => {
+  const { cart } = useSelector((store) => store.cartReducer);
+  console.log(cart);
   return (
     <>
       <Grid
+      fontFamily={"sans-serif"}
         h="auto"
         w={"90%"}
         m="auto"
@@ -37,123 +36,11 @@ const Cart = () => {
         templateColumns="repeat(7, 1fr)"
         gap={4}
       >
-        <GridItem rowSpan={3} colSpan={5}>
-          <Box
-            border={"1px"}
-            p="20px"
-            borderColor="gray.300"
-            borderRadius={"5px"}
-            boxShadow="md"
-          >
-            <HStack height={"200px"}>
-              <Box height={"100%"} width={"25%"}>
-                <Image
-                  borderRadius={"5px"}
-                  boxShadow="md"
-                  height="100%"
-                  src={products[0].image2}
-                  alt="dummy"
-                />
-              </Box>
-              <Box height={"100%"} width={"70%"}>
-                <Flex justifyContent={"space-between"}>
-                  <Heading
-                    align="left"
-                    // mt={{ base: "10px", md: "0px" }}
-                    fontSize={"16px"}
-                  >
-                    The Simpsons: Expressions
-                  </Heading>
-                  <Box>
-                    <HStack>
-                      <Text
-                        fontSize={"16px"}
-                        fontWeight={"semibold"}
-                        align="left"
-                      >
-                        {products[0].price}
-                      </Text>
-                      <Text
-                        align="left"
-                        style={{
-                          textDecoration: "line-through",
-                          color: "gray",
-                        }}
-                      >
-                        {products[0].offer_price}
-                      </Text>
-                    </HStack>
-                  </Box>
-                </Flex>
-                <Flex justifyContent={"space-between"}>
-                  <Text
-                    fontSize={"14px"}
-                    my={"8px"}
-                    align="left"
-                    color={"gray"}
-                  >
-                    {products[0].description}
-                  </Text>
-                  <Text align="left" color={"red"} fontSize={"14px"}>
-                    {products[0].discount}
-                  </Text>
-                </Flex>
-                <HStack>
-                  <Select
-                    my={"8px"}
-                    mr={"10px"}
-                    width="120px"
-                    height="35px"
-                    fontSize={"13px"}
-                    fontWeight="bold"
-                    placeholder={`Size:m`}
-                  >
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                  </Select>
-                  <Select
-                    m={"10px"}
-                    width="120px"
-                    height="35px"
-                    fontSize={"13px"}
-                    fontWeight="bold"
-                    placeholder="Qty:1"
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </Select>
-                </HStack>
-              </Box>
-            </HStack>
-            <Stack
-              w={"75%"}
-              ml="25%"
-              borderTop={"1px"}
-              borderColor="gray.300"
-              direction="row"
-              spacing={4}
-              justifyContent="end"
-              pt={"10px"}
-            >
-              <Button size="sm" colorScheme="red" variant="outline">
-                Remove
-              </Button>
-              <Button size="sm" variant="outline" colorScheme="teal">
-                Move To Wishlist
-              </Button>
-            </Stack>
-          </Box>
+        {/* cart cart */}
+        <GridItem colSpan={5}>
+          {cart.map((item) => {
+            return <CartCard {...item} />;
+          })}
         </GridItem>
         <GridItem colSpan={2}>
           <Box>
@@ -175,8 +62,10 @@ const Cart = () => {
               borderRadius="5px"
               textAlign={"left"}
             >
-              <Checkbox >
-                <Text fontWeight={"bold"} fontSize="14px">Save an additional ₹ 100 on this order.</Text>
+              <Checkbox>
+                <Text fontWeight={"bold"} fontSize="14px">
+                  Save an additional ₹ 100 on this order.
+                </Text>
               </Checkbox>
             </Box>
             <Box>
