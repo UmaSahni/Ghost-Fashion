@@ -1,15 +1,21 @@
-import { ADD_TO_CART } from "../cartReducer/actionTypes";
-const initialState = {
-  isLoading: false,
-  isError: false,
-  products: [],
-};
-export const reducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case ADD_TO_CART:
-      return { ...state, isLoading: false, products: payload };
+import { PRODUCT_FAILURE, PRODUCT_REQUEST,PRODUCT_SUCCESS } from "./actionTypes";
 
-    default:
-      return state;
-  }
+const initialState = {
+     isLoading: false,
+     isError: false,
+    products: [],
 };
+export const reducer = (state = initialState, {type, payload}) => {
+       switch(type){
+          case PRODUCT_REQUEST: 
+            return {...state, isLoading: true}
+          case PRODUCT_SUCCESS: 
+            return {...state, isLoading: false, products: payload}
+          case PRODUCT_FAILURE: 
+            return {...state, isLoading: false, isError: true}
+         
+          default:
+            return state;
+       }
+};
+

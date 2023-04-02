@@ -27,7 +27,7 @@ export const MensProduct = () => {
   useEffect(() => {
     dispatch(getProducts(obj, "menSection"));
   }, [location.search]);
-  console.log(products);
+  console.log("products-",products);
 
   return (
     <div>
