@@ -24,6 +24,7 @@ import {
   DrawerBody,
   
 } from "@chakra-ui/react";
+import { CiDeliveryTruck } from "react-icons/ci";
 import { Link as MyLink } from "react-router-dom";
 import {
   FiHome,
@@ -44,7 +45,7 @@ const LinkItems = [
   { name: "Home", icon: FiHome, title: "/admin" },
   { name: "New Post", icon: AddIcon, title: "/newPost" },
   { name: "Edit Post", icon: EditIcon, title: "/editPost" },
-  { name: "Favourites", icon: FiStar },
+  { name: "Delivery", icon: CiDeliveryTruck, title:"/delivery" },
   { name: "Settings", icon: FiSettings },
 ];
 
@@ -73,7 +74,7 @@ export default function PageDesign({ children }) {
       </Drawer>
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
-      <Box border={"10px solid red"} ml={{ base: 0, md: 60 }} p="4">
+      <Box  ml={{ base: 0, md: 60 }} p="4">
         {children}
       </Box>
     </Box>
@@ -100,7 +101,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       </Flex>
       {LinkItems.map((link) => (
        
-          <NavItem key={link.name} title={link.title} icon={link.icon}>
+          <NavItem  key={link.name} title={link.title} icon={link.icon}>
             {link.name}
           </NavItem>
      

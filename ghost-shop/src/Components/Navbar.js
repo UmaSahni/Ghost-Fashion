@@ -3,13 +3,21 @@ import { ChevronDownIcon, ChevronRightIcon, CloseIcon, HamburgerIcon } from "@ch
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { Link as Redirect, useNavigate } from "react-router-dom";
 import styled, { } from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { logout } from "../Redux/authReducer/action";
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { auth, name } = useSelector((store) => store.authReducer)
+  console.log(auth, name)
+  const dispatch = useDispatch()
   const Navigate = useNavigate();
-  const isAuth = false;
+  const handleLogOut = () => {
+    dispatch(logout())
+  }
   const CartSize = 0;
   return (
-    <Box>
+    <Box style={{ position: "sticky", top: 0 }}>
       <Flex
         bg={useColorModeValue('#E11B23')}
         color={useColorModeValue('gray.600', 'white')}
@@ -27,14 +35,14 @@ export default function Navbar() {
           <IconButton color={"white"} onClick={onToggle} icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />} variant={'ghost'} aria-label={'Toggle Navigation'} />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-         {/* Logo */}
-         <Flex   >
-              <Image onClick={() => Navigate('/')}  width={"10erm"} src="uma-abc.gif" />
-              {/* boxSize={"20"} */}
+          {/* Logo */}
+          <Flex   >
+            <Image onClick={() => Navigate('/')} width={"10erm"} src="uma-abc.gif" />
+            {/* boxSize={"20"} */}
             <Box display={"flex"} alignItems="center" height={"70px"} width={"70px"}    >
-                <Image onClick={() => Navigate('/')}    src="heart-cut.png" />
-            </Box> 
-         </Flex>
+              <Image onClick={() => Navigate('/')} src="heart-cut.png" />
+            </Box>
+          </Flex>
 
           <Flex display={{ base: 'none', xl: 'flex' }} alignItems="center" ml={20}>
             <DesktopNav />
@@ -42,10 +50,10 @@ export default function Navbar() {
           <Flex onClick={() => Navigate("/cart")} alignItems="center" color={"white"}>
             <MdOutlineShoppingCart style={{ fontSize: "25px", marginLeft: "20px" }} /><Span>{CartSize}</Span>
           </Flex>
-        </Flex>{isAuth ? <Flex align={'end'}><Menu><MenuButton><Text fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} fontWeight={'500'} marginLeft={'30px'}>{JSON.parse(localStorage.getItem("Profile"))}</Text></MenuButton><MenuList><MenuItem><Button>Logout</Button></MenuItem></MenuList></Menu></Flex> :
+        </Flex>{auth ? <Flex align={'end'}><Menu><MenuButton><Flex><Text fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }} color={"white"} fontWeight={'500'} marginLeft={'30px'}>{name}</Text></Flex></MenuButton><MenuList><MenuItem><Button onClick={handleLogOut}>Logout</Button></MenuItem></MenuList></Menu></Flex> :
           <Stack flex={{ base: 1, md: 0 }} justify={'flex-end'} direction={'row'} spacing={6}>
             <Button as={'a'} fontFamily="sans-serif" fontSize={'sm'} fontWeight={400} variant={'link'} color="white" href={'#'}><Link as={Redirect} to='/login'>Sign In</Link></Button>
-            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'blue.500'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
+            <Button as={'a'} display={{ base: 'none', md: 'inline-flex' }} fontSize={'sm'} fontWeight={600} color={'white'} bg={'pink.500'} href={'#'} _hover={{ bg: 'pink.300' }}>Sign Up</Button>
           </Stack>}
       </Flex>
       <Collapse in={isOpen} animateOpacity>
@@ -66,7 +74,8 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 p={2}
-                href={navItem.href ?? '#'}
+                as={Redirect}
+                to={navItem.to ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
                 color={linkColor}
@@ -158,10 +167,11 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Women',
+    to: '/women',
     children: [
       {
         label: 'Top Wear',
-        to: '#'
+        to: '/womenlist'
       },
       {
         label: 'Bottom Wear',
@@ -187,10 +197,11 @@ const NAV_ITEMS = [
   },
   {
     label: 'Men',
+    to: '/men',
     children: [
       {
         label: 'Top Wear',
-        to: '#'
+        to: '/menlist'
       },
       {
         label: 'Bottom Wear',

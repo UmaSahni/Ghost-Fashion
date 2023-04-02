@@ -15,16 +15,20 @@ import NewPost from '../Uma_Sahni/Admin/NewPost'
 import SingleEdit from '../Uma_Sahni/Admin/SingleEdit'
 import NewPostPage from '../Uma_Sahni/Admin/NewPostPage'
 import EditPostPage from '../Uma_Sahni/Admin/EditPostPage'
-import Cart from '../harshal/Cart'
+import { WomensProduct } from '../neha/WomensProduct'
+import Womens from '../neha/Womens'
+import Mens from '../neha/Mens'
+import { MensProduct } from '../neha/MensProduct'
+import Delivery from '../Uma_Sahni/Admin/Delivery'
 
 const AllRoutes = () => {
   return (
     <Routes>
      <Route path='/' element={<Home/>} />
-     <Route path='/women'element={<Women/>} />
-     <Route path='/womenlist'element={<WomenList/>} />
-     <Route path='/men'element={<Men/>} />
-     <Route path='/menlist'element={<MenList/>} />
+     <Route path='/women'element={<Womens/>} />
+     <Route path='/womenlist'element={<WomensProduct/>} />
+     <Route path='/men'element={<Mens/>} />
+     <Route path='/menlist'element={<MensProduct/>} />
      <Route path='/details/:id'element={<SingleProduct/>} />
      <Route path='/cart'element={<Cart/>} />
      <Route path='/payment'element={<Payment/>} />
@@ -34,7 +38,7 @@ const AllRoutes = () => {
       <Route path='/newPost'element={<NewPostPage/>} />
       <Route path='/admin/:id'element={<SingleEdit/>} />
       <Route path='/editPost'element={<EditPostPage/>} />
-      
+      <Route path="/delivery" element={<Delivery/>} />
     </Routes>
   )
 }

@@ -12,6 +12,7 @@ import WalletBox from './WalletsBox'
 import NetBanking from './NetBanking'
 
 import CREDpay from './StaticCom/CREDpay'
+import CreditCard from './CreditCard'
 const PayPage = () => {
   return (
     <div>
@@ -55,7 +56,7 @@ const PayPage = () => {
       </AccordionButton>
     </h2>
     <AccordionPanel pb={4}>
-    This feature is currently not working
+    <CreditCard/>
     </AccordionPanel>
   </AccordionItem>
 
