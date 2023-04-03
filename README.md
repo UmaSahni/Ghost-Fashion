@@ -1,7 +1,7 @@
 # The Ghost Fashion
 
 ![image](https://rct-211-b24.slack.com/files/U04REJWFWBD/F051GQW98UQ/the-ghost-fashion.gif)
-
+<img src="https://rct-211-b24.slack.com/files/U04REJWFWBD/F051GQW98UQ/the-ghost-fashion.gif" border="0" />
 # Overview
  The Ghost Fashion is an e-commerce platform to buy clothes,beauty & Wellness,fashion,furniture and jewellery,etc. and it is clone of # The Souled Store
  
