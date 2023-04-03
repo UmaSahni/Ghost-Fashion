@@ -33,7 +33,7 @@ import { useParams } from "react-router";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 // import { color } from "framer-motion";
-import { StandardSizes } from "../Components/StandardSizes";
+import { StandardSizes } from "./StandardSizes";
 import { addToCart } from "../Redux/cartReducer/action";
 import { getSingleProduct } from "../Redux/WomenReducer/action";
 
@@ -60,8 +60,8 @@ export const SingleProduct = () => {
   }
   console.log(data);
   const AddToBasket = (e) => {
-    e.preventDefault()
-    dispatch(addToCart(id))
+    e.preventDefault();
+    dispatch(addToCart(id));
     // console.log(nproducts);
   };
   if (data === "") {
@@ -79,7 +79,7 @@ export const SingleProduct = () => {
   }
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Box
         mt={{ base: "330px", sm: "260px", md: "60px" }}
         color="rgb(41, 43, 44)"
@@ -101,7 +101,7 @@ export const SingleProduct = () => {
                 justifyContent="space-between"
               ></Flex>
               {/* map image here */}
-              <Grid templateColumns='repeat(2, 1fr)' gap={3}>
+              <Grid templateColumns="repeat(2, 1fr)" gap={3}>
                 {data.images.map((image) => {
                   return (
                     <GridItem>
@@ -114,7 +114,6 @@ export const SingleProduct = () => {
                   );
                 })}
               </Grid>
-             
             </Flex>
           </Box>
 
@@ -138,7 +137,7 @@ export const SingleProduct = () => {
                 align="left"
                 style={{ textDecoration: "line-through", color: "gray" }}
               >
-               ₹ {data.price}
+                ₹ {data.price}
               </Text>
               <Text align="left" color={"red"}>
                 {"20% OFF"}
@@ -182,7 +181,6 @@ export const SingleProduct = () => {
               <Box mt={"20px"}>
                 <HStack>
                   <Button
-                    zIndex="0"
                     colorScheme="red"
                     bg="rgb(236, 61, 37)"
                     w={"100%"}
@@ -191,7 +189,6 @@ export const SingleProduct = () => {
                     ADD TO CART
                   </Button>
                   <Button
-                    zIndex="0"
                     colorScheme="teal"
                     variant="outline"
                     // leftIcon={<heartIcon />}
@@ -451,7 +448,7 @@ export const SingleProduct = () => {
           </Box>
         </Box>
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };

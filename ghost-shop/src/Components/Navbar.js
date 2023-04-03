@@ -19,7 +19,7 @@ export default function Navbar() {
   const CartSize = useSelector(store=>store.cartReducer.cart.length);
 
   return (
-    <Box style={{ position: "sticky", top: 0 }}>
+    <Box style={{ position: "sticky", top: 0 ,zIndex:100}}>
       <Flex
         bg={useColorModeValue('#E11B23')}
         color={useColorModeValue('gray.600', 'white')}

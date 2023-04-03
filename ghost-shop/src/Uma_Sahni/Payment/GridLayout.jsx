@@ -1,5 +1,6 @@
-import { Box, Center, Flex, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Box, Center, Flex, GridItem, SimpleGrid, Stack } from "@chakra-ui/react";
 import React from "react";
+import styled from "styled-components";
 import PaymentOption from "./PaymentOption";
 import Total from "./ShowTotal/Total";
 // import TssMoney from "./StaticCom/TssMoney";
@@ -7,22 +8,22 @@ import Total from "./ShowTotal/Total";
 const GridLayout = () => {
   return (
     <Box>
-      <Box  margin={"auto"} width={"80%"} >
+      <Box  margin={"auto"} width={"90%"} >
        
-        <Box margin={"1rem"} color={"teal"} fontSize="0.8rem" fontWeight="bold">
+        <Box margin={"1rem"} color={"teal"} fontSize="0.8rem">
           {" "}
-          MY BAG - - - - - - - - - - - - - ADDRESS - - - - - - - - - - - - -
+         <Span> MY BAG - - - - - - - - - - - - - ADDRESS</Span> - - - - - - - - - - - - -
           PAYMENT{" "}
          
         </Box>
  
-          <SimpleGrid   columns={[1, 1, 1, 1, 1, 2]} spacing="40px">
-          <Box width={"100%"} border={"1px solid #E2E8F0"}  height="auto">
+          <SimpleGrid templateColumns='repeat(3, 1fr)' spacing="40px">
+          <GridItem colSpan={2} border={"1px solid #E2E8F0"}  height="auto">
             <PaymentOption/> 
-          </Box>
-          <Box   >
+          </GridItem>
+          <GridItem colSpan={1}>
             <Total/>
-          </Box>
+          </GridItem>
         </SimpleGrid>
 
        
@@ -32,3 +33,5 @@ const GridLayout = () => {
 };
 
 export default GridLayout;
+
+const Span=styled.span`font-weight:bold`;

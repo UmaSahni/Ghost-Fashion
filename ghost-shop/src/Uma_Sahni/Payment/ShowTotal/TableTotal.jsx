@@ -10,7 +10,10 @@ import {
   TableCaption,
   TableContainer,
 } from '@chakra-ui/react'
+
+import { billDetail } from '../../../harshal/Cart'
 const TableTotal = () => {
+  const {cart_total,discount,gst,total_amount,}=billDetail
   return (
     <div>
 <TableContainer border={"1px solid #E2E8F0"} >
@@ -21,21 +24,21 @@ const TableTotal = () => {
     <Tbody padding={1} >
       <Tr>
         <Td>Cart Total</Td>
-        <Td isNumeric>₹ 9939.39</Td>
+        <Td isNumeric>₹ {cart_total}</Td>
       </Tr>
       <Tr>
         <Td>Discount</Td>
-        <Td isNumeric>- ₹ 200.00</Td>
+        <Td isNumeric>- ₹ {discount}</Td>
       </Tr>
       <Tr>
         <Td>GST</Td>
-        <Td isNumeric>₹ 943.61</Td>
+        <Td isNumeric>₹ {gst}</Td>
       </Tr>
     </Tbody>
     <Tfoot>
       <Tr>
         <Th>Total Amount</Th>
-        <Th isNumeric>₹ 10683.00</Th>
+        <Th isNumeric>₹ {total_amount}</Th>
       </Tr>
     </Tfoot>
   </Table>
