@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Accordion,
   AccordionButton,
@@ -19,24 +19,77 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { TfiGift } from "react-icons/tfi";
-import { useSelector } from "react-redux";
-import CartCard from "../Components/CartCard";
+import { useDispatch, useSelector } from "react-redux";
+import CartCard from "./CartCard";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router";
-const Cart = () => {
-  const { cart } = useSelector((store) => store.cartReducer);
-  const navigate = useNavigate()
-  console.log(cart);
+import { removeFromCartAction } from "../Redux/cartReducer/action";
+import styled from "styled-components";
 
-  const handleOrder=()=>{
-    navigate("/payment")
-  }
+export let billDetail;
+const billDetailFunction = (cart) => {
+  billDetail = {
+    cart_total: 0,
+    discount: 0,
+    gst: 0,
+    total_amount: 0,
+  };
+  cart.forEach((item) => {
+    billDetail.cart_total = billDetail.cart_total + item.exclusivePrice;
+    let discountPrice = item.price - item.exclusivePrice;
+    // (discountPrice/item.exclusivePrice)*100
+    billDetail.discount = billDetail.discount + discountPrice;
+    billDetail.gst = (billDetail.cart_total * 18) / 100;
+    let Total = billDetail.cart_total - billDetail.discount + billDetail.gst;
+    billDetail.total_amount = Total.toFixed(3);
+  });
+};
+
+const Cart = () => {
+  const { cart, isLoading } = useSelector((store) => store.cartReducer);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // console.log(cart);
+  billDetailFunction(cart);
+
+  const remove = (id) => {
+    dispatch(removeFromCartAction(id));
+    billDetailFunction(cart);
+
+    // console.log(id);
+  };
+  const changePrice = (id) => {
+    dispatch(removeFromCartAction(id));
+    billDetailFunction(cart);
+
+    console.log(id);
+  };
+
+  const handleOrder = () => {
+    navigate("/payment");
+  };
+  // if (isLoading) {
+  //   return (
+  //     <>
+  //       <Flex height={"100vh"} alignItems={"center"} justifyContent={"center"}>
+  //         <Image
+  //           src="https://bakestudio.in/assets/images/cart/empty-cart.gif"
+  //         ></Image>
+  //       </Flex>
+  //     </>
+  //   );
+  // }
   return (
     <>
-    <Navbar/>
+      <Navbar />
+      <Box margin={"1rem"} color={"teal"} fontSize="0.8rem">
+        {" "}
+        <Span>MY BAG </Span>- - - - - - - - - - - - - ADDRESS - - - - - - - - - - - - -
+        PAYMENT{" "}
+      </Box>
       <Grid
-      fontFamily={"sans-serif"}
+        fontFamily={"sans-serif"}
         h="auto"
         w={"90%"}
         m="auto"
@@ -47,9 +100,13 @@ const Cart = () => {
       >
         {/* cart cart */}
         <GridItem colSpan={5}>
-          {cart.map((item) => {
-            return <CartCard {...item} />;
-          })}
+          {cart.length === 0 ? (
+            <Image align={"center"} src="https://bakestudio.in/assets/images/cart/empty-cart.gif" />
+          ) : (
+            cart.map((item) => {
+              return <CartCard {...item} remove={remove} changePrice={changePrice}/>;
+            })
+          )}
         </GridItem>
         <GridItem colSpan={2}>
           <Box>
@@ -60,7 +117,7 @@ const Cart = () => {
                 colorScheme="teal"
                 variant="solid"
                 fontWeight={"bold"}
-              onClick={handleOrder}
+                onClick={handleOrder}
               >
                 PLACE ORDER
               </Button>
@@ -261,7 +318,7 @@ const Cart = () => {
                   <Flex justifyContent={"space-between"}>
                     <Text fontSize={"14px"}>Cart Total</Text>
                     <Text fontSize={"14px"} fontWeight={"bold"}>
-                      ₹ {1399.11}
+                      ₹ {billDetail.cart_total}
                     </Text>
                   </Flex>
                 </Box>
@@ -269,7 +326,7 @@ const Cart = () => {
                   <Flex color={"teal.600"} justifyContent={"space-between"}>
                     <Text fontSize={"14px"}>Discount</Text>
                     <Text fontSize={"14px"} fontWeight={"bold"}>
-                      - ₹ 200.00
+                      - ₹ {billDetail.discount}
                     </Text>
                   </Flex>
                 </Box>
@@ -277,7 +334,7 @@ const Cart = () => {
                   <Flex justifyContent={"space-between"}>
                     <Text fontSize={"14px"}>GST</Text>
                     <Text fontSize={"14px"} fontWeight={"bold"}>
-                      ₹ 143.89
+                      ₹ {billDetail.gst}
                     </Text>
                   </Flex>
                 </Box>
@@ -291,9 +348,11 @@ const Cart = () => {
                 </Box>
                 <Box p={"15px"}>
                   <Flex justifyContent={"space-between"}>
-                    <Text fontSize={"14px"}>Total Amount</Text>
                     <Text fontSize={"14px"} fontWeight={"bold"}>
-                      ₹ 1343.00
+                      Total Amount
+                    </Text>
+                    <Text fontSize={"14px"} fontWeight={"bold"}>
+                      ₹ {billDetail.total_amount}
                     </Text>
                   </Flex>
                 </Box>
@@ -302,9 +361,11 @@ const Cart = () => {
           </Box>
         </GridItem>
       </Grid>
-      <Footer/>
+      <Footer />
     </>
   );
 };
 
 export default Cart;
+
+const Span=styled.span`font-weight:bold`;

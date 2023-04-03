@@ -1,20 +1,28 @@
-
 import {
-    Box,
-    Button,
-    Flex,
-    Heading,
-    HStack,
-    Image,
-    Select,
-    Text,
-    Stack,
-  } from "@chakra-ui/react";
+  Box,
+  Button,
+  Flex,
+  Heading,
+  HStack,
+  Image,
+  Select,
+  Text,
+  Stack,
+} from "@chakra-ui/react";
 
 import React from "react";
 
-const CartCard = ({images,price,exclusivePrice,category}) => {
-    console.log(images)
+const CartCard = ({ images, price, exclusivePrice, category,id, remove,changePrice}) => {
+ 
+  const removeItem = (e) => {
+    // e.preventDefault()
+    remove(id)
+  };
+  const handleSelect = (e) => {
+    // e.preventDefault()
+    changePrice(123)
+  };
+  
   return (
     <>
       <Box
@@ -85,6 +93,7 @@ const CartCard = ({images,price,exclusivePrice,category}) => {
                 <option value="XXL">XXL</option>
               </Select>
               <Select
+              onChange={handleSelect}
                 m={"10px"}
                 width="120px"
                 height="35px"
@@ -116,7 +125,12 @@ const CartCard = ({images,price,exclusivePrice,category}) => {
           justifyContent="end"
           pt={"10px"}
         >
-          <Button size="sm" colorScheme="red" variant="outline">
+          <Button
+            size="sm"
+            colorScheme="red"
+            variant="outline"
+            onClick={removeItem}
+          >
             Remove
           </Button>
           <Button size="sm" variant="outline" colorScheme="teal">
