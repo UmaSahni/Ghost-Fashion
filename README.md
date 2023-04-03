@@ -23,18 +23,16 @@
 
 # Deployed Links : https://ghost-shop.vercel.app/
 # Website previw :
-<a href="https://ibb.co/rmpTgTv"><img src="https://i.ibb.co/hydhkhC/Screenshot-2023-04-03-120546.png" alt="Screenshot-2023-04-03-120546" border="0" /></a>
-![image](https://ibb.co/rmpTgTv)
-![image](https://ibb.co/wMWcxNV)
-![image](https://ibb.co/N11wsvL)
-![image](https://ibb.co/1JBVFvM)
-![image](https://ibb.co/t870q3r)
-![image](https://ibb.co/WcPdhP0)
-![image](https://ibb.co/t870q3r)
-
+<img src="https://i.ibb.co/hydhkhC/Screenshot-2023-04-03-120546.png" alt="Screenshot-2023-04-03-120546" border="0" />
+<img src="https://i.ibb.co/LntN2zm/Screenshot-2023-04-03-120659.png" alt="Screenshot-2023-04-03-120659" border="0" />
+<img src="https://i.ibb.co/dbbnrTQ/Screenshot-2023-04-03-120821.png" alt="Screenshot-2023-04-03-120821" border="0" />
+<img src="https://i.ibb.co/4gCyhm2/Screenshot-2023-04-03-120907.png" alt="Screenshot-2023-04-03-120907" border="0" />
+<img src="https://i.ibb.co/kQRL4MC/Screenshot-2023-04-03-120959.png" alt="Screenshot-2023-04-03-120959" border="0" />
+<img src="https://i.ibb.co/GJ1wJmj/Screenshot-2023-04-03-121138.png" alt="Screenshot-2023-04-03-121138" border="0" />
+<img src="https://i.ibb.co/kh9r79J/Screenshot-2023-04-03-121230.png" alt="Screenshot-2023-04-03-121230" border="0" />
 # Admin previw :
-![image](https://ibb.co/1ZNGtwn)
-![image](https://ibb.co/7z8GH8g)
+<img src="https://i.ibb.co/R2KTkVS/Screenshot-2023-04-03-121421.png" alt="Screenshot-2023-04-03-121421" border="0" />
+<img src="https://i.ibb.co/26mjwm8/Screenshot-2023-04-03-121444.png" alt="Screenshot-2023-04-03-121444" border="0" />
 
 # Team :
 <ul>
