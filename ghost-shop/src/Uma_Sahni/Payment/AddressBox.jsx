@@ -18,13 +18,14 @@ const AddressBox = () => {
  
 
   const dispatch = useDispatch()
-  const store = useSelector((store)=>store.adminReducer.address)
-   
+  const cart = useSelector((store)=>store.cartReducer.cart)
+   console.log(cart)
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setAddressInput((prevAddressInput) => ({
       ...prevAddressInput,
       randomTime,
+      cart,
       [name]: value,
     }));
   };
