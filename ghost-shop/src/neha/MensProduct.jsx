@@ -31,46 +31,63 @@ export const MensProduct = () => {
   useEffect(() => {
     dispatch(getProducts(obj, "menSection"));
   }, [location.search]);
-  console.log("products-",products);
+  console.log("products-", products);
 
   return (
     <div>
       <Navbar />
-      <Container maxW={"100%"} margin={"auto"}>
-        <Stack w={"90%"} h={"350px"} margin={"auto"} mb={"10px"}>
+      <Container
+        maxW={{ base: "100%", md: "100%", lg: "100%" }}
+        margin={"auto"}
+      >
+        <Stack
+          w={"87%"}
+          h={"350px"}
+          margin={"auto"}
+          direction={{ base: "column", md: "row" }}
+        >
           <img
             src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020230317192609.jpg?format=webp&w=1500&dpr=1.1"
-            style={{ width: "100%", height: "100%" }}
+            width="100%"
           />
         </Stack>
 
-
-      <HStack w={"90%"} h={"auto"} margin={"auto"} align={"flex-start"}>
-        <VStack w={"20%"} h={"auto"} margin={"0"} mt={"15px"}>
-          <Sidebar2 />
-        </VStack>
-
-        <HStack w={"80%"} h={"full"} margin={"auto"}>
-          <Grid
-            gridTemplateColumns={{
-              base: "repeat(2,1fr)",
-              md: "repeat(3,1fr)",
-              lg: "repeat(4,1fr)",
-            }}
-            gap={30}
-            w={"95%"}
-            margin="auto"
-            marginTop={7}
+        <HStack
+          w={"90%"}
+          h={"auto"}
+          margin={"auto"}
+          align={"flex-start"}
+          flexDirection={{ base: "column", md: "row" }}
+        >
+          <VStack
+            w={{ base: "100%", md: "20%" }}
+            h={"auto"}
+            margin={"0"}
+            mt={"15px"}
           >
-            {products?.map((el, idx) => (
-              <MProductCard key={idx} {...el} />
-            ))}
-          </Grid>
-        </HStack>
-      </HStack>
-    </Container>
-    <Footer/>
+            <Sidebar2 />
+          </VStack>
 
+          <HStack w={"80%"} h={"full"} margin={"auto"}>
+            <Grid
+              gridTemplateColumns={{
+                base: "repeat(1,1fr)",
+                md: "repeat(2,1fr)",
+                lg: "repeat(3,1fr)",
+              }}
+              gap={30}
+              w={"100%"}
+              margin="auto"
+              marginTop={7}
+            >
+              {products?.map((el, idx) => (
+                <MProductCard key={idx} {...el} />
+              ))}
+            </Grid>
+          </HStack>
+        </HStack>
+      </Container>
+      <Footer />
     </div>
   );
 };

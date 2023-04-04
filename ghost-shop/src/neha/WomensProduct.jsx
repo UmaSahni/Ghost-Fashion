@@ -59,28 +59,36 @@ export const WomensProduct = () => {
   return (
     <div>
       <Navbar />
-      <Container maxW={"100%"} margin={"auto"}>
-        <Stack w={"90%"} h={"350px"} margin={"auto"} mb={"10px"}>
+      <Container 
+      maxW={{ base: "100%", md: "100%", lg: "100%" }}
+      margin={"auto"}
+      
+      >
+        <Stack w={"87%"} h={"350px"} margin={"auto"} 
+        direction={{base:"column",md:"row"}}
+        >
           <img
             src="https://prod-img.thesouledstore.com/public/theSoul/uploads/themes/801320230324143640.jpg?format=webp&w=1500&dpr=1.1"
-            style={{ width: "100%", height: "100%" }}
+            width="100%"
           />
         </Stack>
 
-        <HStack w={"90%"} h={"auto"} margin={"auto"} align={"flex-start"}>
-          <VStack w={"20%"} h={"auto"} margin={"0"} mt={"15px"}>
+        <HStack w={"90%"} h={"auto"} margin={"auto"} align={"flex-start"}
+        flexDirection={{base:"column",md:"row"}}
+        >
+          <VStack  w={{base:"100%",md:"20%"}} h={"auto"} margin={"0"} mt={"15px"}>
             <Sidebar1 />
           </VStack>
 
           <HStack w={"80%"} h={"full"} margin={"auto"}>
             <Grid
               gridTemplateColumns={{
-                base: "repeat(2,1fr)",
+                base: "repeat(1,1fr)",
                 md: "repeat(2,1fr)",
-                lg: "repeat(4,1fr)",
+                lg: "repeat(3,1fr)",
               }}
               gap={30}
-              w={"95%"}
+              w={"100%"}
               margin="auto"
               marginTop={7}
             >
