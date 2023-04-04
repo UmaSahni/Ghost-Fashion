@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Text } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { DeleteProductDetails, GetProductDetails } from '../../Redux/AdminReducer/action';
 
-const Timer = ({duration=86400}) => {
+const Timer = ({duration=86400, id}) => {
   
   const [timeLeft, setTimeLeft] = useState(duration); // 86400 seconds in a day
   const [timeString, setTimeString] = useState('');
   const store = useSelector((store)=>store.adminReducer)
-  // console.log(store)
+ 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(timeLeft - 1);
@@ -23,7 +24,21 @@ const Timer = ({duration=86400}) => {
     const seconds = timeLeft % 60;
 
     setTimeString(`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`);
+
+    if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+      handleDelete(id); // assuming id is defined somewhere in the component
+    }
   }, [timeLeft]);
+
+const dispatch = useDispatch()
+
+   const handleDelete = (id) => {
+    dispatch(DeleteProductDetails(id)).then((res) => {
+      dispatch(GetProductDetails()).then(() =>
+        alert("Product Deleted Successfully")
+      );
+    });
+  };
 
   return (
     <Box>

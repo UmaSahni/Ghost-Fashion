@@ -6,7 +6,7 @@ const initialState = {
   cart: [],
 };
 export const reducer = (state = initialState, { type, payload }) => {
-  console.log(state);
+  // console.log(state);
   switch (type) {
     case ADD_TO_CART:
       return { ...state, isLoading: false, cart: [...state.cart,payload] };

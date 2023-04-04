@@ -5,7 +5,9 @@ import {
   Box,
   Button,
   Divider,
+  Flex,
   HStack,
+  Image,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -18,7 +20,8 @@ import Timer from "./Timer";
 
 const Delivery = () => {
   const store = useSelector((store) => store.adminReducer.detail);
-  console.log(store, "This is Store");
+  const {cart,isLoading} = useSelector((store)=>store.cartReducer)
+  // console.log(cart, "This is Store");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetProductDetails());
@@ -45,7 +48,16 @@ const Delivery = () => {
               name,
               randomTime,
               id,
+              cart
+
             }) => {
+              // console.log(cart, "This is product name")
+              let total  = 0
+          for(let el of cart){
+            total+=el.exclusivePrice
+            
+          }
+          
               return (
                 <Box
                   borderWidth="1px"
@@ -73,22 +85,37 @@ const Delivery = () => {
                     </Box>
                     <Divider />
                     <Text>Time Left for Delivery</Text>
-                    <Timer duration={randomTime} />
+                    <Timer duration={randomTime} id={id} />
                     <Box w="100%">
                       <Text fontSize="lg" fontWeight="bold">
                         Product Details
                       </Text>
                       <VStack align="flex-start" spacing="2">
-                        <Text fontWeight="bold">{"productName"}</Text>
-                        <Text>{"productDescription"}</Text>
-
+                        <Box fontWeight="bold">{
+                          cart.map(({product, exclusivePrice, images,category })=>{
+                           
+                           return <Box>  <Flex m="4" ><Image width={100} height={100} src={`https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/${images[0]}`}/ > 
+                           <Box ml={4} textAlign={"left"}  >
+                             <Flex color={"GrayText"} > <Text color={"black"} >Title -</Text>  {product}</Flex>
+                             <Flex color={"GrayText"} > <Text color={"black"} >Category -</Text>  {category.name}</Flex>
+                             <Flex color={"GrayText"} > <Text color={"black"} >Price -</Text>  {exclusivePrice}</Flex>
+                           </Box>
+                             </Flex>
+                             <Text></Text>
+                             </Box>
+                          })
+                        }</Box>
+                        
                         <HStack justify="space-between" w="100%">
                           <Badge
                             colorScheme="green"
                             fontSize="md"
                             fontWeight="bold"
                           >
-                            {"productPrice"}
+                            
+
+                         { `Total Price -
+                            ${ total}`}
                           </Badge>
                           <Box>
                             <Text fontSize="sm" fontWeight="bold">
