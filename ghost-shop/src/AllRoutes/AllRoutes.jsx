@@ -16,6 +16,7 @@ import Mens from '../neha/Mens'
 import { MensProduct } from '../neha/MensProduct'
 import Delivery from '../Uma_Sahni/Admin/Delivery'
 import Cart from '../harshal/Cart'
+import PrivateRoute from './PrivateRoute'
 
 const AllRoutes = () => {
   return (
@@ -27,7 +28,7 @@ const AllRoutes = () => {
      <Route path='/menlist'element={<MensProduct/>} />
      <Route path='/details/:id'element={<SingleProduct/>} />
      <Route path='/cart'element={<Cart/>} />
-     <Route path='/payment'element={<Payment/>} />
+     <Route path='/payment'element={<PrivateRoute><Payment/></PrivateRoute>} />
      <Route path='/login'element={<Login/>} />
      <Route path='*'element={<NotFound/>} />
      <Route path='/admin'element={<Admin/>} />

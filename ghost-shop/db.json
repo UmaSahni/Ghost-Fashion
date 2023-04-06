@@ -1,0 +1,159 @@
+{
+  "cart": [
+    {
+      "id": "201859",
+      "product": "Peanuts: Whatever",
+      "artist": {
+        "name": "Peanuts",
+        "slug": "peanuts-official-merchandise"
+      },
+      "category": {
+        "name": "Boyfriend T-Shirts"
+      },
+      "price": 899,
+      "genderType": 2,
+      "stock": 0,
+      "prodQty": 422,
+      "prodType": 3,
+      "splPrice": 0,
+      "exclusivePrice": 799,
+      "sortOrder": 3185,
+      "images": [
+        "1679996868_7979574.jpg",
+        "1667911825_4493086.jpg",
+        "1667911825_8687618.jpg"
+      ],
+      "imagesNew": "{\"unisex\":[],\"male\":[],\"female\":[\"1679996868_7979574.jpg\",\"1667911825_4493086.jpg\",\"1667911825_8687618.jpg\"]}",
+      "extraPrice": 0,
+      "isPrintable": false,
+      "jitValue": "REGULAR",
+      "product_slug": "peanuts-whatever-women-boyfriend-tshirt",
+      "tiptiles": null
+    },
+    {
+      "id": "205734",
+      "product": "Harry Potter: Hogwarts Is Home",
+      "artist": {
+        "name": "Harry Potter",
+        "slug": "harry-potter-official-merchandise"
+      },
+      "category": {
+        "name": "Boyfriend T-Shirts"
+      },
+      "price": 999,
+      "genderType": 2,
+      "stock": 0,
+      "prodQty": 200,
+      "prodType": 3,
+      "splPrice": 0,
+      "exclusivePrice": 949,
+      "sortOrder": 1380,
+      "images": [
+        "1679119666_7405411.jpg",
+        "1678710067_4395487.jpg",
+        "1678710067_7123192.jpg",
+        "1678710067_4889397.jpg"
+      ],
+      "imagesNew": "{\"unisex\":[],\"male\":[],\"female\":[\"1679119666_7405411.jpg\",\"1678710067_4395487.jpg\",\"1678710067_7123192.jpg\",\"1678710067_4889397.jpg\"]}",
+      "extraPrice": 0,
+      "isPrintable": false,
+      "jitValue": "REGULAR",
+      "product_slug": "harry-potter-hogwarts-is-home-boyfriend-tshirts",
+      "tiptiles": null
+    },
+    {
+      "id": "201256",
+      "product": "Rick And Morty: Get Schwifty",
+      "artist": {
+        "name": "Rick and Morty",
+        "slug": "rick-and-morty-official-merchandise"
+      },
+      "category": {
+        "name": "Boyfriend T-Shirts"
+      },
+      "price": 799,
+      "genderType": 2,
+      "stock": 0,
+      "prodQty": 540,
+      "prodType": 3,
+      "splPrice": 0,
+      "exclusivePrice": 699,
+      "sortOrder": 2500,
+      "images": [
+        "1679120496_6690697.jpg",
+        "1654276336_5636924.jpg",
+        "1654866695_3050075.jpg",
+        "1654276349_9924830.jpg",
+        "1654276349_3746224.jpg"
+      ],
+      "imagesNew": "{\"unisex\":[],\"male\":[],\"female\":[\"1679120496_6690697.jpg\",\"1654276336_5636924.jpg\",\"1654866695_3050075.jpg\",\"1654276349_9924830.jpg\",\"1654276349_3746224.jpg\"]}",
+      "extraPrice": 0,
+      "isPrintable": false,
+      "jitValue": "REGULAR",
+      "product_slug": "rick-and-morty-get-schwifty-women-boyfriend-tshirt",
+      "tiptiles": null
+    },
+    {
+      "id": "201858",
+      "product": "The Lion King: Hakuna Matata",
+      "artist": {
+        "name": "The Lion King",
+        "slug": "the-lion-king-official-merchandise"
+      },
+      "category": {
+        "name": "Boyfriend T-Shirts"
+      },
+      "price": 899,
+      "genderType": 2,
+      "stock": 0,
+      "prodQty": 529,
+      "prodType": 3,
+      "splPrice": 0,
+      "exclusivePrice": 799,
+      "sortOrder": 3345,
+      "images": [
+        "1679996821_7253363.jpg",
+        "1667300361_4604616.jpg",
+        "1667300367_8277202.jpg",
+        "1667300373_1413473.jpg"
+      ],
+      "imagesNew": "{\"unisex\":[],\"male\":[],\"female\":[\"1679996821_7253363.jpg\",\"1667300361_4604616.jpg\",\"1667300367_8277202.jpg\",\"1667300373_1413473.jpg\"]}",
+      "extraPrice": 0,
+      "isPrintable": false,
+      "jitValue": "REGULAR",
+      "product_slug": "lion-king-hakuna-matata-women-boyfriend-tshirt",
+      "tiptiles": null
+    },
+    {
+      "id": "201392",
+      "product": "Tom & Jerry: The Chase",
+      "artist": {
+        "name": "Tom And Jerry",
+        "slug": "tom-and-jerry"
+      },
+      "category": {
+        "name": "Boyfriend T-Shirts"
+      },
+      "price": 899,
+      "genderType": 2,
+      "stock": 0,
+      "prodQty": 356,
+      "prodType": 3,
+      "splPrice": 0,
+      "exclusivePrice": 799,
+      "sortOrder": 3290,
+      "images": [
+        "1679405327_7055840.jpg",
+        "1655572683_9756755.jpg",
+        "1655572683_3382381.jpg",
+        "1655572683_3343246.jpg"
+      ],
+      "imagesNew": "{\"unisex\":[],\"male\":[],\"female\":[\"1679405327_7055840.jpg\",\"1655572683_9756755.jpg\",\"1655572683_3382381.jpg\",\"1655572683_3343246.jpg\"]}",
+      "extraPrice": 0,
+      "isPrintable": false,
+      "jitValue": "REGULAR",
+      "product_slug": "tom-and-jerry-the-chase-women-boyfriend-tshirt",
+      "tiptiles": null
+    }
+  ]
+}

@@ -12,17 +12,24 @@ import {
 
 import React from "react";
 
-const CartCard = ({ images, price, exclusivePrice, category,id, remove,changePrice}) => {
- 
+const CartCard = ({
+  images,
+  price,
+  exclusivePrice,
+  category,
+  id,
+  remove,
+  changePrice,
+}) => {
   const removeItem = (e) => {
     // e.preventDefault()
-    remove(id)
+    remove(id);
   };
   const handleSelect = (e) => {
     // e.preventDefault()
-    changePrice(123)
+    changePrice(123);
   };
-  
+
   return (
     <>
       <Box
@@ -32,8 +39,8 @@ const CartCard = ({ images, price, exclusivePrice, category,id, remove,changePri
         borderRadius={"5px"}
         boxShadow="md"
       >
-        <HStack height={"200px"}>
-          <Box height={"100%"} width={"25%"}>
+        <HStack height={{base:"150px",md:"200px",sm:"150px"}}>
+          <Box height={{base:"75%",md:"100%",sm:"85%"}} width={"25%"}>
             <Image
               borderRadius={"5px"}
               boxShadow="md"
@@ -44,16 +51,12 @@ const CartCard = ({ images, price, exclusivePrice, category,id, remove,changePri
           </Box>
           <Box height={"100%"} width={"70%"}>
             <Flex justifyContent={"space-between"}>
-              <Heading
-                align="left"
-                // mt={{ base: "10px", md: "0px" }}
-                fontSize={"16px"}
-              >
+              <Heading align="left" fontSize={"16px"}>
                 The Simpsons: Expressions
               </Heading>
               <Box>
                 <HStack>
-                  <Text fontSize={"16px"} fontWeight={"semibold"} align="left">
+                  <Text fontSize={{base:"12px",md:"16px",sm:"14px"}} fontWeight={"semibold"} align="left">
                     ₹ {exclusivePrice}
                   </Text>
                   <Text
@@ -73,7 +76,7 @@ const CartCard = ({ images, price, exclusivePrice, category,id, remove,changePri
                 {category.name}
               </Text>
               <Text align="left" color={"red"} fontSize={"14px"}>
-                {"20% OFF"}
+              {((price-exclusivePrice)/price*100).toFixed(2)}% OFF
               </Text>
             </Flex>
             <HStack>
@@ -93,7 +96,7 @@ const CartCard = ({ images, price, exclusivePrice, category,id, remove,changePri
                 <option value="XXL">XXL</option>
               </Select>
               <Select
-              onChange={handleSelect}
+                onChange={handleSelect}
                 m={"10px"}
                 width="120px"
                 height="35px"

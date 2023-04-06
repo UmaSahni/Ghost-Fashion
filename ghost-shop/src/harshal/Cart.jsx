@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionButton,
@@ -19,12 +19,16 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { TfiGift } from "react-icons/tfi";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector } from "react-redux";
 import CartCard from "./CartCard";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router";
-import { removeFromCartAction } from "../Redux/cartReducer/action";
+import {
+  AddToCart,
+  addToCartAction,
+  removeFromCartAction,
+} from "../Redux/cartReducer/action";
 import styled from "styled-components";
 
 export let billDetail;
@@ -48,11 +52,12 @@ const billDetailFunction = (cart) => {
 
 const Cart = () => {
   const { cart, isLoading } = useSelector((store) => store.cartReducer);
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // console.log(cart);
-  billDetailFunction(cart);
 
+  billDetailFunction(cart);
   const remove = (id) => {
     dispatch(removeFromCartAction(id));
     billDetailFunction(cart);
@@ -69,6 +74,17 @@ const Cart = () => {
   const handleOrder = () => {
     navigate("/payment");
   };
+
+  useEffect(
+    () => {
+      let items=  JSON.parse( localStorage.getItem('cart'))||[]
+      if(cart.length===0){
+        items.map((item)=>dispatch(addToCartAction(item)))
+      }
+      // cart.length>0?"": 
+      console.log("items",items)
+    },[]
+  );
   // if (isLoading) {
   //   return (
   //     <>
@@ -80,13 +96,14 @@ const Cart = () => {
   //     </>
   //   );
   // }
+
   return (
     <>
       <Navbar />
       <Box margin={"1rem"} color={"teal"} fontSize="0.8rem">
         {" "}
-        <Span>MY BAG </Span>- - - - - - - - - - - - - ADDRESS - - - - - - - - - - - - -
-        PAYMENT{" "}
+        <Span>MY BAG </Span>- - - - - - - - - - - - - ADDRESS - - - - - - - - -
+        - - - - PAYMENT{" "}
       </Box>
       <Grid
         fontFamily={"sans-serif"}
@@ -99,19 +116,25 @@ const Cart = () => {
         gap={4}
       >
         {/* cart cart */}
-        <GridItem colSpan={5}>
+        <GridItem colSpan={{ base: 7, sm: 7, md: 5 }}>
           {cart.length === 0 ? (
-            <Image align={"center"} src="https://bakestudio.in/assets/images/cart/empty-cart.gif" />
+            <Image
+              align={"center"}
+              src="https://bakestudio.in/assets/images/cart/empty-cart.gif"
+            />
           ) : (
             cart.map((item) => {
-              return <CartCard {...item} remove={remove} changePrice={changePrice}/>;
+              return (
+                <CartCard {...item} remove={remove} changePrice={changePrice} />
+              );
             })
           )}
         </GridItem>
-        <GridItem colSpan={2}>
+        <GridItem colSpan={{ base: 7, sm: 7, md: 2 }}>
           <Box>
             <Box>
               <Button
+                isDisabled={cart.length === 0 ? true : false}
                 size="md"
                 w={"100%"}
                 colorScheme="teal"
@@ -225,6 +248,15 @@ const Cart = () => {
                         borderRadius={"10px"}
                         placeholder="Enter Code Here"
                       />
+                      <Button
+                        size="sm"
+                        w={"40%"}
+                        colorScheme="black"
+                        variant="outline"
+                        fontWeight={"bold"}
+                      >
+                        APPLY
+                      </Button>
                     </Box>
                   </AccordionPanel>
                 </AccordionItem>
@@ -368,4 +400,6 @@ const Cart = () => {
 
 export default Cart;
 
-const Span=styled.span`font-weight:bold`;
+const Span = styled.span`
+  font-weight: bold;
+`;
