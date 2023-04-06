@@ -13,7 +13,7 @@ import womenscrousel4 from "./images/womenscrousel4.webp"
 const settings = {
   dots: true,
   arrows: false,
-  fade: true,
+  fade: false,
   infinite: true,
   autoplay: true,
   speed: 500,

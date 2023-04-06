@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Table,
   Thead,
@@ -7,13 +7,12 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
 } from '@chakra-ui/react'
 
 import { billDetail } from '../../../harshal/Cart'
 const TableTotal = () => {
-  const {cart_total,discount,gst,total_amount,}=billDetail
+  const {cart_total,discount,gst,total_amount,}=billDetail||0
   return (
     <div>
 <TableContainer border={"1px solid #E2E8F0"} >

@@ -1,13 +1,18 @@
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const WProductCard = ({ images, product, price, category, id }) => {
   // console.log(images);
-
+  const navigate=useNavigate()
+  const handleClick=()=>{
+    navigate(`/details/${id}`)
+    console.log(id);
+  }
   return (
     <Link to={`/details/${id}`}>
       <Box
+      onClick={handleClick}
         textAlign={"left"}
         color={"darkgray"}
         fontStyle={"bold"}

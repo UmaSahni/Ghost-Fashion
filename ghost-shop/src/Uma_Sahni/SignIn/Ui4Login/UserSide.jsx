@@ -2,7 +2,7 @@ import { Box, Button, Image, Input, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { gitHubLogin, login } from "../../../Redux/authReducer/action";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 // import {
 //   signInWithGoogle,
 //   signInWithGitHub,
@@ -11,13 +11,15 @@ import { useNavigate } from "react-router-dom";
 // } from "../../../Firebase";
 const UserSide = () => {
   const dispatch = useDispatch()
+  const location = useLocation()
+  console.log(location.state)
   const store = useSelector((store)=>console.log(store.authReducer))
   const navigate = useNavigate()
   const handleClick = () =>{
-    dispatch(login()).then(()=> navigate("/")  )
+    dispatch(login()).then(()=> navigate(location.state.pathname)  )
   }
   const handleLoginGit = () =>{
-    dispatch(gitHubLogin()).then((res)=>navigate("/"))
+    dispatch(gitHubLogin()).then((res)=>navigate(location.state.pathname))
   }
   return (
     <div>

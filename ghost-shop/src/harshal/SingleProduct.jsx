@@ -28,27 +28,37 @@ import {
   AiOutlineInstagram,
 } from "react-icons/ai";
 import { ImWhatsapp } from "react-icons/im";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 // import { color } from "framer-motion";
 import { StandardSizes } from "./StandardSizes";
-import { addToCart } from "../Redux/cartReducer/action";
+import { AddToCart } from "../Redux/cartReducer/action";
 import { getSingleProduct } from "../Redux/WomenReducer/action";
-
-// import { products } from "./dummyData";
+// import CaptionCarousel from "./Slider";
 
 export const SingleProduct = () => {
   const [data, setData] = useState("");
   const { id } = useParams();
+  // const {isloading}=useSelector((store)=>store.cartReducer)
+  const [value, setValue] = useState(false);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+ 
 
-  console.log(id);
+const getItem=()=>{
+  let items = JSON.parse(localStorage.getItem("cart")) || [];
+  if (items.length > 0) {
+    items.map((item) => (item.id === id ? setValue(true) : ""));
+  }
+}
+
   useEffect(() => {
     dispatch(getSingleProduct(id)).then((res) => {
       setData(res);
-    });
+    }); 
+    getItem()
   }, []);
 
   function changeTheproducts(key, value) {
@@ -61,7 +71,12 @@ export const SingleProduct = () => {
   console.log(data);
   const AddToBasket = (e) => {
     e.preventDefault();
-    dispatch(addToCart(id));
+    dispatch(AddToCart(id));
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+      getItem()
+    }, 1500);
     // console.log(nproducts);
   };
   if (data === "") {
@@ -73,6 +88,8 @@ export const SingleProduct = () => {
           emptyColor="gray.200"
           color="blue.500"
           size="xl"
+          position={"absolute"}
+          top={"300px"}
         />
       </>
     );
@@ -80,10 +97,10 @@ export const SingleProduct = () => {
   return (
     <>
       <Navbar />
-      <Box
+      {/* <Box
         mt={{ base: "330px", sm: "260px", md: "60px" }}
         color="rgb(41, 43, 44)"
-      ></Box>
+      ></Box> */}
       <Box mb={"100px"}>
         <Flex
           w={"90%"}
@@ -140,7 +157,11 @@ export const SingleProduct = () => {
                 ₹ {data.price}
               </Text>
               <Text align="left" color={"red"}>
-                {"20% OFF"}
+                {(
+                  ((data.price - data.exclusivePrice) / data.price) *
+                  100
+                ).toFixed(2)}
+                % OFF
               </Text>
             </HStack>
 
@@ -181,13 +202,29 @@ export const SingleProduct = () => {
               <Box mt={"20px"}>
                 <HStack>
                   <Button
+                  colorScheme="red"
+                  bg="rgb(236, 61, 37)"
+                  w={"100%"}
+                  onClick={AddToBasket}
+                  isDisabled={value}
+                  isLoading={loading}
+                  loadingText={loading?"ADDING TO THE CART":""}
+                  spinnerPlacement="start"
+                >
+                  {value?"ADDED":"ADD TO CART"}
+                </Button>
+
+                  {/* <Button
                     colorScheme="red"
                     bg="rgb(236, 61, 37)"
                     w={"100%"}
                     onClick={AddToBasket}
+                    isDisabled={value}
+                    loadingText={value?"Adding to the Text":"Added"}
+                    spinnerPlacement="start"
                   >
-                    ADD TO CART
-                  </Button>
+                   ADD TO CART
+                  </Button> */}
                   <Button
                     colorScheme="teal"
                     variant="outline"
@@ -449,6 +486,7 @@ export const SingleProduct = () => {
         </Box>
       </Box>
       <Footer />
+      {/* <CaptionCarousel /> */}
     </>
   );
 };
