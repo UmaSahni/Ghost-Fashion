@@ -27,7 +27,7 @@ const WalletBox = () => {
            <Text>
             {text}
            </Text>
-          <Radio onClick={()=>setcheck(!check)} colorScheme='green'   />
+          <Radio   isDisabled onClick={()=>setcheck(!check)} colorScheme='green'   />
         </Box>
       </Flex>
         })

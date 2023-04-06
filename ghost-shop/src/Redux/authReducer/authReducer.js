@@ -4,6 +4,9 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
+  REQERS_LOGIN_FAILURE,
+  REQERS_LOGIN_REQUEST,
+  REQERS_LOGIN_SUCCESS,
 } from "./actonTypes";
 
 const initstate = {
@@ -12,6 +15,7 @@ const initstate = {
   auth: false,
   name: "",
   user: {},
+  req_Auth:false
 };
 
 const reducer = (state = initstate, { type, payload }) => {
@@ -27,6 +31,12 @@ const reducer = (state = initstate, { type, payload }) => {
       return { ...state, isLoading: false, auth:false};
     case GITHUB_SUCCESS:
       return { ...state, isLoading: false, auth: true, user: payload };
+    case REQERS_LOGIN_REQUEST : 
+    return {...state, isLoading:true};
+    case REQERS_LOGIN_SUCCESS :
+      return {...state,isLoading:false , auth:true, name:payload};
+    case REQERS_LOGIN_FAILURE:
+      return {...state, isLoading:false, isError:true}
     default:
       return state;
   }

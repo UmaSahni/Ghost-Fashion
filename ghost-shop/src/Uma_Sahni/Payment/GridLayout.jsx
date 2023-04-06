@@ -12,20 +12,20 @@ const GridLayout = () => {
        
         <Box margin={"1rem"} color={"teal"} fontSize="0.8rem">
           {" "}
-         <Span> MY BAG - - - - - - - - - - - - - ADDRESS</Span> - - - - - - - - - - - - -
-          PAYMENT{" "}
+         <Span> MY BAG - - - - - - - - - - - - - ADDRESS - - - - - - - - - - - - - PAYMENT </Span>
+          {" "}
          
-        </Box>
- 
-          <SimpleGrid templateColumns='repeat(3, 1fr)' spacing="40px">
-          <GridItem colSpan={2} border={"1px solid #E2E8F0"}  height="auto">
+        </Box >
+        <Flex  margin={"auto"} justifyContent={"center"} >
+           <SimpleGrid   columns={[1, 1, 2, 2, 2, 2]} spacing="40px">
+          <Box width={"100%"} border={"1px solid #E2E8F0"}  height="auto">
             <PaymentOption/> 
-          </GridItem>
-          <GridItem colSpan={1}>
+          </Box>
+          <Box   >
             <Total/>
-          </GridItem>
+          </Box>
         </SimpleGrid>
-
+       </Flex>
        
       </Box>
     </Box>
@@ -35,3 +35,15 @@ const GridLayout = () => {
 export default GridLayout;
 
 const Span=styled.span`font-weight:bold`;
+
+
+
+
+/* <SimpleGrid templateColumns='repeat(3, 1fr)' spacing="40px">
+          <GridItem colSpan={2} border={"1px solid #E2E8F0"}  height="auto">
+            <PaymentOption/> 
+          </GridItem>
+          <GridItem colSpan={1}>
+            <Total/>
+          </GridItem>
+        </SimpleGrid> */
