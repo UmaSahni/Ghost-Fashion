@@ -49,6 +49,7 @@ const PaymentForm = () => {
           value={state.number}
           onChange={handleInputChange}
           onFocus={handleInputFocus}
+          m={1}
         />
         <br />
        <Input
@@ -59,6 +60,7 @@ const PaymentForm = () => {
        value={state.name}
        onChange={handleInputChange}
        onFocus={handleInputFocus}
+       m={1}
        />
        <br />
        <Flex margin={"auto"} w={"300px"} justifyContent={"space-between"} >
@@ -70,6 +72,7 @@ const PaymentForm = () => {
        value={state.expiry}
        onChange={handleInputChange}
        onFocus={handleInputFocus}
+       m={1}
        />
   
        <Input
@@ -80,9 +83,10 @@ const PaymentForm = () => {
        value={state.cvv}
        onChange={handleInputChange}
        onFocus={handleInputFocus}
+       m={1}
        />
        </Flex>
-       <Button onClick={handleSubmit} >Comfirm</Button>
+       <Button colorScheme='red' onClick={handleSubmit} >Comfirm</Button>
       </form>
     </div>
   );

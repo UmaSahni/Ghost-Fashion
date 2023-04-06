@@ -78,7 +78,7 @@ const AddressBox = () => {
         onChange={handleInputChange}
         placeholder="Zipcode"
       />
-      <Button onClick={handleUpdateAddress}>Save Address</Button>
+      <Button colorScheme='red' onClick={handleUpdateAddress}>Save Address</Button>
     </Box>
   );
 };

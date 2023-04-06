@@ -6,7 +6,7 @@ import TableTotal from "./TableTotal";
 const Total = () => {
   
   return (
-    <Box width={"80%"}>
+    <Box >
       <Button borderRadius={"none"} colorScheme="red" width={"100%"}>
         <LoadingModal />
       </Button>
@@ -16,10 +16,12 @@ const Total = () => {
       <Text textAlign={"start"} fontSize={"0.8rem"} color={"gray"}>
         BILLING DETAILS
       </Text>
+     
       <TableTotal />
+      
       <Box m={"4"}></Box>
 
-      <Button borderRadius={"none"} colorScheme="red" width={"100%"}>
+      <Button mb={4}  borderRadius={"none"} colorScheme="red" width={"100%"}>
          <LoadingModal />
       </Button>
     </Box>

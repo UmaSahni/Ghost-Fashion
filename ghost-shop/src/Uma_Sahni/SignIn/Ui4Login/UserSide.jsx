@@ -1,7 +1,7 @@
 import { Box, Button, Image, Input, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { gitHubLogin, login } from "../../../Redux/authReducer/action";
+import { ReqresLogin, gitHubLogin, login } from "../../../Redux/authReducer/action";
 import { useLocation, useNavigate } from "react-router-dom";
 // import {
 //   signInWithGoogle,
@@ -10,20 +10,31 @@ import { useLocation, useNavigate } from "react-router-dom";
 //   authuser,
 // } from "../../../Firebase";
 const UserSide = () => {
-  const dispatch = useDispatch()
-  const location = useLocation()
-  console.log(location.state)
-  const store = useSelector((store)=>console.log(store.authReducer))
-  const navigate = useNavigate()
-  const handleClick = () =>{
-    dispatch(login()).then(()=> navigate(location.state.pathname)  )
-  }
-  const handleLoginGit = () =>{
-    dispatch(gitHubLogin()).then((res)=>navigate(location.state.pathname))
-  }
+  const dispatch = useDispatch();
+  const location = useLocation();
+  // console.log(location);
+  // const store = useSelector((store) => console.log(store.authReducer));
+  const navigate = useNavigate();
+  const handleClick = () => {
+    dispatch(login()).then(() => navigate(location.state.pathname));
+  };
+  const handleLoginGit = () => {
+    dispatch(gitHubLogin()).then((res) => navigate(location.state.pathname));
+  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleReqLogin = () => {
+    console.log(email, password);
+    const obj = {
+      email,
+      password,
+    };
+    dispatch(ReqresLogin(obj)).then((res)=>navigate(location.state))
+  };
+
   return (
     <div>
-      
       <Box
         display={"flex"}
         margin="auto"
@@ -53,8 +64,28 @@ const UserSide = () => {
       <Text m={"4"} fontSize={"sm"} fontWeight="bold">
         -OR-
       </Text>
-      <Input placeholder="Enter Phone Number" margin={"auto"} width={"80%"} />
-      <Button margin={"4"} width={"80%"} colorScheme="red" >
+      <Input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter Email Address"
+        margin={"auto"}
+        width={"80%"}
+      />
+      <Input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Enter Password"
+        margin={"auto"}
+        width={"80%"}
+      />
+      <Button
+        onClick={handleReqLogin}
+        margin={"4"}
+        width={"80%"}
+        colorScheme="red"
+      >
         Proceed
       </Button>
     </div>

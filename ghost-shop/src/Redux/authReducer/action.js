@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GITHUB_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "./actonTypes";
+import { GITHUB_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS, REQERS_LOGIN_FAILURE, REQERS_LOGIN_REQUEST, REQERS_LOGIN_SUCCESS } from "./actonTypes";
 import { LogOut, SignInWithGoogle, signInWithGitHub } from "../../Firebase";
 
 const loginRequestAction = () => {
@@ -44,3 +44,12 @@ return LogOut().then((res)=>{
 })
 .catch((err)=>dispatch(loginFailureAction()))
 }
+
+export const ReqresLogin = (payload) =>(dispatch)=>{
+dispatch({type:REQERS_LOGIN_REQUEST})
+return axios.post(`https://reqres.in/api/login`, payload).then((res)=>{
+	console.log(res)
+	dispatch({type:REQERS_LOGIN_SUCCESS,payload: res.token})
+}).catch((err)=>dispatch({type:REQERS_LOGIN_FAILURE}))
+}
+
