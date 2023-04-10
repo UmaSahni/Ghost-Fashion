@@ -58,8 +58,6 @@ export const Sidebar1 = () => {
   return (
     <Box
       m={4}
-      border={"2px solid darkgray"}
-      h={"100vh"}
       p={4}
       maxW={{ base: "100%", md: "100%", lg: "100%" }}
     >

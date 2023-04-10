@@ -172,6 +172,8 @@ export default function Navbar() {
         <MobileNav />
       </Collapse>
     </Box>
+
+    
   );
 }
 const DesktopNav = () => {

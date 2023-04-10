@@ -13,8 +13,10 @@ import {
   import { useSearchParams } from "react-router-dom";
   
   const categoryArray = [
-    "T-Shirts",
-    "Shirts",
+    "Hooded T-Shirts",
+    "Summer Shirts",
+    "Oxford Shirts",
+    "Cotton Linen Shirts",
    ];
   
   export const Sidebar2 = () => {
@@ -52,7 +54,7 @@ import {
     }, [category, order, page, search]);
   
     return (
-      <Box m={4} border={"2px solid darkgray"} h={"100vh"} p={4}
+      <Box m={4} p={4}
       maxW={{ base: "100%", md: "100%", lg: "100%" }}
       >
         <Stack w={"full"}>
