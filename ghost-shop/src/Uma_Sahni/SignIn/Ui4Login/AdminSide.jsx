@@ -28,16 +28,6 @@ const handleLogin = () =>{
         // border="1px solid red"
         justifyContent={"space-between"}
       >
-        
-        <Button
-          onClick={handleLogin}
-         
-          border={"1px solid gray"}
-          bg={"#ffffff"}
-        >
-          <Image margin="1" width={"10%"} src="./github.svg" />
-          GitHub
-        </Button>
       </Box>
       <Text m={"4"} fontSize={"sm"} fontWeight="bold">
         -OR-
