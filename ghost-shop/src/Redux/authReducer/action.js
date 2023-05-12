@@ -47,7 +47,7 @@ return LogOut().then((res)=>{
 
 export const ReqresLogin = (payload) =>(dispatch)=>{
 dispatch({type:REQERS_LOGIN_REQUEST})
-return axios.post(`https://reqres.in/api/login`, payload).then((res)=>{
+return axios.post(`https://busy-gold-haddock-wig.cyclic.app/users/register`, payload).then((res)=>{
 	console.log(res)
 	dispatch({type:REQERS_LOGIN_SUCCESS,payload: res.token})
 }).catch((err)=>dispatch({type:REQERS_LOGIN_FAILURE}))
