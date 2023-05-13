@@ -45,6 +45,7 @@ export const MensProduct = () => {
           h={"350px"}
           margin={"auto"}
           direction={{ base: "column", md: "row" }}
+          mt={{base:"10px",md:"0",lg:"0"}}
         >
           <img
             src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/category/catban-020230317192609.jpg?format=webp&w=1500&dpr=1.1"

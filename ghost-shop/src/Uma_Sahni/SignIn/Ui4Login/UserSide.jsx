@@ -12,14 +12,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 const UserSide = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  // console.log(location);
+  console.log(location.state);
   // const store = useSelector((store) => console.log(store.authReducer));
   const navigate = useNavigate();
   const handleClick = () => {
-    dispatch(login()).then(() => navigate(location.state.pathname));
+    dispatch(login()).then(() => navigate(location.state));
   };
   const handleLoginGit = () => {
-    dispatch(gitHubLogin()).then((res) => navigate(location.state.pathname));
+    dispatch(gitHubLogin()).then((res) => navigate(location.state));
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

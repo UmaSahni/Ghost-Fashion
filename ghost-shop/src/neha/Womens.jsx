@@ -17,11 +17,13 @@ import womenstopsell4 from "./images/womenstopsell4.webp";
 import lastcrouselwomens from "./images/lastcrouselwomens.webp";
 
 import WomensCarousel from "./WomensCrousel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
 const Womens = () => {
+  const Navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
@@ -30,7 +32,10 @@ const Womens = () => {
           <WomensCarousel />
 
           <Box className="collectionmens" style={{ marginTop: "30px" }}>
-            <Box>
+            <Box
+              onClick={() => Navigate("/womenlist")}
+              style={{ cursor: "pointer" }}
+            >
               <Text
                 fontWeight={"bold"}
                 color="gray"
@@ -49,6 +54,7 @@ const Womens = () => {
                 gap="30px"
                 margin={"auto"}
                 marginTop={10}
+                _hover={{ cursor: "pointer" }}
               >
                 <Image src={womenscollection1} alt="collection1" />
                 <Image src={womenscollection2} alt="collection2" />
@@ -57,7 +63,10 @@ const Womens = () => {
             </Box>
           </Box>
           <Box className="categorymens" style={{ marginTop: "30px" }}>
-            <Box>
+            <Box
+            onClick={() => Navigate("/womenlist")}
+            style={{ cursor: "pointer" }}
+            >
               <Text
                 fontWeight={"bold"}
                 color="gray"
@@ -77,26 +86,21 @@ const Womens = () => {
                 margin={"auto"}
               >
                 <Box
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                 onClick={() => Navigate("/womenlist")}
+                 style={{ cursor: "pointer" }}
                 >
-                  <Link to={"/womensproducts"}>
-                    <Image src={womenscat1} alt="collection1" />
-                  </Link>
+                  <Image src={womenscat1} alt="collection1" />
                 </Box>
 
                 <Box
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                 onClick={() => Navigate("/womenlist")}
+                 style={{ cursor: "pointer" }}
                 >
                   <Image src={womenscat2} alt="collection1" />
                 </Box>
                 <Box
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 50 }}
+                 onClick={() => Navigate("/womenlist")}
+                 style={{ cursor: "pointer" }}
                 >
                   <Image src={womenscat3} alt="collection1" />
                 </Box>
@@ -105,7 +109,10 @@ const Womens = () => {
           </Box>
         </Box>
 
-        <Box className="mensCards" style={{ marginTop: "30px" }}>
+        <Box className="mensCards" style={{ marginTop: "30px", cursor: "pointer"  }}
+        onClick={() => Navigate("/womenlist")}
+       
+        >
           <Grid
             gridTemplateColumns={{
               base: "repeat(2,1fr)",

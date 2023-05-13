@@ -47,7 +47,7 @@ export const SingleProduct = () => {
   const dispatch = useDispatch();
  
 
-const getItem=()=>{
+ const getItem=()=>{
   let items = JSON.parse(localStorage.getItem("cart")) || [];
   if (items.length > 0) {
     items.map((item) => (item.id === id ? setValue(true) : ""));

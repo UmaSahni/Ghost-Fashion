@@ -60,6 +60,8 @@ export const Sidebar1 = () => {
       m={4}
       p={4}
       maxW={{ base: "100%", md: "100%", lg: "100%" }}
+      mt={{ base: "-270px", md: "0", lg: "0" }}
+      
     >
       <Stack maxW={"100%"}>
         {categoryArray.map((item, i) => (
@@ -87,6 +89,8 @@ export const Sidebar1 = () => {
               boxShadow: "md",
               border: "none",
               cursor: "pointer",
+              marginRight: "10px",
+              
             }}
           />{" "}
           Price: Low to High <br />
