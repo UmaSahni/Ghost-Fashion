@@ -19,15 +19,16 @@ const GooglePage = () => {
         {/* <Box mb={"3"} margin={"auto"} width={"80%"} p="2" bg={"teal"} > <Text>Login To Access all Feature</Text>  </Box> */}
         <Tabs isFitted variant="enclosed">
           <TabList mb="1em">
-            <Tab>User</Tab>
-            <Tab>Admin</Tab>
+            <Tab>Login In</Tab>
+            <Tab>Sign Up</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
-              <UserSide />
+               <AdminSide/>
+              
             </TabPanel>
             <TabPanel>
-           <AdminSide/>
+          <UserSide />
             </TabPanel>
           </TabPanels>
         </Tabs>

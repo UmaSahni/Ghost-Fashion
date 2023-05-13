@@ -24,6 +24,18 @@
   color: white;
 }
 
+.alert {
+  z-index: 100;
+  position: fixed;
+  bottom: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+}
 .App-link {
   color: #61dafb;
 }

@@ -1,17 +1,13 @@
-import { Box, Button, Image, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Input, Text,FormLabel, Center, Alert, AlertTitle, AlertDescription } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReqresLogin, gitHubLogin, login } from "../../../Redux/authReducer/action";
 import { useLocation, useNavigate } from "react-router-dom";
-// import {
-//   signInWithGoogle,
-//   signInWithGitHub,
-//   LogOut,
-//   authuser,
-// } from "../../../Firebase";
+
 const UserSide = () => {
   const dispatch = useDispatch();
   const location = useLocation();
+
   console.log(location.state);
   // const store = useSelector((store) => console.log(store.authReducer));
   const navigate = useNavigate();
@@ -24,70 +20,121 @@ const UserSide = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [myAlert, setAlert] = useState(false)
+ 
+  // const handleClick = () => {
+  //   dispatch(login()).then(() => navigate(location.state.pathname));
+  // };
+  // const handleLoginGit = () => {
+  //   dispatch(gitHubLogin()).then((res) => navigate(location.state.pathname));
+  // };
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const Initial = {
+    name:"",
+    email:"",
+    password:"",
+    gender:""
+  }
+  const [state, setState] = useState(Initial)
+
+  const handleChange = (e) =>{
+const {name, value} = e.target
+setState((pre)=>({...pre, [name]:value}))
+
+
+  }
+  
   const handleReqLogin = () => {
-    console.log(email, password);
-    const obj = {
-      email,
-      password,
-    };
-    dispatch(ReqresLogin(obj)).then((res)=>navigate(location.state))
+    // console.log(email, password);
+    // const obj = {
+    //   email,
+    //   password,
+    // };
+    // dispatch(ReqresLogin(obj)).then((res)=>navigate(location.state))
   };
+
+const handleFormSubmit = (e) =>{
+  e.preventDefault()
+  console.log(state)
+  dispatch(ReqresLogin(state)).then((res) => {
+    const successAlert = document.createElement('div')
+    successAlert.classList.add('alert')
+    successAlert.innerHTML = 'Congratulations your account is created <button class="btn btn-success">OK</button>'
+    document.body.appendChild(successAlert)
+    const okButton = successAlert.querySelector('button')
+  okButton.style.backgroundColor = 'green'
+  okButton.style.color = 'white'
+  okButton.style.border = '1px solid black'
+  okButton.style.padding = '8px 16px'
+  okButton.style.fontSize = '14px'
+  okButton.style.borderRadius = '4px'
+  okButton.style.background = "red"
+  okButton.style.cursor = 'pointer'
+    okButton.addEventListener('click', () => {
+      successAlert.remove()
+      okButton.disabled = true
+    })
+    navigate(location.state)
+  })
+}
+
+
 
   return (
     <div>
-      <Box
-        display={"flex"}
-        margin="auto"
-        width="80%"
-        // border="1px solid red"
-        justifyContent={"space-between"}
-      >
-        <Button
-          onClick={handleClick}
-          width={"45%"}
-          border={"1px solid gray"}
-          bg={"#ffffff"}
-        >
-          <Image margin="1" width={"20%"} src="./google.svg" />
-          Google
-        </Button>
-        <Button
-          onClick={handleLoginGit}
-          width={"45%"}
-          border={"1px solid gray"}
-          bg={"#ffffff"}
-        >
-          <Image margin="1" width={"25%"} src="./github.svg" />
-          GitHub
-        </Button>
-      </Box>
-      <Text m={"4"} fontSize={"sm"} fontWeight="bold">
-        -OR-
-      </Text>
+   
+       
+       
+     <form onSubmit={handleFormSubmit} >
+        <FormLabel>Name </FormLabel>
       <Input
+       name="name"
+        type="text"
+        value={state.name}
+        onChange={(e) => handleChange(e)}
+        placeholder="Enter Name"
+        
+      />
+     
+      <FormLabel>Email address</FormLabel>
+      <Input
+      name="email"
         type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={state.email}
+        onChange={(e) => handleChange(e)}
         placeholder="Enter Email Address"
-        margin={"auto"}
-        width={"80%"}
+       
       />
+      <FormLabel>Password</FormLabel>
       <Input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+      name="password"
+        type="text"
+        value={state.password}
+        onChange={(e) => handleChange(e)}
         placeholder="Enter Password"
-        margin={"auto"}
-        width={"80%"}
+       
       />
-      <Button
-        onClick={handleReqLogin}
+     
+      <FormLabel>Gender</FormLabel>
+      <Input
+      name="gender"
+        type="text"
+        value={state.gender}
+        onChange={(e) => handleChange(e)}
+        placeholder="Enter Gender"
+        
+      />
+      <Input type="submit"
+        
         margin={"4"}
         width={"80%"}
-        colorScheme="red"
+      bg="#e53e3e"
+      color="white"
       >
-        Proceed
-      </Button>
+       
+      </Input>
+     </form>
     </div>
   );
 };
