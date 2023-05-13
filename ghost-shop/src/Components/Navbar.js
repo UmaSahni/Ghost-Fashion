@@ -51,13 +51,12 @@ export default function Navbar() {
       <Flex
         bg={useColorModeValue("#E11B23")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        height={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("white")}
-        align={"center"}
+       align={"center"}
       >
         <Flex
           flex={{ base: 1, xl: "auto" }}
@@ -79,17 +78,22 @@ export default function Navbar() {
           <Flex>
             <Image
               onClick={() => Navigate("/")}
-              width={"10erm"}
+              width={"3.2rem"}
+              height={"3rem"}
               src="/uma-abc.gif"
+              display={{ base: "none", md: "none", lg: "flex" }}
             />
             {/* boxSize={"20"} */}
             <Box
               display={"flex"}
               alignItems="center"
-              height={"70px"}
-              width={"70px"}
+              height={"50px"}
+              width={"60px"}
             >
-              <Image onClick={() => Navigate("/")} src="/heart-cut.png" />
+              <Image
+               onClick={() => Navigate("/")}
+               display={{ base: "none", md: "none", lg: "flex" }}
+                src="/heart-cut.png" />
             </Box>
           </Flex>
 
@@ -335,19 +339,19 @@ const NAV_ITEMS = [
       },
       {
         label: "Bottom Wear",
-        to: "#",
+        to: "/womenlist",
       },
       {
         label: "Shoes & Accessories",
-        to: "#",
+        to: "/womenlist",
       },
       {
         label: "Collections",
-        to: "#",
+        to: "/womenlist",
       },
       {
         label: "Shop by Themes",
-        to: "#",
+        to: "/womenlist",
       },
       {
         label: "Membership",
@@ -365,19 +369,19 @@ const NAV_ITEMS = [
       },
       {
         label: "Bottom Wear",
-        to: "#",
+        to: "/menlist",
       },
       {
         label: "Shoes & Accessories",
-        to: "#",
+        to: "/menlist",
       },
       {
         label: "Collections",
-        to: "#",
+        to: "/menlist",
       },
       {
         label: "Shop by Themes",
-        to: "#",
+        to: "/menlist",
       },
       {
         label: "Membership",

@@ -24,11 +24,14 @@ import topsell2 from "./images/topsell2.webp";
 import topsell3 from "./images/topsell3.webp";
 import topsell4 from "./images/topsell4.webp";
 import lastcrousel from "./images/lastcrousel.webp";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 const Mens = () => {
+
+     const Navigate = useNavigate();
+
   return (
     <div>
       <Navbar />
@@ -38,7 +41,10 @@ const Mens = () => {
             <Carousel />
           </Box>
           <Box className="collectionmens" style={{ marginTop: "30px" }}>
-            <Box>
+            <Box
+             onClick={() => Navigate("/menlist")}
+             style={{ cursor: "pointer" }}
+            >
               <Text
                 fontWeight={"bold"}
                 color="gray"

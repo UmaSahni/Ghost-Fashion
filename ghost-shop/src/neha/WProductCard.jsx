@@ -1,4 +1,4 @@
-import { Box, Button, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -17,7 +17,6 @@ export const WProductCard = ({ images, product, price, category, id }) => {
         color={"darkgray"}
         fontStyle={"bold"}
         boxShadow={"rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"}
-        // borderRadius={"10px"}
         w={"90%"}
       >
         <Image

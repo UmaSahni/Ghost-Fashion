@@ -24,7 +24,7 @@ export const WomensProduct = () => {
   const location = useLocation();
   const { products, isLoading } = useSelector((store) => store.WomenReducer);
 
-  console.log("from women products ", searchParams.getAll("category"));
+  // console.log("from women products ", searchParams.getAll("category"));
 
   let obj = {
     params: {
@@ -32,7 +32,7 @@ export const WomensProduct = () => {
       _sort: searchParams.get("order") && "price",
       _order: searchParams.get("order"),
       _page: searchParams.get("page"),
-      _limit: searchParams.get("page") && 8,
+      _limit: searchParams.get("page") && 9,
       q: searchParams.get("q"),
     },
   };
@@ -40,21 +40,7 @@ export const WomensProduct = () => {
   useEffect(() => {
     dispatch(getProducts(obj, "womenSection"));
   }, [location.search]);
-  // console.log(products);
-
-  // if (isLoading) {
-  //   return (
-  //     <>
-  //       <Spinner
-  //         thickness="4px"
-  //         speed="0.65s"
-  //         emptyColor="gray.200"
-  //         color="blue.500"
-  //         size="xl"
-  //       />
-  //     </>
-  //   );
-  // }
+ 
 
   return (
     <div>
@@ -66,10 +52,11 @@ export const WomensProduct = () => {
       >
         <Stack w={"87%"} h={"350px"} margin={"auto"} 
         direction={{base:"column",md:"row"}}
+        mt={{base:"10px",md:"0",lg:"0"}}
         >
           <img
-            src="https://prod-img.thesouledstore.com/public/theSoul/uploads/themes/801320230324143640.jpg?format=webp&w=1500&dpr=1.1"
-            width="100%"
+            src="https://prod-img.thesouledstore.com/public/theSoul/uploads/themes/801320230324143640.jpg?format=webp&w=1500&dpr=1.1" alt="img"
+            
           />
         </Stack>
 

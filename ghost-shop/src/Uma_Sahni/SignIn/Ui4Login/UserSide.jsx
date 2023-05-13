@@ -7,8 +7,21 @@ import { useLocation, useNavigate } from "react-router-dom";
 const UserSide = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const [myAlert, setAlert] = useState(false)
+
+  console.log(location.state);
+  // const store = useSelector((store) => console.log(store.authReducer));
   const navigate = useNavigate();
+  const handleClick = () => {
+    dispatch(login()).then(() => navigate(location.state));
+  };
+  const handleLoginGit = () => {
+    dispatch(gitHubLogin()).then((res) => navigate(location.state));
+  };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [myAlert, setAlert] = useState(false)
+ 
   // const handleClick = () => {
   //   dispatch(login()).then(() => navigate(location.state.pathname));
   // };
@@ -28,6 +41,7 @@ const UserSide = () => {
   const handleChange = (e) =>{
 const {name, value} = e.target
 setState((pre)=>({...pre, [name]:value}))
+
 
   }
   

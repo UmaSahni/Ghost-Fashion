@@ -142,8 +142,8 @@ export default function Footer() {
         </Container>
         <Container maxW={"6xl"}>
           <Text
-            style={{ fontWeight: "500", textAlign: "left" }}
-            fontSize={"lg"}
+            style={{ fontWeight: "500", textAlign: "center" }}
+            fontSize={"xl"}
           >
             Our Payment Partners
           </Text>
@@ -198,8 +198,8 @@ export default function Footer() {
         </Container>
         <Container mt={"50"} maxW={"6xl"}>
           <Text
-            style={{ fontWeight: "500", textAlign: "left" }}
-            fontSize={"lg"}
+            style={{ fontWeight: "500", textAlign: "center" }}
+            fontSize={"xl"}
           >
             Our Shipping Partners
           </Text>

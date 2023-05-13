@@ -56,6 +56,7 @@ import {
     return (
       <Box m={4} p={4}
       maxW={{ base: "100%", md: "100%", lg: "100%" }}
+      mt={{ base: "-270px", md: "0", lg: "0" }}
       >
         <Stack w={"full"}>
           {categoryArray.map((item, i) => (
