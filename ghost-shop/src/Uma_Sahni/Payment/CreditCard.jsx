@@ -14,7 +14,7 @@ const PaymentForm = () => {
   });
   const dispatch = useDispatch()
   const store = useSelector((store)=>store.adminReducer.address.id)
-  console.log(store)
+ 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
     
