@@ -41,7 +41,7 @@ import { ReactText } from "react";
 import { PhoneIcon, AddIcon, WarningIcon, EditIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { gitHubLogin, logout } from "../../Redux/authReducer/action";
+
 
 const LinkItems = [
   { name: "Home", icon: FiHome, title: "/admin" },
@@ -162,8 +162,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
   const profilepic = (store.user.photoURL)
   const username = store.user.displayName
 const navigate = useNavigate()
- const handleLogOut =() =>{
-  dispatch(logout()).then((res)=>navigate("/") )
+ 
+const handleLogOut =() =>{
+  
  }
  
   return (

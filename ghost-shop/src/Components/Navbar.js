@@ -31,6 +31,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/authReducer/action";
 
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   // let isAuth = localStorage.getItem("auth")||false;
@@ -39,9 +40,7 @@ export default function Navbar() {
   // console.log(auth, name)
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const handleLogOut = () => {
-    dispatch(logout());
-  };
+  
   let items = JSON.parse(localStorage.getItem("cart")) || [];
   const CartSize =
     useSelector((store) => store.cartReducer.cart.length) || items.length;
@@ -117,9 +116,7 @@ export default function Navbar() {
         </Flex>
         {auth ? (
           <Flex align={"end"}>
-            <Menu>
-              <MenuButton>
-                <Flex>
+                <Flex mr="4" >
                   <Text
                     fontSize={{ base: "sm", md: "md", lg: "lg", xl: "xl" }}
                     color={"white"}
@@ -129,13 +126,7 @@ export default function Navbar() {
                     {name}
                   </Text>
                 </Flex>
-              </MenuButton>
-              <MenuList>
-                <MenuItem>
-                  <Button onClick={handleLogOut}>Logout</Button>
-                </MenuItem>
-              </MenuList>
-            </Menu>
+                  <Button onClick={()=>dispatch(logout())} border={"1px solid white"} colorScheme="red" >Logout</Button>
           </Flex>
         ) : (
           <Stack
@@ -144,31 +135,12 @@ export default function Navbar() {
             direction={"row"}
             spacing={6}
           >
-            <Button
-              as={"a"}
-              fontFamily="sans-serif"
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              color="white"
-              href={"#"}
-            >
-              <Link as={Redirect} to="/login">
+            
+              <Button border={"1px solid white"} colorScheme="red"  onClick={()=>Navigate("/login")}>
                 Sign In
-              </Link>
-            </Button>
-            <Button
-              as={"a"}
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
-              color={"white"}
-              bg={"pink.500"}
-              href={"#"}
-              _hover={{ bg: "pink.300" }}
-            >
-              Sign Up
-            </Button>
+              </Button>
+           
+            
           </Stack>
         )}
       </Flex>

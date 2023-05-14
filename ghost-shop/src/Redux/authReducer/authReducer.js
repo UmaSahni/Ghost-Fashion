@@ -1,13 +1,5 @@
-import {
-  GITHUB_SUCCESS,
-  LOGIN_FAILURE,
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGOUT_SUCCESS,
-  REQERS_LOGIN_FAILURE,
-  REQERS_LOGIN_REQUEST,
-  REQERS_LOGIN_SUCCESS,
-} from "./actonTypes";
+import { BACKEND_LOGIN_FAILURE, BACKEND_LOGIN_REQUEST, BACKEND_LOGIN_SUCCESS, BACKEND_LOGOUT_SUCCESS, BACKEND_REGISTER_FAILURE, BACKEND_REGISTER_REQUEST, BACKEND_REGISTER_SUCCESS } from "./actonTypes";
+
 
 const initstate = {
   isLoading: false,
@@ -15,41 +7,39 @@ const initstate = {
   auth: false,
   name: "",
   user: {},
-  req_Auth:false
+  req_Auth:false,
+  register:[]
 };
 
-const reducer = (state = initstate, { type, payload }) => {
+
+const reducer = (state = initstate, { type, payload, object }) => {
   // console.log(payload)
   switch (type) {
-    case LOGIN_REQUEST:
-      return { ...state, isLoading: true };
-    case LOGIN_SUCCESS:
-      return { ...state, isLoading: false, name: payload, auth: true };
-    case LOGIN_FAILURE:
-      return { ...state, isLoading: false, isError: true };
-    case LOGOUT_SUCCESS:    
-      return { ...state, isLoading: false, auth:false};
-    case GITHUB_SUCCESS:
-      return { ...state, isLoading: false, auth: true, user: payload };
-    case REQERS_LOGIN_REQUEST : 
-    return {...state, isLoading:true};
-    case REQERS_LOGIN_SUCCESS :
-      return {...state,isLoading:false , auth:true, name:payload};
-    case REQERS_LOGIN_FAILURE:
-      return {...state, isLoading:false, isError:true}
+   case BACKEND_REGISTER_REQUEST :{
+    return {...state, isLoading:true}
+   }
+   case BACKEND_REGISTER_SUCCESS:{
+    return {...state, register:payload, isLoading:false}
+   }
+   case BACKEND_REGISTER_FAILURE:{
+    return {...state, isLoading:false, isError:true}
+   }
+   case BACKEND_LOGIN_REQUEST:{
+    return {...state, isLoading:true}
+   }
+   case BACKEND_LOGIN_SUCCESS:{
+    return {...state, isLoading:false, auth:true, token:payload, name:object.name}
+   }
+   case BACKEND_LOGIN_FAILURE:{
+    return {...state, isLoading:false, isError:true}
+   }
+   case BACKEND_LOGOUT_SUCCESS :{
+    return initstate
+   }
     default:
       return state;
   }
 };
 
 export { reducer };
-// localStorage.setItem("auth", false);
-// localStorage.setItem("user",payload)
-// localStorage.getItem("user")
-// localStorage.getItem("name")
-// localStorage.getItem("auth")
-// localStorage.setItem("auth",true)
-// localStorage.setItem("name",payload)
-// localStorage.setItem("auth",false)
-// localStorage.setItem("name","")
-// localStorage.setItem("user","")
+
