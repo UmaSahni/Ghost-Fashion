@@ -20,15 +20,16 @@ const CartCard = ({
   id,
   remove,
   changePrice,
+  product
 }) => {
+  
   const removeItem = (e) => {
     // e.preventDefault()
     remove(id);
   };
-  const handleSelect = (e) => {
-    // e.preventDefault()
-    changePrice(123);
-  };
+  // const handleSelect = (key, value) => {
+  //   // e.preventDefault() 
+  // };
 
   return (
     <>
@@ -52,7 +53,7 @@ const CartCard = ({
           <Box height={"100%"} width={"70%"}>
             <Flex justifyContent={"space-between"}>
               <Heading align="left" fontSize={"16px"}>
-                The Simpsons: Expressions
+                {product}
               </Heading>
               <Box>
                 <HStack>
@@ -96,7 +97,7 @@ const CartCard = ({
                 <option value="XXL">XXL</option>
               </Select>
               <Select
-                onChange={handleSelect}
+                onChange={(e)=>changePrice("qty",e.target.value)}
                 m={"10px"}
                 width="120px"
                 height="35px"

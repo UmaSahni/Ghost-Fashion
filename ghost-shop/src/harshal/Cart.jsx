@@ -52,10 +52,11 @@ const billDetailFunction = (cart) => {
 
 const Cart = () => {
   const { cart, isLoading } = useSelector((store) => store.cartReducer);
-  
+  const [extra, setExtra] = useState({qty:1,size:"m"})
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // console.log(cart);
+  console.log(cart);
 
   billDetailFunction(cart);
   const remove = (id) => {
@@ -64,11 +65,9 @@ const Cart = () => {
 
     // console.log(id);
   };
-  const changePrice = (id) => {
-    dispatch(removeFromCartAction(id));
-    billDetailFunction(cart);
-
-    console.log(id);
+  const changePrice = (key,value) => {
+    setExtra({...extra, [key]: value})
+    console.log(extra,1);
   };
 
   const handleOrder = () => {

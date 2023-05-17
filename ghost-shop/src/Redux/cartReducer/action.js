@@ -14,14 +14,18 @@ export const removeFromCartAction = (id) => {
   };
 };
 
-export const AddToCart =
-  (id, endpoint = "allproducts") =>
-  (dispatch) => {
-    axios
-      .get(`https://whimsical-vintage-angelfish.glitch.me/${endpoint}/${id}`)
-      .then((res) => {
-        console.log(res.data)
-        dispatch(addToCartAction(res.data));
-      });
+// export const AddToCart =
+//   (id, endpoint = "allproducts") =>
+//   (dispatch) => {
+//     axios
+//       .get(`https://whimsical-vintage-angelfish.glitch.me/${endpoint}/${id}`)
+//       .then((res) => {
+//         console.log(res.data)
+//         dispatch(addToCartAction(res.data));
+//       });
+//   };
+export const AddToCart=(payload)=>(dispatch) => {
+
+        dispatch(addToCartAction(payload));
   };
 

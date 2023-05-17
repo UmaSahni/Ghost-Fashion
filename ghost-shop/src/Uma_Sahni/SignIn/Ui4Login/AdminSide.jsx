@@ -84,7 +84,7 @@ const AdminSide = () => {
       ></Box>
        <FormLabel>
         Name
-        <Input placeholder="Enter Your Address" margin={"auto"} name="name" value={state.name}  onChange={(e)=>handleChange(e)} />
+        <Input placeholder="Enter Your Name" margin={"auto"} name="name" value={state.name}  onChange={(e)=>handleChange(e)} />
       </FormLabel>
       
       <FormLabel>

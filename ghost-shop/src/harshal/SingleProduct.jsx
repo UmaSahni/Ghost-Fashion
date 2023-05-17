@@ -41,11 +41,12 @@ import { getSingleProduct } from "../Redux/WomenReducer/action";
 export const SingleProduct = () => {
   const [data, setData] = useState("");
   const { id } = useParams();
+  const [extra, setExtra] = useState({qty:1,size:"m"})
   // const {isloading}=useSelector((store)=>store.cartReducer)
   const [value, setValue] = useState(false);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
- 
+ console.log(data);
 
  const getItem=()=>{
   let items = JSON.parse(localStorage.getItem("cart")) || [];
@@ -63,15 +64,27 @@ export const SingleProduct = () => {
 
   function changeTheproducts(key, value) {
     // let newproducts = {
-    //   ...products,
+    //   ...extra,
     //   [key]: value,
     // };
-    // console.log(newproducts, 1);
+    setExtra({...extra, [key]: value})
+    console.log(extra, typeof(extra.qty));
   }
   console.log(data);
   const AddToBasket = (e) => {
+    const { images,price,exclusivePrice,category,id,product}=data
     e.preventDefault();
-    dispatch(AddToCart(id));
+   const payload={
+      images,
+      price:price*extra.qty,
+      exclusivePrice:exclusivePrice*extra.qty,
+      category,id,
+      product,
+      qty:extra.qty,
+      size:extra.size
+
+    }
+    dispatch(AddToCart(payload));
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
@@ -148,13 +161,13 @@ export const SingleProduct = () => {
             <Box borderTop={"1px"} my="20px"></Box>
             <HStack my={"20px"}>
               <Text fontSize={"25px"} fontWeight={"semibold"} align="left">
-                ₹ {data.exclusivePrice}
+                ₹ {data.exclusivePrice*extra.qty}
               </Text>
               <Text
                 align="left"
                 style={{ textDecoration: "line-through", color: "gray" }}
               >
-                ₹ {data.price}
+                ₹ {data.price*extra.qty}
               </Text>
               <Text align="left" color={"red"}>
                 {(
@@ -175,7 +188,8 @@ export const SingleProduct = () => {
                 </Link>
               </HStack>
               <Box my={6}>
-                <StandardSizes />
+              {/* StandardSizes */}
+                <StandardSizes changeTheproducts={changeTheproducts}/>
               </Box>
               <Box my={5}>
                 <HStack>
@@ -357,14 +371,14 @@ export const SingleProduct = () => {
         <Box w="90%" m={"auto"}>
           <Box>
             <Box mt={"70px"}>
-              <Text>Others Also Viewed</Text>
+              {/* <Text>Others Also Viewed</Text> */}
               <Divider />
               {/* <MultipleItems /> */}
             </Box>
           </Box>
           <HStack mt={"70px"} justifyContent={"space-between"}>
             <Text>Ratings & Reviews</Text>
-            <Text>Write a Review</Text>
+            {/* <Text>Write a Review</Text> */}
           </HStack>
 
           <Grid mt={"20px"} templateColumns="repeat(3, 1fr)" gap={1}>
@@ -476,12 +490,12 @@ export const SingleProduct = () => {
           <HStack></HStack>
           <Divider />
           <Box>
-            <Text>Others Also Viewed</Text>
+            {/* <Text>Others Also Viewed</Text>
             <Box mt={"70px"}>
-              <Text>Trending Now</Text>
+              <Text>Trending Now</Text> */}
               <Divider />
               {/* <MultipleItems /> */}
-            </Box>
+            {/* </Box> */}
           </Box>
         </Box>
       </Box>
