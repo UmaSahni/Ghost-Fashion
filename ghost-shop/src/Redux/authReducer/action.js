@@ -3,7 +3,7 @@ import axios from "axios"
 
 export  const register = (object) =>(dispatch) =>{
 	dispatch({type:BACKEND_REGISTER_REQUEST})
-return	axios.post(`https://busy-gold-haddock-wig.cyclic.app/users/register`, object)
+return	axios.post(`https://back-end-l7zr.onrender.com/api/register`, object)
 .then((res)=>{ 
 	console.log(res)
 	dispatch({type:BACKEND_REGISTER_SUCCESS, payload:res.data})
@@ -15,7 +15,7 @@ return	axios.post(`https://busy-gold-haddock-wig.cyclic.app/users/register`, obj
 
 export const login = (object) =>(dispatch) =>{
 	dispatch({ type:BACKEND_LOGIN_REQUEST})
-	return axios.post(`https://busy-gold-haddock-wig.cyclic.app/users/login`, object)
+	return axios.post(`https://back-end-l7zr.onrender.com/api/login`, object)
 	.then((res)=>{
 		console.log(res)
 		dispatch({type:BACKEND_LOGIN_SUCCESS, payload:res.data.token, object})

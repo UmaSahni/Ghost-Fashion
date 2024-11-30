@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 const RadioCard=(props)=> {
     const { getInputProps, getCheckboxProps } = useRadio(props)
     const input = getInputProps()
-    const checkbox = getCheckboxProps()
+    const checkbox = getCheckboxProps
     return (
       <Box  as='label'>
         <input {...input} />

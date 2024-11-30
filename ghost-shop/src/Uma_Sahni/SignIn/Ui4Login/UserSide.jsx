@@ -34,7 +34,7 @@ const handleFormSubmit = (e) => {
     dispatch(register(state))
       .then((res) => {
         // console.log(res)
-        if (res.status == 200) {
+        if (res.status == 201) {
           toast({
             position: "top",
             title: "Account created.",
@@ -57,7 +57,7 @@ const handleFormSubmit = (e) => {
         }
       })
       .catch((err) => {
-        if (err.status == 400) {
+        
           toast({
             position: "top",
             title: "Account did not created.",
@@ -67,7 +67,7 @@ const handleFormSubmit = (e) => {
             duration: 9000,
             isClosable: true,
           });
-        }
+        
       });
     setState(Initial);
   };
