@@ -132,10 +132,11 @@ export const SingleProduct = () => {
               ></Flex>
               {/* map image here */}
               <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-                {data.images.map((image) => {
+                {data?.images?.map((image) => {
                   return (
                     <GridItem>
                       <Image
+                      alt="Porduct Image"
                         width={"100%"}
                         height={"100%"}
                         src={`https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/${image}?format=webp&w=376&dpr=1.0`}
@@ -153,25 +154,25 @@ export const SingleProduct = () => {
               mt={{ base: "10px", md: "0px" }}
               fontSize={"30px"}
             >
-              {data.product}
+              {data?.product}
             </Heading>
             <Text fontSize={"16px"} mt={"-5px"} align="left" color={"gray"}>
-              {data.category.name}
+              {data?.category.name}
             </Text>
             <Box borderTop={"1px"} my="20px"></Box>
             <HStack my={"20px"}>
               <Text fontSize={"25px"} fontWeight={"semibold"} align="left">
-                ₹ {data.exclusivePrice*extra.qty}
+                ₹ {data?.exclusivePrice*extra?.qty}
               </Text>
               <Text
                 align="left"
                 style={{ textDecoration: "line-through", color: "gray" }}
               >
-                ₹ {data.price*extra.qty}
+                ₹ {data?.price*extra?.qty}
               </Text>
               <Text align="left" color={"red"}>
                 {(
-                  ((data.price - data.exclusivePrice) / data.price) *
+                  ((data?.price - data?.exclusivePrice) / data?.price) *
                   100
                 ).toFixed(2)}
                 % OFF
@@ -352,11 +353,11 @@ export const SingleProduct = () => {
                   </h2>
                   <AccordionPanel pb={4} p="30px" pt={5}>
                     <Heading pb={2} fontSize={"14px"}>
-                      Official Licensed {data.product} {data.category.name}.
+                      Official Licensed {data?.product} {data?.category?.name}.
                     </Heading>
                     <Text fontSize="sm" mb={7} mt={6}>
-                      Buy this {data.product} {data.category.name} for{" "}
-                      {data.genderType === 1 ? "Men" : "Women"} at The Souled
+                      Buy this {data?.product} {data?.category?.name} for{" "}
+                      {data?.genderType === 1 ? "Men" : "Women"} at The Souled
                       Store.
                     </Text>
                     <Heading pb={2} fontSize={"14px"}>

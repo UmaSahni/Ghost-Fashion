@@ -19,7 +19,7 @@ const AdminSide = () => {
     // & Data is dispatched here
     dispatch(login(state)).then((res)=>{
       console.log(res.status)
-       if(res.status == 200){
+       if(res.status == 201){
           toast({
           title: 'Login successfull',
           description: "Welcome back ",
